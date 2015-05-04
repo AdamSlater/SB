@@ -7,6 +7,7 @@
          <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
          <script src="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
          <script type="text/javascript" src="Script.js"></script>
+        <script type="text/javascript" src="S.js"></script>
          <link rel="stylesheet" href="StyleSheet.css">
 
          
