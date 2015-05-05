@@ -6,8 +6,10 @@
          <link rel="stylesheet" href="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
          <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
          <script src="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+         <script src="http://malsup.github.io/jquery.cycle.all.js"></script>
          <script type="text/javascript" src="Script.js"></script>
-        <script type="text/javascript" src="S.js"></script>
+         <script type="text/javascript" src="Store.js"></script>
+         <script type="text/javascript" src="Instructions.js"></script>
          <link rel="stylesheet" href="StyleSheet.css">
 
          
@@ -35,16 +37,25 @@
                 <h1>Instructions</h1>
             </div>
             <div data-role="content">
-
-                <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                     sed do eiusmod tempor incididunt ut labore et dolore magna
-                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                     ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                     Duis aute irure dolor in reprehenderit in voluptate velit 
-                     esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                     occaecat cupidatat non proident, sunt in culpa qui officia 
-                     deserunt mollit anim id est laborum."
+                <table style="margin: 20px auto;">
+                    <tr>
+                        <td>
+                            <div id="slideshow">
+                                <div><img src="images/Instructions/instructions1.png" alt="Instructions"/></div>
+                                <div><img src="images/Instructions/instructions2.png" alt="Instructions"/></div>
+                                <div><img src="images/Instructions/instructions3.png" alt="Instructions"/></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="prev" onclick ="previous()" style="float:left;">PREV</div>
+                            <div id="next" onclick ="next()" style="float:right;">NEXT</div>
+                        </td>
+                    </tr>
+                </table>
+                    <p id="instruct" style="text-align: center">
+                This is the grid.
                 </p>
                 <!--Scores-->
                 <form id="form" name="scores" action="leader.php" method="post">

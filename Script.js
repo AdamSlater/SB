@@ -10,6 +10,8 @@ var timer;
 var xp = 0, coins = 0;
 var playing = false;
 var name = false, numRight = 0, numWrong = 0;
+var texts = ["This is the grid.", "When you see a square flash, remember that square.", "Click the wrong square and it flashes red."];
+var counter = 0;
 
 function init(rows,cols) {
     var num = 0;
