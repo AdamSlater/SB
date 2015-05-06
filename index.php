@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>site name</title>
-         <meta name="viewport" content="width=device-width, initial-scale=1">    
+         <meta name="viewport" content="width=device-width, initial-scale=1">
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
          <link rel="stylesheet" href="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
          <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
@@ -15,6 +15,11 @@
          
     </head>
     <body onload="resize()">
+
+        <!--Preloading audio tracks for later use-->
+        <audio id="greenTile" src="sounds/green_tile.wav" preload="auto"></audio>
+        <audio id="redTile" src="sounds/red_tile.wav" preload="auto"></audio>
+        <audio id="yellowTile" src="sounds/yellow_tile.wav" preload="auto"></audio>
 
         <!--<script type="text/javascript">
             window.onbeforeunload = function() {

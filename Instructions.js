@@ -1,3 +1,6 @@
+var texts = ["This is the grid.", "When you see a square flash, remember that square.", "Click the wrong square and it flashes red."];
+var counter = 0;
+
 function next() {
     var text = document.getElementById('instruct');
     counter++;
