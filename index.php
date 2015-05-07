@@ -7,9 +7,9 @@
          <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
          <script src="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
          <script src="http://malsup.github.io/jquery.cycle.all.js"></script>
-         <script type="text/javascript" src="Script.js"></script>
-         <script type="text/javascript" src="Store.js"></script>
-         <script type="text/javascript" src="Instructions.js"></script>
+         <script type="text/javascript" src="scripts/Script.js"></script>
+         <script type="text/javascript" src="scripts/Store.js"></script>
+         <script type="text/javascript" src="scripts/Instructions.js"></script>
          <link rel="stylesheet" href="StyleSheet.css">
 
          
@@ -30,7 +30,6 @@
                 <img id="play-sign" src="images/instructions.png" alt="Instructions"/>
             </a>      
         </div>
-
 
         <div id="instruct-page" data-role="page">
             <div class="header" data-role="header">
@@ -54,7 +53,7 @@
                         </td>
                     </tr>
                 </table>
-                    <p id="instruct" style="text-align: center">
+                <p id="instruct" style="text-align: center">
                 This is the grid.
                 </p>
                 <!--Scores-->
@@ -78,10 +77,8 @@
             </div>
         </div>
 
-
         <div id="game-page" data-role="page">
 
-            
             <div class="header" data-role="header">
                 <div class="col-xs-2">
                     <span id="xp">0 XP</span>
@@ -118,7 +115,6 @@
                 </div>
             </div>
         </div>
-
 
         <div id="store-page" data-role="page">
             <div class="header" data-role="header">
