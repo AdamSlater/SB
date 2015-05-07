@@ -1,0 +1,202 @@
+.ui-icon-pause {
+	background-image: url("images/pause.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px !important;
+    height: 50px !important;
+}
+.ui-icon-homez {
+	background-image: url("images/home.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.ui-icon-play {
+	background-image: url("images/playB.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px !important;
+    height: 50px !important;
+}
+
+#homeBut {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;  
+}
+
+#game {
+    margin-top: 2%;
+}
+
+#frame {
+    text-align: center;
+    padding-left: 0px;
+}
+
+.cell {
+    display: inline-block;
+    background-image: url("images/tile.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-color: #A7A7A7;
+    border-width: 1px;
+    border-style: solid;
+    width: 44px;
+    height: 44px;
+}
+
+/*tile selected background color*/
+.selected {
+    background-image: url("images/g.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/*tile selected background color*/
+.wrong {
+    background-image: url("images/r.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/*tile selected background color*/
+.path {
+    background-image: url("images/y.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/*
+    Fire BG
+    
+    background-image: url("images/giphy 1.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+*/
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+}
+
+/*footer*/
+.ui-bar {
+    padding-bottom: 25px;
+}   
+
+ul {
+    min-width: 100%;
+}
+
+li {
+    display: inline;
+}
+
+h3 {
+    text-align: center;
+}
+
+#xp {
+    text-shadow: 0 0 5px #A5F1FF, 0 0 10px #1cf5ff,
+           0 0 20px #1cf5ff, 0 0 30px #1cf5ff,
+           0 0 40px #1cf5ff;
+}
+#coin {
+    color: #ffff0b;
+    text-shadow: 0 0 5px #e89f16, 0 0 10px #f59146,
+           0 0 20px #A5F1FF, 0 0 30px #A5F1FF,
+           0 0 40px #ffff0b;
+}
+
+#game-page {
+    background: #A5F1FF;
+}
+
+#store-page {
+    background: #FF0000;
+}
+
+#hint{
+    background-image: url("images/hint.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#repeat{
+    background-image: url("images/repeat.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#slowmo{
+    background-image: url("images/slowmo.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#stop{
+    background-image: url("images/stop.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#skip{
+    background-image: url("images/skip.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#extraLife{
+    background-image: url("images/extraLife.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#main-page {
+    background-image: url("images/des.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#main-sign {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15%;
+    display: block
+}
+#play-sign {
+    width: 320px;
+    height: 80px;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block
+}
+
+.progress {
+    margin-top: 5%;
+}
+
+#name, #submitInstr, #backInstr {
+    margin-top: 50%;
+}
