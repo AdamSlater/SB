@@ -3,7 +3,6 @@ var path = [];
 var step, stepCount = 0;
 var speed = 1, speedSet = false;
 var rows, cols, pathLength;
-var userChoice;
 var clickCount = 0, firstClick = false;
 var time = 1200;
 var timer;
@@ -13,6 +12,9 @@ var playing = false;
 var name = false, numRight = 0, numWrong = 0;
 
 function init(rows,cols) {
+	
+	console.log("drawing frame");
+	
     var num = 0;
     $("#game").html("<ul id='frame'></ul>");
     for (var i = 0; i < rows; i++) {
@@ -39,6 +41,9 @@ function resize() {
 }
 
 function play() {
+	
+	console.log("first method call");
+	
     resize();
     playing = true;
 
@@ -51,7 +56,6 @@ function play() {
     rows = 5, cols = 5;
     pathLength = 5;
     frame = new Array(rows);
-    userChoice = new Array(pathLength);
     roundDelay();
     setTimeout(function() {
         init(rows, cols);
@@ -63,6 +67,7 @@ function play() {
 }
 
 function makePath() {
+	console.log("making path");
     step = Math.floor(Math.random() * cols);
 	path.push(step);
 	stepCount++;
@@ -78,8 +83,11 @@ function makePath() {
 }
 
 function setUpRound(rows, cols) {
+	console.log("setting up round");
     var yellow = document.getElementById("yellowTile");
+	console.log("before making the path");
     makePath();
+	console.log("after making the path");
     var offset = 0;
     path.forEach(function(e) {
         setTimeout(function() {
@@ -95,6 +103,7 @@ function setUpRound(rows, cols) {
 }
 
 function enableUserChoice() {
+	console.log("enabling choice");
     var num = 0;
     for (var i = 0; i < rows; i++) {
          for (var j = 0; j < cols; j++) {
@@ -103,15 +112,20 @@ function enableUserChoice() {
             };
          }
     }
+	console.log("resetting user clicks to continue timer");
+	firstClick = false;
 }
 
 function getUserChoice(click_id) {
+	console.log("user click");
+	
     if (time <= 0) {
         clearInterval(timer);
         return;
     } 
 
     if(!firstClick) {
+		console.log("timer continue");
         firstClick = true;
         timer = setInterval(function () {
             if (time == 0) clearInterval(timer);
@@ -145,16 +159,15 @@ function getUserChoice(click_id) {
         var blink = setTimeout(function(){$("#" + click_id).removeClass("wrong");}, (250*speed));
     }
 
-    userChoice.push(click_id);
-
     if (numWrong == 2) {
         if (rows > 1 && cols > 1)
             rows-- && cols--;
         numWrong = 0;
         roundDelay();
+		pause();
         setTimeout(function() {
             init(rows, cols);
-            setUpRound(rows, cols);
+			reset();
         }, 3000); 
         setTimeout(function() {
             enableUserChoice();
@@ -168,6 +181,7 @@ function getUserChoice(click_id) {
 }
 
 function reset() {
+	console.log("resetting");
     time += 1500;
 	path = new Array(0);
 	clickCount = 0;
@@ -177,6 +191,9 @@ function reset() {
 }
 
 function roundDelay() {
+	
+	console.log("adding delay");
+	
     $('#frame').html("");
     $('<p class="cd" id=' + 'cd' + countDown + '>' + countDown + '</p>').appendTo('#frame');
     var countTime = setInterval(function () {
@@ -191,10 +208,12 @@ function roundDelay() {
 }
 
 function pause() {
+	console.log("pausing game");
 	clearInterval(timer);
 }
 
 function resume() {
+	console.log("resuming game");
     if (!playing) return;
     if (time <= 0) return;
 	timer = setInterval(function () { $('#timer').html(time-- + " donkey seconds"); if(time < 0){ clearInterval(timer);}; }, 1);

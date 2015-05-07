@@ -200,3 +200,19 @@ h3 {
 #name, #submitInstr, #backInstr {
     margin-top: 50%;
 }
+
+.cd {
+    font-size: 72px;
+}
+
+#cd3 {
+    color: red;
+}
+
+#cd2 {
+    color: yellow;
+}
+
+#cd1 {
+    color: green;
+}
