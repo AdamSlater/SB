@@ -45,11 +45,7 @@
                 <table style="margin: 20px auto;">
                     <tr>
                         <td>
-                            <div id="slideshow">
-                                <div><img src="images/Instructions/instructions1.png" alt="Instructions"/></div>
-                                <div><img src="images/Instructions/instructions2.png" alt="Instructions"/></div>
-                                <div><img src="images/Instructions/instructions3.png" alt="Instructions"/></div>
-                            </div>
+                                <div id="instructionsPicture"><img src="images/Instructions/instructions1.png" alt="Instructions"/></div>
                         </td>
                     </tr>
                     <tr>
