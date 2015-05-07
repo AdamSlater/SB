@@ -199,3 +199,8 @@ function resume() {
     if (time <= 0) return;
 	timer = setInterval(function () { $('#timer').html(time-- + " donkey seconds"); if(time < 0){ clearInterval(timer);}; }, 1);
 }
+
+function playTransition(){
+    var pageAudio = document.getElementById("pageChange");
+    pageAudio.play();
+}

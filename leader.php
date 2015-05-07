@@ -8,15 +8,6 @@ function debug($data) {
 		echo("<script>console.log('PHP: ".$data."');</script>");
 	}
 }
-/*
-if (!empty($_POST)) 
-    deubg("theres stuff");
-else 
-    debug("no stuff");
-
-
-debug(file_get_contents("buffer.txt"));
-*/
 
 
 $con = mysql_connect("23.229.221.100","tempGuy","12345") or die (mysql_error());
