@@ -11,8 +11,6 @@ var countDown = 3;
 var xp = 0, coins = 0;
 var playing = false;
 var name = false, numRight = 0, numWrong = 0;
-var texts = ["This is the grid.", "When you see a square flash, remember that square.", "Click the wrong square and it flashes red."];
-var counter = 0;
 
 function init(rows,cols) {
     var num = 0;
@@ -77,19 +75,23 @@ function makePath() {
 		path.push(step);
 		stepCount++;
     }
-    path.push(-3); //signifies the end of the path
 }
 
 function setUpRound(rows, cols) {
+    var yellow = document.getElementById("yellowTile");
     makePath();
     var offset = 0;
     path.forEach(function(e) {
         setTimeout(function() {
+            yellow.pause();
+            yellow.currentTime = 0;
+            yellow.play();
             $("#" + e).addClass("path");
             setTimeout(function(){$("#" + e).removeClass("path");}, (250*speed));
         }, 500 + offset);    
         offset += 500;
     });
+    path.push(-3); //signifies the end of the path
 }
 
 function enableUserChoice() {
@@ -123,6 +125,10 @@ function getUserChoice(click_id) {
     }
 
     if(click_id == path[clickCount]) {
+        var green = document.getElementById("greenTile");
+        green.pause();
+        green.currentTime = 0;
+        green.play();
         $("#" + click_id).addClass("selected");
         var blink = setTimeout(function(){$("#" + click_id).removeClass("selected");}, (250*speed));
         clickCount++;
@@ -130,6 +136,10 @@ function getUserChoice(click_id) {
         $("#userScore").attr("value", xp);
     }
     else {
+        var red = document.getElementById("redTile");
+        red.pause();
+        red.currentTime = 0;
+        red.play();
         $("#" + click_id).addClass("wrong");
         numWrong++;
         var blink = setTimeout(function(){$("#" + click_id).removeClass("wrong");}, (250*speed));
