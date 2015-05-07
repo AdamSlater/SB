@@ -7,9 +7,9 @@
          <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
          <script src="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
          <script src="http://malsup.github.io/jquery.cycle.all.js"></script>
-         <script type="text/javascript" src="Script.js"></script>
-         <script type="text/javascript" src="Store.js"></script>
-         <script type="text/javascript" src="Instructions.js"></script>
+         <script type="text/javascript" src="scripts/Script.js"></script>
+         <script type="text/javascript" src="scripts/Store.js"></script>
+         <script type="text/javascript" src="scripts/Instructions.js"></script>
          <link rel="stylesheet" href="StyleSheet.css">
 
          
