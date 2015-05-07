@@ -201,6 +201,11 @@ h3 {
     margin-top: 50%;
 }
 
+#levelNum{
+	font-size: 72px;
+	color: blue;
+
+}
 .cd {
     font-size: 72px;
 }

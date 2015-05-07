@@ -2,7 +2,7 @@ var frame;
 var path = [];
 var step, stepCount = 0;
 var speed = 1, speedSet = false;
-var rows, cols, pathLength;
+var rows, cols;
 var clickCount = 0, firstClick = false;
 var time = 1200;
 var timer;
@@ -10,9 +10,9 @@ var countDown = 3;
 var xp = 0, coins = 0;
 var playing = false;
 var name = false, numRight = 0, numWrong = 0;
+pathLength = 1;
 
 function init(rows,cols) {
-	
 	console.log("drawing frame");
 	
     var num = 0;
@@ -53,8 +53,7 @@ function play() {
 
     $("#game").html("<ul id='frame'></ul>"); //gets rid of enter name
 
-    rows = 5, cols = 5;
-    pathLength = 5;
+    rows = 1, cols = 1;
     frame = new Array(rows);
     roundDelay();
     setTimeout(function() {
@@ -63,7 +62,7 @@ function play() {
     }, 3000); 
     setTimeout(function() {
         enableUserChoice();
-    }, 6000); 
+    }, 3001); 
 }
 
 function makePath() {
@@ -83,6 +82,7 @@ function makePath() {
 }
 
 function setUpRound(rows, cols) {
+
 	console.log("setting up round");
     var yellow = document.getElementById("yellowTile");
 	console.log("before making the path");
@@ -160,6 +160,7 @@ function getUserChoice(click_id) {
     }
 
     if (numWrong == 2) {
+    pathLength--;
         if (rows > 1 && cols > 1)
             rows-- && cols--;
         numWrong = 0;
@@ -172,12 +173,24 @@ function getUserChoice(click_id) {
         setTimeout(function() {
             enableUserChoice();
         }, 6000); 
+        
     }
 
     if (path[clickCount] == -3) {
         $("#coin").html((coins+=10) + " COINS");
-        reset();
+         pathLength++;
+         roundDelay();
+		pause();
+        setTimeout(function() {
+            init(rows, cols);
+			reset();
+        }, 3000); 
+        setTimeout(function() {
+            enableUserChoice();
+        }, 6000); 
+        
     }
+     
 }
 
 function reset() {
@@ -195,7 +208,8 @@ function roundDelay() {
 	console.log("adding delay");
 	
     $('#frame').html("");
-    $('<p class="cd" id=' + 'cd' + countDown + '>' + countDown + '</p>').appendTo('#frame');
+    $('<p class="cd" id=' + 'cd' + countDown + '>' + countDown  + '</p>' ).appendTo('#frame');
+     $('<p class="cd" id=' + 'levelNum' + '>' + "LEVEL " + pathLength + '</p>' ).appendTo('#frame');
     var countTime = setInterval(function () {
         countDown--
         $('#' + 'cd' + (countDown + 1)).html('<p class="cd" id=' + 'cd' + countDown + '>' + countDown + '</p>');
