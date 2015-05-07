@@ -1,0 +1,6 @@
+#FF9966 //tangerine
+#FFFF00 //yellow
+#3366FF //blue
+#FF00FF //pink
+#339933 //green
+#CCCC00 //puke
