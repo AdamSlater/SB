@@ -16,6 +16,11 @@
     </head>
     <body onload="resize()">
 
+                <!--Preloading audio tracks for later use-->
+        <audio id="greenTile" src="sounds/green_tile.wav" preload="auto"></audio>
+        <audio id="redTile" src="sounds/red_tile.wav" preload="auto"></audio>
+        <audio id="yellowTile" src="sounds/yellow_tile.wav" preload="auto"></audio>
+
         <!--<script type="text/javascript">
             window.onbeforeunload = function() {
                 return "Are you sure you want to leave? Think of the kittens!";
