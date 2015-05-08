@@ -8,6 +8,7 @@ var playing = false;
 var name = false, numWrong = 0;
 var mute = false;
 
+/*Draws grid*/
 function init(rows,cols) {
     var num = 0;
     $("#game").html("<ul id='frame'></ul>");
@@ -21,6 +22,7 @@ function init(rows,cols) {
     }
 }
 
+/*Resizes footer+header*/
 function resize() {
     var screen = $.mobile.getScreenHeight();
     var header = $(".ui-header").hasClass("ui-header-fixed") ? $(".ui-header").outerHeight()  - 1 : $(".ui-header").outerHeight();
@@ -34,19 +36,20 @@ function resize() {
     $(".ui-content").css({"padding":"0px"});
 }
 
+/*Called after user name submitted*/
 function play() {
     resize();
-    playing = true;
+    playing = true;//done once, prevents actions before playing
 
-    name = $("#name").attr("value");
-    if (!name) name = "anon";
-    $("#userName").attr("vaue", name);
+    name = $("#name").attr("value");//adds to form for leaderboard
+    if (!name) name = "anon";//default name
+    $("#userName").attr("vaue", name);//change name ^
 
     $("#game").html("<ul id='frame'></ul>"); //gets rid of enter name
 
-    rows = 5, cols = 5;
+    rows = 5, cols = 5;//initial grid size
     frame = new Array(rows);
-    roundDelay();
+    roundDelay();//count down
     setTimeout(function() {
         init(rows, cols);
         setUpRound(rows, cols);
@@ -57,24 +60,26 @@ function play() {
 }
 
 function makePath() {
-    step = Math.floor(Math.random() * cols);
-	path.push(step);
+    step = Math.floor(Math.random() * cols);//starts top row
+	path.push(step);//store valid cells in-order
 	stepCount++;
-	while(stepCount < pathLength) {
+	while(stepCount < pathLength) {//generates count(pathlength) elements
 		do {
+            //x coord of cell
             stepx = Math.floor(Math.random()*(step%rows+3-step%rows-1+1)+step%rows-1);
+            //y coord of cell
             stepy = Math.floor(Math.random()*(step/rows+2-step/rows-1+1)+step/rows-1);
            } 
-        while(stepx < 0 || stepx > rows-1 || stepy < 0 || stepy > rows-1);
-		step = stepx + (stepy*rows);
+        while(stepx < 0 || stepx > rows-1 || stepy < 0 || stepy > rows-1);//checks nearby cells
+		step = stepx + (stepy*rows);//next valid cell
 		path.push(step);
 		stepCount++;
     }
 }
 
 function setUpRound(rows, cols) {
-    var yellow = document.getElementById("yellowTile");
-	yellow.volume = (mute) ? 0 : 1;
+    var yellow = document.getElementById("yellowTile");//sound for generate path
+	yellow.volume = (mute) ? 0 : 1;//toggle volume
 
     makePath();
 
@@ -84,8 +89,8 @@ function setUpRound(rows, cols) {
             yellow.pause();
             yellow.currentTime = 0;
             yellow.play();
-            $("#" + e).addClass("path");
-            setTimeout(function(){$("#" + e).removeClass("path");}, (250*speed));
+            $("#" + e).addClass("path");//makes cell yellow
+            setTimeout(function(){$("#" + e).removeClass("path");}, (250*speed));//removes yellow
         }, 500 + offset);    
         offset += 500;
     });
@@ -103,7 +108,7 @@ function disableUserChoice() {
 }
 
 function getUserChoice(click_id) {	
-    if (time <= 0) {
+    if (time <= 0) {//return early if timeup
         clearInterval(timer);
         return;
     } 
@@ -114,8 +119,8 @@ function getUserChoice(click_id) {
             if (time == 0) clearInterval(timer);
             $('#timer').html(time-- + " donkey seconds");
             if (time >= 0) {
-                $('.progress-bar').html(time);
-                $('.progress-bar').css('width', Math.floor((time / 2000) * 100) + '%');
+                $('.progress-bar').html(time);//text on progress bar
+                $('.progress-bar').css('width', Math.floor((time / 2000) * 100) + '%');//red part of progress bar
                 $('progress-bar').attr('aria-valuenow', ((time / 2000) * 100));
             }
         }, 1);
@@ -127,11 +132,11 @@ function getUserChoice(click_id) {
 		green.pause();
         green.currentTime = 0;
         green.play();
-        $("#" + click_id).addClass("selected");
-        setTimeout(function(){$("#" + click_id).removeClass("selected");}, (250*speed));
+        $("#" + click_id).addClass("selected");//makes cell green
+        setTimeout(function(){$("#" + click_id).removeClass("selected");}, (250*speed));//removes green
         clickCount++;
-        $(".xp").html(++xp + "XP");
-        $("#userScore").attr("value", xp);
+        $(".xp").html(++xp + "XP");//1 xp per correct cell
+        $("#userScore").attr("value", xp);//used for leaderboard score
     }
     else {
         var red = document.getElementById("redTile");
@@ -139,11 +144,12 @@ function getUserChoice(click_id) {
 		red.pause();
         red.currentTime = 0;
         red.play();
-        $("#" + click_id).addClass("wrong");
+        $("#" + click_id).addClass("wrong");//makes cell red
         numWrong++;
-        setTimeout(function(){$("#" + click_id).removeClass("wrong");}, (250*speed));
+        setTimeout(function(){$("#" + click_id).removeClass("wrong");}, (250*speed));//removes red
     }
 
+    //regresses, pathlength
     if (numWrong == 2) {
      	disableUserChoice();
         pathLength--;
@@ -159,7 +165,7 @@ function getUserChoice(click_id) {
         }, 3000); 
         setTimeout(function() {
             enableUserChoice();
-        }, (3000 + (543 * pathLength))); 
+        }, (3000 + (543 * pathLength))); //delay of audio before click
         
     }
 
@@ -190,12 +196,15 @@ function reset() {
 	clickCount = 0;
 	stepCount = 0;
 	numWrong = 0;
-	setUpRound(rows, cols);
+	setUpRound(rows, cols);//makes new round
 }
 
 function roundDelay() {	
+    //clears game frame
     $('#frame').html("");
+    //count down
     $('<p class="cd" id=' + 'cd' + countDown + '>' + countDown  + '</p>' ).appendTo('#frame');
+    //level number
     $('<p class="cd" id=' + 'levelNum' + '>' + "LEVEL " + pathLength + '</p>' ).appendTo('#frame');
     var countTime = setInterval(function () {
         countDown--;
