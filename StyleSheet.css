@@ -1,3 +1,4 @@
+/*pause btn icon*/
 .ui-icon-pause {
 	background-image: url("images/pause.png");
     background-position: center;
@@ -5,9 +6,10 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50px !important;
+    width: 50px !important;/*ignores regular css rules*/
     height: 50px !important;
 }
+/*home btn icon (jQuery owns "home")*/
 .ui-icon-homez {
 	background-image: url("images/home.png");
     background-position: center;
@@ -19,6 +21,7 @@
     height: 50px !important;
 }
 
+/*play btn icon*/
 .ui-icon-play {
 	background-image: url("images/playB.png");
     background-position: center;
@@ -40,6 +43,7 @@
     margin-top: 2%;
 }
 
+/*title size*/
 h1{
 	font-size: 24px;
 }
@@ -82,14 +86,6 @@ h1{
     background-repeat: no-repeat;
 }
 
-/*
-    Fire BG
-    
-    background-image: url("images/giphy 1.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
-*/
-
 .header {
     width: 100%;
     position: fixed;
@@ -101,6 +97,8 @@ h1{
     padding-bottom: 25px;
 }   
 
+
+/*ul and li determine grid*/
 ul {
     min-width: 100%;
 }
@@ -210,8 +208,9 @@ h3 {
 #levelNum{
 	font-size: 72px;
 	color: blue;
-
 }
+
+/*count down*/
 .cd {
     font-size: 72px;
 }
