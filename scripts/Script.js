@@ -10,7 +10,8 @@ var countDown = 3;
 var xp = 0, coins = 0;
 var playing = false;
 var name = false, numRight = 0, numWrong = 0;
-pathLength = 1;
+var pathLength = 1;
+var mute = true;
 
 function init(rows,cols) {
 	console.log("drawing frame");
@@ -85,6 +86,7 @@ function setUpRound(rows, cols) {
 
 	console.log("setting up round");
     var yellow = document.getElementById("yellowTile");
+	yellow.volume = (mute) ? 0 : 1;
 	console.log("before making the path");
     makePath();
 	console.log("after making the path");
@@ -140,7 +142,8 @@ function getUserChoice(click_id) {
 
     if(click_id == path[clickCount]) {
         var green = document.getElementById("greenTile");
-        green.pause();
+        green.volume = (mute) ? 0 : 1;
+		green.pause();
         green.currentTime = 0;
         green.play();
         $("#" + click_id).addClass("selected");
@@ -151,7 +154,8 @@ function getUserChoice(click_id) {
     }
     else {
         var red = document.getElementById("redTile");
-        red.pause();
+        red.volume = (mute) ? 0 : 1;
+		red.pause();
         red.currentTime = 0;
         red.play();
         $("#" + click_id).addClass("wrong");
