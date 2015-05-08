@@ -29,6 +29,8 @@
                 return "Are you sure you want to leave? Think of the kittens!";
             }
         </script>-->
+
+<!--main-->
         <div id="main-page" data-role="page">
             <img id="main-sign" src="images/signScaled.png" alt="Main Menu Sign"/>
             <a href="index.html#game-page" data-transition="pop">
@@ -38,7 +40,7 @@
                 <img id="play-sign" src="images/instructions.png" alt="Instructions"/>
             </a>      
         </div>
-
+<!--instr-->
         <div id="instruct-page" data-role="page">
             <div class="header" data-role="header">
                 <h1>Instructions</h1>
@@ -84,7 +86,7 @@
                 <h3>Team Spirit Fingers &copy;</h3>
             </div>
         </div>
-
+<!--game-->
         <div id="game-page" data-role="page">   
             <div class="header" data-role="header">
                 <div class="col-xs-3">
@@ -124,7 +126,7 @@
                 </div>
             </div>
         </div>
-
+<!--store-->
         <div id="store-page" data-role="page">
             <div class="header" data-role="header">
                 <div class="col-xs-3">
@@ -193,7 +195,7 @@
                 </div>
             </div>
         </div>
-
+<!--leader-->
         <div id="leader-page" data-role="page">
             <div class="header" data-role="header">
                 <h1>Leaderboard</h1>
