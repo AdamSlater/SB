@@ -1,5 +1,6 @@
 <?php
 
+/*used for printing to console (like javascript)*/
 function debug($data) {
     if(is_array($data) || is_object($data))
 	{
@@ -9,17 +10,19 @@ function debug($data) {
 	}
 }
 
-
+//database connection
 $con = mysql_connect("23.229.221.100","tempGuy","12345") or die (mysql_error());
      mysql_select_db("Temp",$con) or die (mysql_error());
 
-     
+//databse query  
 $query = "SELECT * FROM highscore
             ORDER BY score DESC
             LIMIT 10";
 
+//fetches query
 $result = mysql_query($query);
 
+//makes table
 echo "<table><thead><td>Name</td><td>Score</td></thead>";
 if($result) 
   while($row = mysql_fetch_array($result))
