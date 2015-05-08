@@ -16,13 +16,14 @@
     </head>
     <body onload="resize()">
 
-                <!--Preloading audio tracks for later use-->
+        <!--Preloading audio tracks for later use-->
         <audio id="greenTile" src="sounds/green_tile.mp3" preload="auto"></audio>
         <audio id="redTile" src="sounds/red_tile.mp3" preload="auto"></audio>
         <audio id="yellowTile" src="sounds/yellow_tile.mp3" preload="auto"></audio>
         <audio id="pageChange" src="sounds/page_change.mp3" preload="auto"></audio>
         <audio id="BGmusic" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
 
+        <!--Used to prevent user from accidently refreshing (commented for code testing)-->
         <!--<script type="text/javascript">
             window.onbeforeunload = function() {
                 return "Are you sure you want to leave? Think of the kittens!";
