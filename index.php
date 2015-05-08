@@ -176,7 +176,7 @@
                 <div>
                     <div class="col-xs-4">
                         <div id="pause">
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition()"></a>
+                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
