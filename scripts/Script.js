@@ -11,7 +11,7 @@ var xp = 0, coins = 0;
 var playing = false;
 var name = false, numRight = 0, numWrong = 0;
 var pathLength = 1;
-var mute = true;
+var mute = false;
 
 function init(rows,cols) {
 	console.log("drawing frame");
