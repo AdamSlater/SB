@@ -18,6 +18,7 @@ function makeFire() {
     });
 }
 
+/*repeats pattern*/
 function repeat() {
     if (!playing) return;
 	var offset = 0;
@@ -32,6 +33,7 @@ function repeat() {
     resume();
 }
 
+/*display next correct tile*/
 function hint() {
     if (!playing) return;
 	var hint = path[clickCount];
@@ -52,6 +54,8 @@ function slowMo() {
     stopStoreBG();
     resume();
 }
+
+/*store music*/
 function playStoreBG(){
     var storeBG = document.getElementById("BGmusic");
     storeBG.volume = 0.2;
