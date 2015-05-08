@@ -49,3 +49,13 @@ function slowMo() {
     }
     resume();
 }
+function playStoreBG(){
+    var storeBG = document.getElementById("BGmusic");
+    storeBG.volume = 0.2;
+    storeBG.play();
+}
+
+function stopStoreBG(){
+    var storeBG = document.getElementById("BGmusic");
+        storeBG.pause();    
+}

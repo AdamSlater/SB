@@ -21,6 +21,7 @@
         <audio id="redTile" src="sounds/red_tile.wav" preload="auto"></audio>
         <audio id="yellowTile" src="sounds/yellow_tile.wav" preload="auto"></audio>
         <audio id="pageChange" src="sounds/page_change.mp3" preload="auto"></audio>
+        <audio id="BGmusic" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
 
         <!--<script type="text/javascript">
             window.onbeforeunload = function() {
@@ -110,12 +111,12 @@
                 <div>
                     <div class="col-xs-4">
                         <div id="pause">
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition()"></a>
+                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div id="pause">
-                            <a href="index.html#store-page" data-transition="flip" data-theme="a" data-role="button" class="ui-icon-pause" data-iconpos="notext" onclick="pause();playTransition()"></a>
+                            <a href="index.html#store-page" data-transition="flip" data-theme="a" data-role="button" class="ui-icon-pause" data-iconpos="notext" onclick="pause();playTransition();playStoreBG()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -124,6 +125,8 @@
                 </div>
             </div>
         </div>
+
+       
 
 
         <div id="store-page" data-role="page">
@@ -178,7 +181,7 @@
                     </div>
                     <div class="col-xs-4">
                         <div id="pause">
-                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition()"></a>
+                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
