@@ -89,16 +89,16 @@
 
             
             <div class="header" data-role="header">
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <span id="xp">0 XP</span>
                 </div>
-                <div class="col-xs-8">
+                <div class="col-xs-6">
                     <h1 style="text-align: center">Simon's Besom</h1>
                     <div class="progress">
                         <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%"> Timer </div>
                     </div>
                 </div>
-				<div class="col-xs-2"><span id="coin">0 COINS</span></div>
+				<div class="col-xs-3"><span id="coin">0 COINS</span></div>
             </div>
             <div data-role="content">
                 <div id="game">

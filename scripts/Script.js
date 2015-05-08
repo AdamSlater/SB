@@ -53,7 +53,7 @@ function play() {
 
     $("#game").html("<ul id='frame'></ul>"); //gets rid of enter name
 
-    rows = 1, cols = 1;
+    rows = 5, cols = 5;
     frame = new Array(rows);
     roundDelay();
     setTimeout(function() {
@@ -62,7 +62,7 @@ function play() {
     }, 3000); 
     setTimeout(function() {
         enableUserChoice();
-    }, 3001); 
+    }, (3000 + (543 * pathLength))); 
 }
 
 function makePath() {
@@ -104,14 +104,14 @@ function setUpRound(rows, cols) {
 
 function enableUserChoice() {
 	console.log("enabling choice");
-    var num = 0;
-    for (var i = 0; i < rows; i++) {
-         for (var j = 0; j < cols; j++) {
-            document.getElementById(num++).onclick = function(){ 
-                getUserChoice(this.id);
-            };
-         }
-    }
+    $(".cell").attr("onclick", "getUserChoice(this.id)");
+	console.log("resetting user clicks to continue timer");
+	firstClick = false;
+}
+
+function disableUserChoice() {
+	console.log("enabling choice");
+    $(".cell").attr("onclick", "");
 	console.log("resetting user clicks to continue timer");
 	firstClick = false;
 }
@@ -160,11 +160,14 @@ function getUserChoice(click_id) {
     }
 
     if (numWrong == 2) {
+     	disableUserChoice();
     pathLength--;
         if (rows > 1 && cols > 1)
             rows-- && cols--;
         numWrong = 0;
-        roundDelay();
+        setTimeout(function() {
+            roundDelay();
+        }, 500);
 		pause();
         setTimeout(function() {
             init(rows, cols);
@@ -172,14 +175,18 @@ function getUserChoice(click_id) {
         }, 3000); 
         setTimeout(function() {
             enableUserChoice();
-        }, 6000); 
+        }, (3000 + (543 * pathLength))); 
         
     }
 
     if (path[clickCount] == -3) {
+ 	disableUserChoice();
         $("#coin").html((coins+=10) + " COINS");
          pathLength++;
-         roundDelay();
+         setTimeout(function() {
+            roundDelay();
+        }, 500);
+         
 		pause();
         setTimeout(function() {
             init(rows, cols);
@@ -187,7 +194,7 @@ function getUserChoice(click_id) {
         }, 3000); 
         setTimeout(function() {
             enableUserChoice();
-        }, 6000); 
+        }, (3000 + (543 * pathLength))); 
         
     }
      
