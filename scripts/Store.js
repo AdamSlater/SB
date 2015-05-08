@@ -28,6 +28,7 @@ function repeat() {
         }, 500 + offset);    
         offset += 500;
     });
+    stopStoreBG();
     resume();
 }
 
@@ -38,6 +39,7 @@ function hint() {
         $("#" + hint).addClass("path");
         setTimeout(function(){$("#" + hint).removeClass("path");}, (250*speed));
     }, 500);
+    stopStoreBG();
     resume();    
 }
 
@@ -47,6 +49,7 @@ function slowMo() {
         speed = 10;
         speedSet = true;
     }
+    stopStoreBG();
     resume();
 }
 function playStoreBG(){

@@ -14,20 +14,16 @@ $con = mysql_connect("23.229.221.100","tempGuy","12345") or die (mysql_error());
      mysql_select_db("Temp",$con) or die (mysql_error());
 
      
-$query = "SELECT * FROM highscore";
+$query = "SELECT * FROM highscore
+            ORDER BY score DESC
+            LIMIT 10";
 
 $result = mysql_query($query);
 
-if($result)
-{
+echo "<table><thead><td>Name</td><td>Score</td></thead>";
+if($result) 
   while($row = mysql_fetch_array($result))
-  {
-    $name = $row["name"];
-    echo "Name: ".$name."";
-    
-    $score = $row["score"];
-    echo " Score: ".$score."<br>";
-  }
-}
-?>
+      echo "<tr><td>" . $row['name'] . "</td><td>" . $row['score'] . "</td></tr>"; 
+echo "</table>";
 
+?>

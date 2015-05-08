@@ -1,30 +1,23 @@
-var frame;
-var path = [];
+var frame, path = [], rows, cols, pathLength = 1;
 var step, stepCount = 0;
 var speed = 1, speedSet = false;
-var rows, cols;
 var clickCount = 0, firstClick = false;
-var time = 1200;
-var timer;
-var countDown = 3;
+var time = 1200, timer, countDown = 3;
 var xp = 0, coins = 0;
 var playing = false;
-var name = false, numRight = 0, numWrong = 0;
-var pathLength = 1;
+var name = false, numWrong = 0;
 var mute = false;
 
 function init(rows,cols) {
-	console.log("drawing frame");
-	
     var num = 0;
     $("#game").html("<ul id='frame'></ul>");
     for (var i = 0; i < rows; i++) {
         frame[i] = new Array(cols);
-         for (var j = 0; j < cols; j++) {
+        for (var j = 0; j < cols; j++) {
              frame[i][j] = $('<li class="cell" id=' + num++ +' >').appendTo('#frame');
              if (j == rows-1)
                  $('<br>').appendTo('#frame');
-         }       
+        }       
     }
 }
 
@@ -42,9 +35,6 @@ function resize() {
 }
 
 function play() {
-	
-	console.log("first method call");
-	
     resize();
     playing = true;
 
@@ -67,7 +57,6 @@ function play() {
 }
 
 function makePath() {
-	console.log("making path");
     step = Math.floor(Math.random() * cols);
 	path.push(step);
 	stepCount++;
@@ -75,7 +64,8 @@ function makePath() {
 		do {
             stepx = Math.floor(Math.random()*(step%rows+3-step%rows-1+1)+step%rows-1);
             stepy = Math.floor(Math.random()*(step/rows+2-step/rows-1+1)+step/rows-1);
-        } while(stepx < 0 || stepx > rows-1 || stepy < 0 || stepy > rows-1);
+           } 
+        while(stepx < 0 || stepx > rows-1 || stepy < 0 || stepy > rows-1);
 		step = stepx + (stepy*rows);
 		path.push(step);
 		stepCount++;
@@ -83,13 +73,11 @@ function makePath() {
 }
 
 function setUpRound(rows, cols) {
-
-	console.log("setting up round");
     var yellow = document.getElementById("yellowTile");
 	yellow.volume = (mute) ? 0 : 1;
-	console.log("before making the path");
+
     makePath();
-	console.log("after making the path");
+
     var offset = 0;
     path.forEach(function(e) {
         setTimeout(function() {
@@ -105,29 +93,22 @@ function setUpRound(rows, cols) {
 }
 
 function enableUserChoice() {
-	console.log("enabling choice");
     $(".cell").attr("onclick", "getUserChoice(this.id)");
-	console.log("resetting user clicks to continue timer");
 	firstClick = false;
 }
 
 function disableUserChoice() {
-	console.log("enabling choice");
     $(".cell").attr("onclick", "");
-	console.log("resetting user clicks to continue timer");
 	firstClick = false;
 }
 
-function getUserChoice(click_id) {
-	console.log("user click");
-	
+function getUserChoice(click_id) {	
     if (time <= 0) {
         clearInterval(timer);
         return;
     } 
 
     if(!firstClick) {
-		console.log("timer continue");
         firstClick = true;
         timer = setInterval(function () {
             if (time == 0) clearInterval(timer);
@@ -147,9 +128,9 @@ function getUserChoice(click_id) {
         green.currentTime = 0;
         green.play();
         $("#" + click_id).addClass("selected");
-        var blink = setTimeout(function(){$("#" + click_id).removeClass("selected");}, (250*speed));
+        setTimeout(function(){$("#" + click_id).removeClass("selected");}, (250*speed));
         clickCount++;
-        $("#xp").html(++xp + "XP");
+        $(".xp").html(++xp + "XP");
         $("#userScore").attr("value", xp);
     }
     else {
@@ -160,14 +141,13 @@ function getUserChoice(click_id) {
         red.play();
         $("#" + click_id).addClass("wrong");
         numWrong++;
-        var blink = setTimeout(function(){$("#" + click_id).removeClass("wrong");}, (250*speed));
+        setTimeout(function(){$("#" + click_id).removeClass("wrong");}, (250*speed));
     }
 
     if (numWrong == 2) {
      	disableUserChoice();
-    pathLength--;
-        if (rows > 1 && cols > 1)
-            rows-- && cols--;
+        pathLength--;
+        if (rows > 1 && cols > 1) rows-- && cols--;
         numWrong = 0;
         setTimeout(function() {
             roundDelay();
@@ -185,7 +165,7 @@ function getUserChoice(click_id) {
 
     if (path[clickCount] == -3) {
  	disableUserChoice();
-        $("#coin").html((coins+=10) + " COINS");
+        $(".coins").html((coins+=10) + " COINS");
          pathLength++;
          setTimeout(function() {
             roundDelay();
@@ -205,7 +185,6 @@ function getUserChoice(click_id) {
 }
 
 function reset() {
-	console.log("resetting");
     time += 1500;
 	path = new Array(0);
 	clickCount = 0;
@@ -214,15 +193,12 @@ function reset() {
 	setUpRound(rows, cols);
 }
 
-function roundDelay() {
-	
-	console.log("adding delay");
-	
+function roundDelay() {	
     $('#frame').html("");
     $('<p class="cd" id=' + 'cd' + countDown + '>' + countDown  + '</p>' ).appendTo('#frame');
-     $('<p class="cd" id=' + 'levelNum' + '>' + "LEVEL " + pathLength + '</p>' ).appendTo('#frame');
+    $('<p class="cd" id=' + 'levelNum' + '>' + "LEVEL " + pathLength + '</p>' ).appendTo('#frame');
     var countTime = setInterval(function () {
-        countDown--
+        countDown--;
         $('#' + 'cd' + (countDown + 1)).html('<p class="cd" id=' + 'cd' + countDown + '>' + countDown + '</p>');
         if (countDown == 0) {
             clearInterval(countTime);
@@ -233,12 +209,10 @@ function roundDelay() {
 }
 
 function pause() {
-	console.log("pausing game");
 	clearInterval(timer);
 }
 
 function resume() {
-	console.log("resuming game");
     if (!playing) return;
     if (time <= 0) return;
 	timer = setInterval(function () { $('#timer').html(time-- + " donkey seconds"); if(time < 0){ clearInterval(timer);}; }, 1);
@@ -247,5 +221,4 @@ function resume() {
 function playTransition(){
     var pageAudio = document.getElementById("pageChange");
     pageAudio.play();
-    $("#coin2").html((coins) + " COINS");
 }
