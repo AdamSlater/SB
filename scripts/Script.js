@@ -243,4 +243,5 @@ function resume() {
 function playTransition(){
     var pageAudio = document.getElementById("pageChange");
     pageAudio.play();
+    $("#coin2").html((coins) + " COINS");
 }

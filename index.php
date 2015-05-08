@@ -98,7 +98,7 @@
                         <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%"> Timer </div>
                     </div>
                 </div>
-				<div class="col-xs-3"><span id="coin">0 COINS</span></div>
+				<div class="col-xs-3"><span id="coin" class="coins">0 COINS</span></div>
             </div>
             <div data-role="content">
                 <div id="game">
@@ -129,6 +129,7 @@
         <div id="store-page" data-role="page">
             <div class="header" data-role="header">
                 <h1>Simon's Besom</h1>
+				<div class="col-xs-3"><span id="coin2" class="coins">0 COINS</span></div>
             </div>
             <div data-role="content">
                 <h3>Store</h3>
