@@ -74,16 +74,22 @@
 
                 <a href="index.html#leader-page" id="submitInstr" data-role="button">To the leaderboards</a>
             </div>
-            <div data-role="footer" class="ui-bar" data-position="fixed" data-tap-toggle="false">
-                <div class="col-xs-12">
-                    <div class="col-xs-4"></div>
-                        <div class="col-xs-4">
-                            <a id="homeBut" href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" data-icon="home" data-iconpos="notext"></a>
+            <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="ui-bar">
+                <div>
+                    <div class="col-xs-4">
+                        <div class="pause">
+                            <a href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG()"></a>
                         </div>
-                    <div class="col-xs-4"></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="pause">
+                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG()"></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="images/ba3.gif" alt="avatar"/>
+                    </div>
                 </div>
-                <br/><br/>
-                <h3>Team Spirit Fingers &copy;</h3>
             </div>
         </div>
 <!--game-->
@@ -111,12 +117,12 @@
             <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="ui-bar">
                 <div>
                     <div class="col-xs-4">
-                        <div id="pause">
+                        <div class="pause">
                             <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <div id="pause">
+                        <div class="pause">
                             <a href="index.html#store-page" data-transition="flip" data-theme="a" data-role="button" class="ui-icon-pause" data-iconpos="notext" onclick="pause();playTransition();playStoreBG()"></a>
                         </div>
                     </div>
@@ -180,12 +186,12 @@
             <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="ui-bar">
                 <div>
                     <div class="col-xs-4">
-                        <div id="pause">
+                        <div class="pause">
                             <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <div id="pause">
+                        <div class="pause">
                             <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG()"></a>
                         </div>
                     </div>
@@ -208,7 +214,7 @@
                 <div class="col-xs-12">
                     <div class="col-xs-4"></div>
                         <div class="col-xs-4">
-                            <a id="homeBut" href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" data-icon="home" data-iconpos="notext"></a>
+                            <a class="homebut" href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" data-icon="home" data-iconpos="notext"></a>
                         </div>
                     <div class="col-xs-4"></div>
                 </div>

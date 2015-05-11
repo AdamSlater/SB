@@ -33,7 +33,7 @@
     height: 50px !important;
 }
 
-#homeBut {
+.homeBut {
     display: block;
     margin-left: auto;
     margin-right: auto;  
