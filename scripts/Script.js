@@ -251,3 +251,7 @@ function gridChange(){
         	rows = 1;
         }
 }
+
+function mutez(){
+    mute = !mute;//might work
+}
