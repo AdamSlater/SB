@@ -1,7 +1,7 @@
 var frame, path = [], rows, cols, pathLength = 1;
 var step, stepCount = 0;
 var clickCount = 0, firstClick = false;
-var time = 1200, timer, countDown = 3;
+var time = 250, timer, countDown = 3;
 var xp = 0, coins = 0;
 var playing = false;
 var name = false, numWrong = 0;
@@ -114,8 +114,8 @@ function getUserChoice(click_id) {
             $('#timer').html(time-- + " donkey seconds");
             if (time >= 0) {
                 $('.progress-bar').html(time);//text on progress bar
-                $('.progress-bar').css('width', Math.floor((time / 2000) * 100) + '%');//red part of progress bar
-                $('progress-bar').attr('aria-valuenow', ((time / 2000) * 100));
+                $('.progress-bar').css('width', Math.floor((time / (250 * pathLength)) * 100) + '%');//red part of progress bar
+                $('progress-bar').attr('aria-valuenow', ((time / (250 * pathLength)) * 100));
             }
         }, 1);
     }
@@ -188,11 +188,14 @@ function getUserChoice(click_id) {
 }
 
 function reset() {
-    time = 400 * pathLength;
+    time = 250 * pathLength;
 	path = new Array(0);
 	clickCount = 0;
 	stepCount = 0;
 	numWrong = 0;
+	 $('.progress-bar').html(time);//text on progress bar
+     $('.progress-bar').css('width', Math.floor((time / (250 * pathLength)) * 100) + '%');//red part of progress bar
+     $('progress-bar').attr('aria-valuenow', ((time / (250 * pathLength)) * 100));
 	setUpRound(rows, cols);//makes new round
 	
 }
