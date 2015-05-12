@@ -21,6 +21,8 @@ if (!empty($_POST)){
     $name = $_POST["userName"];
     $score = $_POST["userScore"];
 
+    if ($name == "") $name = "anon";
+
     //inserts new data
     $insert = "INSERT INTO highscore 
         VALUES (" . $score . ", '" .  $name . "')";
