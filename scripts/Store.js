@@ -56,39 +56,75 @@ function makeRainbow() {
 
 /*repeats pattern*/
 function repeat() {
-    if (!playing) return;
+    if (!playing || coins < 20){
+     stopStoreBG();
+     return;
+    }
 	var offset = 0;
+	var tmpPath = 0;
     path.forEach(function(e) {
-      	setTimeout(function() {
-            $("#" + e).addClass("path");
-            setTimeout(function(){$("#" + e).removeClass("path");}, (250*speed));
+    if(tmpPath < path.length-1){
+        setTimeout(function() {
+            yellow.pause();
+            yellow.currentTime = 0;
+            yellow.play();
+            $("#" + e).addClass("path");//makes cell yellow
+            setTimeout(function(){$("#" + e).removeClass("path");}, (250));//removes yellow
         }, 500 + offset);    
         offset += 500;
+        tmpPath++;
+        }
     });
+    coins = coins - 20;
+    $(".coins").html(coins+" coins");
     stopStoreBG();
-    resume();
+    
+    
+    
+    
 }
 
 /*display next correct tile*/
 function hint() {
-    if (!playing) return;
-	var hint = path[clickCount];
+    if (!playing || coins < 10){
+    	 stopStoreBG();
+    	 return;
+    }
+    var hint = path[clickCount];
     setTimeout(function() {
         $("#" + hint).addClass("path");
-        setTimeout(function(){$("#" + hint).removeClass("path");}, (250*speed));
+        setTimeout(function(){$("#" + hint).removeClass("path");}, (250));
     }, 500);
+    coins = coins - 10;
+    $(".coins").html(coins+" coins");
     stopStoreBG();
-    resume();    
+       
 }
 
 function slowMo() {
-    if (!playing) return;
-    if (!speedSet) {
-        speed = 10;
-        speedSet = true;
+     if (!playing || coins < 30){
+    	 stopStoreBG();
+    	 return;
     }
+    var offset = 0;
+	var tmpPath = 0;
+    path.forEach(function(e) {
+    if(tmpPath < path.length-1){
+        setTimeout(function() {
+            yellow.pause();
+            yellow.currentTime = 0;
+            yellow.play();
+            $("#" + e).addClass("path");//makes cell yellow
+            setTimeout(function(){$("#" + e).removeClass("path");}, (600));//removes yellow
+        }, 1000 + offset);    
+        offset += 1000;
+        tmpPath++;
+        }
+    });
+    coins = coins - 20;
+    $(".coins").html(coins+" coins");
     stopStoreBG();
-    resume();
+    
 }
 
 /*store music*/
@@ -102,3 +138,4 @@ function stopStoreBG(){
     var storeBG = document.getElementById("BGmusic");
         storeBG.pause();    
 }
+

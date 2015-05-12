@@ -38,7 +38,10 @@
             </a>
             <a href="index.html#instruct-page" data-transition="slide">
                 <img id="play-sign" src="images/instructions.png" alt="Instructions"/>
-            </a>      
+            </a>  
+            <a href="index.html#leader-page" data-transition="slide">
+                <img id="play-sign" src="images/leaderboards.png" alt="Leaderboards"/>
+            </a>     
         </div>
 <!--instr-->
         <div id="instruct-page" data-role="page">

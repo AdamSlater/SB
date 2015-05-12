@@ -1,6 +1,5 @@
 var frame, path = [], rows, cols, pathLength = 1;
 var step, stepCount = 0;
-var speed = 1, speedSet = false;
 var clickCount = 0, firstClick = false;
 var time = 1200, timer, countDown = 3;
 var xp = 0, coins = 0;
@@ -78,7 +77,7 @@ function makePath() {
 }
 
 function setUpRound(rows, cols) {
-    var yellow = document.getElementById("yellowTile");//sound for generate path
+    yellow = document.getElementById("yellowTile");//sound for generate path
 	yellow.volume = (mute) ? 0 : 1;//toggle volume
 
     makePath();
@@ -90,7 +89,7 @@ function setUpRound(rows, cols) {
             yellow.currentTime = 0;
             yellow.play();
             $("#" + e).addClass("path");//makes cell yellow
-            setTimeout(function(){$("#" + e).removeClass("path");}, (250*speed));//removes yellow
+            setTimeout(function(){$("#" + e).removeClass("path");}, (250));//removes yellow
         }, 500 + offset);    
         offset += 500;
     });
@@ -133,7 +132,7 @@ function getUserChoice(click_id) {
         green.currentTime = 0;
         green.play();
         $("#" + click_id).addClass("selected");//makes cell green
-        setTimeout(function(){$("#" + click_id).removeClass("selected");}, (250*speed));//removes green
+        setTimeout(function(){$("#" + click_id).removeClass("selected");}, (250));//removes green
         clickCount++;
         $(".xp").html(++xp + "XP");//1 xp per correct cell
         $("#userScore").attr("value", xp);//used for leaderboard score
@@ -146,7 +145,7 @@ function getUserChoice(click_id) {
         red.play();
         $("#" + click_id).addClass("wrong");//makes cell red
         numWrong++;
-        setTimeout(function(){$("#" + click_id).removeClass("wrong");}, (250*speed));//removes red
+        setTimeout(function(){$("#" + click_id).removeClass("wrong");}, (250));//removes red
     }
 
     //regresses, pathlength
@@ -221,11 +220,7 @@ function pause() {
 	clearInterval(timer);
 }
 
-function resume() {
-    if (!playing) return;
-    if (time <= 0) return;
-	timer = setInterval(function () { $('#timer').html(time-- + " donkey seconds"); if(time < 0){ clearInterval(timer);}; }, 1);
-}
+
 
 function playTransition(){
     var pageAudio = document.getElementById("pageChange");
@@ -250,8 +245,4 @@ function gridChange(){
         	cols = 1;
         	rows = 1;
         }
-}
-
-function mutez(){
-    mute = !mute;//might work
 }
