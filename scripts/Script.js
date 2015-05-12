@@ -4,7 +4,7 @@ var clickCount = 0, firstClick = false;
 var time = 1200, timer, countDown = 3;
 var xp = 0, coins = 0;
 var playing = false;
-var name = false, numWrong = 0;
+var name = false, lives = 10;
 var mute = false;
 var lives = 10;
 
@@ -153,19 +153,20 @@ function getUserChoice(click_id) {
         red.currentTime = 0;
         red.play();
         $("#" + click_id).addClass("wrong");//makes cell red
-        numWrong++;
+        lives--;
+        $(".lives").html((lives) + " LIVES");
+     	$(".lives").css({"color": "#ff0000"});
+        setTimeout(function(){$(".lives").css({"color": "#00ff00"});}, (250));
         setTimeout(function(){$("#" + click_id).removeClass("wrong");}, (250));//removes red
     }
 
     //regresses, pathlength
-    if (numWrong == 2) {
+    if (lives == 0) {
      	disableUserChoice();
-     	$(".lives").html(--lives + " <img src='images/donkey.png' alt='LIVES'/>");
-     	$("#lives1").css({"color": "#ff0000"});
-        setTimeout(function(){$("#lives1").css({"color": "#00ff00"});}, (250));
+     	$(".lives").html(lives + " LIVES");
         pathLength--;
         if (rows > 1 && cols > 1) rows-- && cols--;
-        numWrong = 0;
+        lives = 1;
         setTimeout(function() {
             roundDelay();
         }, 500);
@@ -207,6 +208,7 @@ function reset() {
 	clickCount = 0;
 	stepCount = 0;
 	numWrong = 0;
+    $(".lives").html(lives + " LIVES");
 	setUpRound(rows, cols);//makes new round
 	
 }

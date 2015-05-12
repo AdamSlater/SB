@@ -98,16 +98,19 @@
 <!--game-->
         <div id="game-page" data-role="page">   
             <div class="header" data-role="header">
-                <div class="col-xs-3">
+                <div class="col-xs-1">
                     <span class="xp">0 XP</span>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-1">
+                    <span class="lives">10 LIVES</span>
+                </div>
+                <div class="col-xs-8">
                     <h1 style="text-align: center">Simon's Besom</h1>
                     <div class="progress">
                         <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%"> Timer </div>
                     </div>
                 </div>
-				<div class="col-xs-3">
+				<div class="col-xs-2">
                     <span class="coins">0 COINS</span>
                 </div>
             </div>
@@ -129,22 +132,22 @@
                             <a href="index.html#store-page" data-transition="flip" data-theme="a" data-role="button" class="ui-icon-pause" data-iconpos="notext" onclick="pause();playTransition();playStoreBG()"></a>
                         </div>
                     </div>
-                    <div class="col-xs-4">
-                        <span id="lives1" class="lives">10 <img src="images/donkey.png" alt="LIVES"/></span>
-                    </div>
                 </div>
             </div>
         </div>
 <!--store-->
         <div id="store-page" data-role="page">
             <div class="header" data-role="header">
-                <div class="col-xs-3">
+                <div class="col-xs-1">
                     <span class="xp">0 XP</span>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-1">
+                    <span class="lives">10 LIVES</span>
+                </div>
+                <div class="col-xs-8">
                     <h1 style="text-align: center">Simon's Besom</h1>
                 </div>
-				<div class="col-xs-3">
+				<div class="col-xs-2">
                     <span id="coins" class="coins">0 COINS</span>
                 </div>
             </div>
@@ -214,9 +217,6 @@
                         <div class="pause">
                             <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG()"></a>
                         </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <span id="lives2" class="lives">10 <img src="images/donkey.png" alt="LIVES"/></span>
                     </div>
                 </div>
             </div>
