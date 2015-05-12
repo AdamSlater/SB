@@ -5,7 +5,7 @@ var time = 250, timer, countDown = 3;
 var xp = 0, coins = 0;
 var playing = false;
 var name = false, numWrong = 0;
-var mute = false;
+var mute = true;
 var lives = 10;
 
 
@@ -257,6 +257,7 @@ function gridChange(){
 
 function playIntro() {
     var intro = document.getElementById("introMusic");
+    intro.volume = (mute) ? 0 : 1;
     intro.play();
 }
 

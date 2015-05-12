@@ -1,31 +1,22 @@
 var texts = ["This is the grid.", "When a square flashes yellow, click that square.", "Click the wrong square and it flashes red."];
-var counter = 0;
+var num = 1;
+var name = "images/Instructions/instructions";
+var ext = ".png";
 
 /*Displays next image + text instruction*/
 function next() {
-    var text = document.getElementById('instruct');
-    counter++;
-    if(texts[counter] == undefined) {
-        counter = 0;
+    if (num <= 3) {
+        (num == 3) ? num = 0 : {};
+        $("#slideshow").attr("src", name + ++num + ext);
+        $("#instText").html(texts[num-1]); 
     }
-    text.innerHTML = texts[counter];
 }
 
 /*Displays previous image + text instruction*/
 function previous() {
-    var text = document.getElementById('instruct');
-    counter--;
-    if(texts[counter] == undefined) {
-        counter = 2;
+    if (num >= 1) {
+        (num == 1) ? num = 4 : {};
+        $("#slideshow").attr("src", name + --num + ext);
+        $("#instText").html(texts[num-1]); 
     }
-    text.innerHTML = texts[counter];
 }
-
-
-/*Fade effect between slides*/
-jQuery("#slideshow").cycle({
-timeout:0,
-fx: 'fade',
-next: '#next',
-prev: '#prev'
-});

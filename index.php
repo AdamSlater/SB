@@ -6,7 +6,6 @@
          <link rel="stylesheet" href="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
          <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
          <script src="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-         <script src="http://malsup.github.io/jquery.cycle.all.js"></script>
          <script type="text/javascript" src="scripts/Script.js"></script>
          <script type="text/javascript" src="scripts/Store.js"></script>
          <script type="text/javascript" src="scripts/Instructions.js"></script>
@@ -49,20 +48,28 @@
             <div class="header" data-role="header">
                 <h1>Instructions</h1>
             </div>
-            <div data-role="content">
-                <p id="instruct" style="text-align: center">
+            <div data-role="content" id="instruct">
+                <table id="instTbl">
+                    <tr>
+                        <td>
+                            <div>
+                                <img  id="slideshow" src="images/Instructions/instructions1.png" alt="Instructions"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div data-role="controlgroup" data-type="horizontal" style="margin-left: 15%">
+                                <a href="" data-role="button" onclick="previous()">Prev</a>
+                                <a href="" data-role="button" onclick="next()">Next</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <p id="instText" style="text-align: center">
                     This is the grid.
                 </p>
-                <!--Scores-->
-                <form name="vote" action="leader.php" method="post" data-ajax="false">
-                    <fieldset data-role="controlgroup">
-                        <input type = "hidden" name="userName" id = "userName"/>
-                        <input type = "hidden" name="userScore" id = "userScore" value="0"/>
-                    </fieldset>                 
-                    <input value = "Submit" type = "submit" />
-                </form>
-
-                <a href="index.html#leader-page" id="submitInstr" data-role="button">To the leaderboards</a>
+                
             </div>
             <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="ui-bar">
                 <div>
@@ -215,7 +222,14 @@
             </div>
             <div data-role="content" style="margin-top: 15%">
                 <?php include 'leader.php';?>
-                <a href="index.html#instruct-page" id="backInstr" data-role="button">Back to the instructions</a>
+                <!--Scores-->
+                <form name="vote" action="leader.php" method="post" data-ajax="false">
+                    <fieldset data-role="controlgroup">
+                        <input type = "hidden" name="userName" id = "userName"/>
+                        <input type = "hidden" name="userScore" id = "userScore" value="0"/>
+                    </fieldset>                 
+                    <input value = "Submit your score!" type = "submit" />
+                </form>
             </div>
             <div data-role="footer" class="ui-bar" data-position="fixed" data-tap-toggle="false">
                 <div class="col-xs-12">

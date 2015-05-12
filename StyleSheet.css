@@ -327,3 +327,12 @@ h3 {
 #cd1 {
     color: green;
 }
+
+#instTbl {
+    margin-left: auto;
+    margin-right: auto;
+}
+#instruct {
+    padding-top: 2%;
+    margin-top: 12%;
+}
