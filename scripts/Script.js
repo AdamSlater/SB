@@ -1,11 +1,16 @@
 var frame, path = [], rows, cols, pathLength = 1;
 var step, stepCount = 0;
 var clickCount = 0, firstClick = false;
-var time = 1200, timer, countDown = 3;
+var time = 250, timer, countDown = 3;
 var xp = 0, coins = 0;
 var playing = false;
+<<<<<<< HEAD
 var name = false, lives = 10;
 var mute = false;
+=======
+var name = false, numWrong = 0;
+var mute = true;
+>>>>>>> 187c964b76d4cb6aeec707faa78e4eabe559cba9
 var lives = 10;
 
 
@@ -23,28 +28,14 @@ function init(rows,cols) {
     }
 }
 
-/*Resizes footer+header*/
-function resize() {
-    var screen = $.mobile.getScreenHeight();
-    var header = $(".ui-header").hasClass("ui-header-fixed") ? $(".ui-header").outerHeight()  - 1 : $(".ui-header").outerHeight();
-    var footer = $(".ui-footer").hasClass("ui-footer-fixed") ? $(".ui-footer").outerHeight() - 1 : $(".ui-footer").outerHeight();
-    /* content div has padding of 1em = 16px (32px top+bottom). This step
-       can be skipped by subtracting 32px from content var directly. */
-    var contentCurrent = $(".ui-content").outerHeight() - $(".ui-content").height();
-    var content = screen - header - footer - contentCurrent;
-    $(".ui-content").height(content);
-    $(".ui-content").css({"margin-top":$(".ui-header").height() + "px"});
-    $(".ui-content").css({"padding":"0px"});
-}
-
 /*Called after user name submitted*/
 function play() {
-    resize();
+    $(".ui-content").css({"margin-top":"35%"});
     playing = true;//done once, prevents actions before playing
 
     name = $("#name").attr("value");//adds to form for leaderboard
     if (!name) name = "anon";//default name
-    $("#userName").attr("vaue", name);//change name ^
+    $("#userName").attr("value", name);//change name ^
 
     $("#game").html("<ul id='frame'></ul>"); //gets rid of enter name
 
@@ -128,8 +119,8 @@ function getUserChoice(click_id) {
             $('#timer').html(time-- + " donkey seconds");
             if (time >= 0) {
                 $('.progress-bar').html(time);//text on progress bar
-                $('.progress-bar').css('width', Math.floor((time / 2000) * 100) + '%');//red part of progress bar
-                $('progress-bar').attr('aria-valuenow', ((time / 2000) * 100));
+                $('.progress-bar').css('width', Math.floor((time / (250 * pathLength)) * 100) + '%');//red part of progress bar
+                $('progress-bar').attr('aria-valuenow', ((time / (250 * pathLength)) * 100));
             }
         }, 1);
     }
@@ -203,12 +194,18 @@ function getUserChoice(click_id) {
 }
 
 function reset() {
-    time = 400 * pathLength;
+    time = 250 * pathLength;
 	path = new Array(0);
 	clickCount = 0;
 	stepCount = 0;
 	numWrong = 0;
+<<<<<<< HEAD
     $(".lives").html(lives + " LIVES");
+=======
+	 $('.progress-bar').html(time);//text on progress bar
+     $('.progress-bar').css('width', Math.floor((time / (250 * pathLength)) * 100) + '%');//red part of progress bar
+     $('progress-bar').attr('aria-valuenow', ((time / (250 * pathLength)) * 100));
+>>>>>>> 187c964b76d4cb6aeec707faa78e4eabe559cba9
 	setUpRound(rows, cols);//makes new round
 	
 }
@@ -266,4 +263,15 @@ function gridChange(){
         	cols = 1;
         	rows = 1;
         }
+}
+
+function playIntro() {
+    var intro = document.getElementById("introMusic");
+    intro.volume = (mute) ? 0 : 1;
+    intro.play();
+}
+
+function stopIntro() {
+    var intro = document.getElementById("introMusic");
+    intro.pause();
 }

@@ -6,7 +6,6 @@
          <link rel="stylesheet" href="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
          <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
          <script src="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-         <script src="http://malsup.github.io/jquery.cycle.all.js"></script>
          <script type="text/javascript" src="scripts/Script.js"></script>
          <script type="text/javascript" src="scripts/Store.js"></script>
          <script type="text/javascript" src="scripts/Instructions.js"></script>
@@ -14,7 +13,7 @@
 
          
     </head>
-    <body onload="resize()">
+    <body onload="playIntro()">
 
         <!--Preloading audio tracks for later use-->
         <audio id="greenTile" src="sounds/green_tile.mp3" preload="auto"></audio>
@@ -22,6 +21,7 @@
         <audio id="yellowTile" src="sounds/yellow_tile.mp3" preload="auto"></audio>
         <audio id="pageChange" src="sounds/page_change.mp3" preload="auto"></audio>
         <audio id="BGmusic" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
+        <audio id="introMusic" src="sounds/BGmusic.mp3" preload="auto" loop="loop"></audio>
 
         <!--Used to prevent user from accidently refreshing (commented for code testing)-->
         <!--<script type="text/javascript">
@@ -33,13 +33,13 @@
 <!--main-->
         <div id="main-page" data-role="page">
             <img id="main-sign" src="images/signScaled.png" alt="Main Menu Sign"/>
-            <a href="index.html#game-page" data-transition="pop">
+            <a href="index.html#game-page" data-transition="pop" onclick="stopIntro()">
                 <img id="play-sign" src="images/play.png" alt="Play Game"/>
             </a>
-            <a href="index.html#instruct-page" data-transition="slide">
+            <a href="index.html#instruct-page" data-transition="slide" onclick="stopIntro()">
                 <img id="play-sign" src="images/instructions.png" alt="Instructions"/>
             </a>  
-            <a href="index.html#leader-page" data-transition="slide">
+            <a href="index.html#leader-page" data-transition="slide" onclick="stopIntro()">
                 <img id="play-sign" src="images/leaderboards.png" alt="Leaderboards"/>
             </a>     
         </div>
@@ -48,40 +48,34 @@
             <div class="header" data-role="header">
                 <h1>Instructions</h1>
             </div>
-            <div data-role="content">
-                <table style="margin: 20px auto;">
+            <div data-role="content" id="instruct">
+                <table id="instTbl">
                     <tr>
                         <td>
-                            <div id="slideshow">
-                                <div><img src="images/Instructions/instructions1.png" alt="Instructions"/></div>
-                                <div><img src="images/Instructions/instructions2.png" alt="Instructions"/></div>
-                                <div><img src="images/Instructions/instructions3.png" alt="Instructions"/></div>
+                            <div>
+                                <img  id="slideshow" src="images/Instructions/instructions1.png" alt="Instructions"/>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div id="prev" onclick ="previous()" style="float:left;">PREV</div>
-                            <div id="next" onclick ="next()" style="float:right;">NEXT</div>
+                            <div data-role="controlgroup" data-type="horizontal" style="margin-left: 15%">
+                                <a href="" data-role="button" onclick="previous()">Prev</a>
+                                <a href="" data-role="button" onclick="next()">Next</a>
+                            </div>
                         </td>
                     </tr>
                 </table>
-                    <p id="instruct" style="text-align: center">
-                This is the grid.
+                <p id="instText" style="text-align: center">
+                    This is the grid.
                 </p>
-                <!--Scores-->
-                <form id="form" name="scores" action="leader.php" method="post">
-                    <input type="hidden" id="userName"/>
-                    <input type="hidden" id="userScore"/>
-                </form>
-
-                <a href="index.html#leader-page" id="submitInstr" data-role="button">To the leaderboards</a>
+                
             </div>
             <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="ui-bar">
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG()"></a>
+                            <a href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -124,7 +118,7 @@
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause()"></a>
+                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playIntro()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -228,13 +222,20 @@
             </div>
             <div data-role="content" style="margin-top: 15%">
                 <?php include 'leader.php';?>
-                <a href="index.html#instruct-page" id="backInstr" data-role="button">Back to the instructions</a>
+                <!--Scores-->
+                <form name="vote" action="leader.php" method="post" data-ajax="false">
+                    <fieldset data-role="controlgroup">
+                        <input type = "hidden" name="userName" id = "userName"/>
+                        <input type = "hidden" name="userScore" id = "userScore" value="0"/>
+                    </fieldset>                 
+                    <input value = "Submit your score!" type = "submit" />
+                </form>
             </div>
             <div data-role="footer" class="ui-bar" data-position="fixed" data-tap-toggle="false">
                 <div class="col-xs-12">
                     <div class="col-xs-4"></div>
                         <div class="col-xs-4">
-                            <a class="homebut" href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" data-icon="home" data-iconpos="notext"></a>
+                            <a class="homebut" href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" data-icon="home" data-iconpos="notext" onclick="playIntro()"></a>
                         </div>
                     <div class="col-xs-4"></div>
                 </div>
