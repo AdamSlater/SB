@@ -6,6 +6,8 @@ var xp = 0, coins = 0;
 var playing = false;
 var name = false, numWrong = 0;
 var mute = false;
+var lives = 10;
+
 
 /*Draws grid*/
 function init(rows,cols) {
@@ -59,7 +61,7 @@ function play() {
 }
 
 function makePath() {
-    step = Math.floor(Math.random() * cols);//starts top row
+    step = Math.floor(Math.random() * (cols*cols));//starts top row
 	path.push(step);//store valid cells in-order
 	stepCount++;
 	while(stepCount < pathLength) {//generates count(pathlength) elements
@@ -94,11 +96,14 @@ function setUpRound(rows, cols) {
         offset += 500;
     });
     path.push(-3); //signifies the end of the path
+    
 }
 
 function enableUserChoice() {
     $(".cell").attr("onclick", "getUserChoice(this.id)");
 	firstClick = false;
+    $(".ui-icon-pause").attr("href", "index.html#store-page");
+    	    $(".ui-icon-pause").attr("onclick", "pause();playTransition();playStoreBG()");
 }
 
 function disableUserChoice() {
@@ -109,13 +114,17 @@ function disableUserChoice() {
 function getUserChoice(click_id) {	
     if (time <= 0) {//return early if timeup
         clearInterval(timer);
+        timer = false;
         return;
     } 
 
-    if(!firstClick) {
+    if(!firstClick || !timer) {
         firstClick = true;
         timer = setInterval(function () {
-            if (time == 0) clearInterval(timer);
+            if (time == 0){
+             clearInterval(timer);
+             timer = false;
+             }
             $('#timer').html(time-- + " donkey seconds");
             if (time >= 0) {
                 $('.progress-bar').html(time);//text on progress bar
@@ -151,6 +160,9 @@ function getUserChoice(click_id) {
     //regresses, pathlength
     if (numWrong == 2) {
      	disableUserChoice();
+     	$(".lives").html(--lives + " <img src='images/donkey.png' alt='LIVES'/>");
+     	$("#lives1").css({"color": "#ff0000"});
+        setTimeout(function(){$("#lives1").css({"color": "#00ff00"});}, (250));
         pathLength--;
         if (rows > 1 && cols > 1) rows-- && cols--;
         numWrong = 0;
@@ -190,15 +202,18 @@ function getUserChoice(click_id) {
 }
 
 function reset() {
-    time += 1500;
+    time = 400 * pathLength;
 	path = new Array(0);
 	clickCount = 0;
 	stepCount = 0;
 	numWrong = 0;
 	setUpRound(rows, cols);//makes new round
+	
 }
 
 function roundDelay() {	
+    $(".ui-icon-pause").attr("href", "");
+    $(".ui-icon-pause").attr("onclick", "");
     //clears game frame
     $('#frame').html("");
     //count down
@@ -212,12 +227,15 @@ function roundDelay() {
             clearInterval(countTime);
             $('#' + 'cd' + countDown).remove();
             countDown = 3;
+            
         }
     }, 1000); 
 }
 
 function pause() {
+
 	clearInterval(timer);
+	timer = false;
 }
 
 
@@ -225,6 +243,7 @@ function pause() {
 function playTransition(){
     var pageAudio = document.getElementById("pageChange");
     pageAudio.play();
+    
 }
 
 function gridChange(){

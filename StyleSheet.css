@@ -117,6 +117,12 @@ h3 {
            0 0 20px #1cf5ff, 0 0 30px #1cf5ff,
            0 0 40px #1cf5ff;
 }
+
+.lives {
+	font-size: 20px;
+    color: #00cc00;
+}
+
 .coins {
 	font-size: 12px;
     color: #ffff0b;
@@ -124,6 +130,8 @@ h3 {
            0 0 20px #A5F1FF, 0 0 30px #A5F1FF,
            0 0 40px #ffff0b;
 }
+
+
 
 #game-page {
     background: #A5F1FF;

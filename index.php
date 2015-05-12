@@ -130,7 +130,7 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <img src="images/ba3.gif" alt="avatar"/>
+                        <span id="lives1" class="lives">10 <img src="images/donkey.png" alt="LIVES"/></span>
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@
                     <h1 style="text-align: center">Simon's Besom</h1>
                 </div>
 				<div class="col-xs-3">
-                    <span class="coins">0 COINS</span>
+                    <span id="coins" class="coins">0 COINS</span>
                 </div>
             </div>
             <div data-role="content">
@@ -153,20 +153,20 @@
                 <div data-role="collapsible-set">
                     <div data-role="collapsible" data-theme="b">
                         <h4>Skills</h4>
-                        <a href="index.html#game-page" id="hint" data-role="button" onclick="hint()">Hint</a>
-                        <a href="index.html#game-page" id="repeat" data-role="button" onclick="repeat()">Repeat</a>
-                        <a href="index.html#game-page" id="slowmo" data-role="button"  onclick="slowMo()">Slow-Mo Repeat</a>
-                        <a href="index.html#game-page" id="stop" data-role="button" onclick="hint()">Stop</a>
-                        <a href="index.html#game-page" id="skip" data-role="button" onclick="repeat()">Skip</a>
-                        <a href="index.html#game-page" id="extraLife" data-role="button"  onclick="slowMo()">Extra Life</a> 
+                        <a href="" id="hint" data-role="button" onclick="hint()">Hint</a>
+                        <a href="" id="repeat" data-role="button" onclick="repeat()">Repeat</a>
+                        <a href="" id="slowmo" data-role="button"  onclick="slowMo()">Slow-Mo Repeat</a>
+                        <a href="" id="stop" data-role="button" onclick="stopTimer()">Stop</a>
+                        <a href="" id="skip" data-role="button" onclick="skip()">Skip</a>
+                        <a href="" id="extraLife" data-role="button"  onclick="oneUp()">Extra Life</a> 
                     </div>
                     <div data-role="collapsible" data-theme="a">
-                        <h4>Gamble (not working)</h4>
-                        <a href="index.html#game-page" id="dubCash" data-role="button" onclick="">Double Cash</a>
-                        <a href="index.html#game-page" id="dubXP" data-role="button" onclick="">Double XP</a>
-                        <a href="index.html#game-page" id="dubBoth" data-role="button" onclick="">Double Trouble</a>
-                        <a href="index.html#game-page" id="randSkill" data-role="button" onclick="">Random Skill</a>
-                        <a href="index.html#game-page" id="allIn" data-role="button" onclick="">All In</a>
+                        <h4>Gamble</h4>
+                        <a href="" id="dubCash" data-role="button" onclick="">Double Cash</a>
+                        <a href="" id="dubXP" data-role="button" onclick="">Double XP</a>
+                        <a href="" id="dubBoth" data-role="button" onclick="">Double Trouble</a>
+                        <a href="" id="randSkill" data-role="button" onclick="randomSkill()">Random Skill</a>
+                        <a href="" id="allIn" data-role="button" onclick="">All In</a>
                     </div>
                     <div data-role="collapsible" data-theme="b">
                         <h4>Backgrounds</h4>
@@ -216,7 +216,7 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <img src="images/ba3.gif" alt="avatar"/>
+                        <span id="lives2" class="lives">10 <img src="images/donkey.png" alt="LIVES"/></span>
                     </div>
                 </div>
             </div>

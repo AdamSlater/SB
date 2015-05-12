@@ -1,3 +1,5 @@
+var randomSk = false;
+
 function makePeach() {
     $("#game-page, #instruct-page, #store-page").css({"background": "#FF9966"});
 }
@@ -54,12 +56,29 @@ function makeRainbow() {
     });
 }
 
+
+/*display next correct tile*/
+function hint() {
+    if(checkCash(10)){
+    window.location.href = '#game-page';
+    var hint = path[clickCount];
+    setTimeout(function() {
+    	yellow.pause();
+            yellow.currentTime = 0;
+            yellow.play();
+        $("#" + hint).addClass("path");
+        setTimeout(function(){$("#" + hint).removeClass("path");}, (250));
+    }, 500);
+    coins = coins - 10;
+    $(".coins").html(coins+" COINS");
+    stopStoreBG();
+    }
+}
+
 /*repeats pattern*/
 function repeat() {
-    if (!playing || coins < 20){
-     stopStoreBG();
-     return;
-    }
+    if(checkCash(20)){
+    window.location.href = '#game-page';
 	var offset = 0;
 	var tmpPath = 0;
     path.forEach(function(e) {
@@ -76,36 +95,14 @@ function repeat() {
         }
     });
     coins = coins - 20;
-    $(".coins").html(coins+" coins");
+    $(".coins").html(coins+" COINS");
     stopStoreBG();
-    
-    
-    
-    
-}
-
-/*display next correct tile*/
-function hint() {
-    if (!playing || coins < 10){
-    	 stopStoreBG();
-    	 return;
     }
-    var hint = path[clickCount];
-    setTimeout(function() {
-        $("#" + hint).addClass("path");
-        setTimeout(function(){$("#" + hint).removeClass("path");}, (250));
-    }, 500);
-    coins = coins - 10;
-    $(".coins").html(coins+" coins");
-    stopStoreBG();
-       
 }
 
 function slowMo() {
-     if (!playing || coins < 30){
-    	 stopStoreBG();
-    	 return;
-    }
+    if(checkCash(30)){
+    window.location.href = '#game-page';
     var offset = 0;
 	var tmpPath = 0;
     path.forEach(function(e) {
@@ -121,10 +118,96 @@ function slowMo() {
         tmpPath++;
         }
     });
-    coins = coins - 20;
-    $(".coins").html(coins+" coins");
+    coins = coins - 30;
+    $(".coins").html(coins+" COINS");
     stopStoreBG();
-    
+    }
+}
+
+function stopTimer(){
+    if(checkCash(50)){
+    window.location.href = '#game-page';
+	clearInterval(timer);
+	timer = true;
+	firstClick = true;
+	coins = coins - 50;
+        $(".coins").html(coins+" COINS");
+	stopStoreBG();
+    }
+}
+
+
+function skip(){
+    if(checkCash(60)){
+    window.location.href = '#game-page';
+	xp += pathLength++;
+	$(".xp").html(xp+" XP");
+	coins = coins - 60;
+    	$(".coins").html(coins+" COINS");
+    	
+    	setTimeout(function() {
+            roundDelay();
+        }, 500);
+		pause();
+        setTimeout(function() {
+            init(rows, cols);
+			reset();
+        }, 3000); 
+        setTimeout(function() {
+            enableUserChoice();
+        }, (3000 + (543 * pathLength))); //delay of audio before click
+        gridChange();
+    	
+	stopStoreBG();
+    }
+}
+
+function oneUp(){
+    if(checkCash(70)){
+	console.log("life added");
+	$(".lives").html(++lives+ " <img src='images/donkey.png' alt='LIVES'/>");
+	$("#lives2").css({"color": "#ffcc0b"});
+        setTimeout(function(){$("#lives2").css({"color": "#00ff00"});}, (250));
+	coins = coins - 70;
+    	$(".coins").html(coins+" COINS");
+    }
+}
+
+function randomSkill(){
+    var rand;
+    if(checkCash(40)){
+    	randomSk = true;
+    	coins = coins - 40;
+    	$(".coins").html(coins+" COINS");
+	rand = Math.floor((Math.random() * 6) + 1);
+	console.log(rand);
+	if(rand == 1)
+	    hint();
+	if(rand == 2)
+	    repeat();
+	if(rand == 3)
+	    slowMo();
+	if(rand == 4)
+	    stopTimer();
+	if(rand == 5)
+	    skip();
+	if(rand == 6)
+	    oneUp();
+    }
+}
+
+function checkCash(moneyz){
+	if (!playing || (coins < moneyz && !randomSk)){
+    		 randomSk = false;
+    		 $("#coins").css({"color": "#FF3333"});
+                 setTimeout(function(){$("#coins").css({"color": "#ffff0b"});}, (250));
+    		 return false;
+    	}
+    	if(randomSk){
+    	    coins += moneyz;
+    	    randomSk = false;
+    	}
+    	return true;
 }
 
 /*store music*/
@@ -138,4 +221,3 @@ function stopStoreBG(){
     var storeBG = document.getElementById("BGmusic");
         storeBG.pause();    
 }
-
