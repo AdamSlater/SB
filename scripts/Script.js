@@ -265,3 +265,13 @@ function gridChange(){
         	rows = 1;
         }
 }
+
+function playIntro() {
+    var intro = document.getElementById("introMusic");
+    intro.play();
+}
+
+function stopIntro() {
+    var intro = document.getElementById("introMusic");
+    intro.pause();
+}

@@ -14,7 +14,7 @@
 
          
     </head>
-    <body onload="resize()">
+    <body onload="resize();playIntro()">
 
         <!--Preloading audio tracks for later use-->
         <audio id="greenTile" src="sounds/green_tile.mp3" preload="auto"></audio>
@@ -22,6 +22,7 @@
         <audio id="yellowTile" src="sounds/yellow_tile.mp3" preload="auto"></audio>
         <audio id="pageChange" src="sounds/page_change.mp3" preload="auto"></audio>
         <audio id="BGmusic" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
+        <audio id="introMusic" src="sounds/BGmusic.mp3" preload="auto" loop="loop"></audio>
 
         <!--Used to prevent user from accidently refreshing (commented for code testing)-->
         <!--<script type="text/javascript">
@@ -33,13 +34,13 @@
 <!--main-->
         <div id="main-page" data-role="page">
             <img id="main-sign" src="images/signScaled.png" alt="Main Menu Sign"/>
-            <a href="index.html#game-page" data-transition="pop">
+            <a href="index.html#game-page" data-transition="pop" onclick="stopIntro()">
                 <img id="play-sign" src="images/play.png" alt="Play Game"/>
             </a>
-            <a href="index.html#instruct-page" data-transition="slide">
+            <a href="index.html#instruct-page" data-transition="slide" onclick="stopIntro()">
                 <img id="play-sign" src="images/instructions.png" alt="Instructions"/>
             </a>  
-            <a href="index.html#leader-page" data-transition="slide">
+            <a href="index.html#leader-page" data-transition="slide" onclick="stopIntro()">
                 <img id="play-sign" src="images/leaderboards.png" alt="Leaderboards"/>
             </a>     
         </div>
@@ -81,7 +82,7 @@
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG()"></a>
+                            <a href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -121,7 +122,7 @@
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause()"></a>
+                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playIntro()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -234,7 +235,7 @@
                 <div class="col-xs-12">
                     <div class="col-xs-4"></div>
                         <div class="col-xs-4">
-                            <a class="homebut" href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" data-icon="home" data-iconpos="notext"></a>
+                            <a class="homebut" href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" data-icon="home" data-iconpos="notext" onclick="playIntro()"></a>
                         </div>
                     <div class="col-xs-4"></div>
                 </div>
