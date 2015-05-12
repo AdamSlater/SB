@@ -5,8 +5,8 @@ var time = 250, timer, countDown = 3;
 var xp = 0, coins = 0;
 var playing = false;
 var name = false, numWrong = 0;
-var mute = true;
 var lives = 10;
+muteMusic = false, muteSound = false;
 
 
 /*Draws grid*/
@@ -66,7 +66,7 @@ function makePath() {
 
 function setUpRound(rows, cols) {
     yellow = document.getElementById("yellowTile");//sound for generate path
-	yellow.volume = (mute) ? 0 : 1;//toggle volume
+	yellow.muted = muteSound;//toggle volume
 
     makePath();
 
@@ -122,7 +122,7 @@ function getUserChoice(click_id) {
 
     if(click_id == path[clickCount]) {
         var green = document.getElementById("greenTile");
-        green.volume = (mute) ? 0 : 1;
+        green.muted = muteSound;
 		green.pause();
         green.currentTime = 0;
         green.play();
@@ -134,7 +134,7 @@ function getUserChoice(click_id) {
     }
     else {
         var red = document.getElementById("redTile");
-        red.volume = (mute) ? 0 : 1;
+        red.muted = muteSound;
 		red.pause();
         red.currentTime = 0;
         red.play();
@@ -231,6 +231,7 @@ function pause() {
 
 function playTransition(){
     var pageAudio = document.getElementById("pageChange");
+    pageAudio.muted = muteSound;
     pageAudio.play();
     
 }
@@ -257,7 +258,7 @@ function gridChange(){
 
 function playIntro() {
     var intro = document.getElementById("introMusic");
-    intro.volume = (mute) ? 0 : 1;
+    intro.muted = muteMusic;
     intro.play();
 }
 

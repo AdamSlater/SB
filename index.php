@@ -34,14 +34,44 @@
         <div id="main-page" data-role="page">
             <img id="main-sign" src="images/signScaled.png" alt="Main Menu Sign"/>
             <a href="index.html#game-page" data-transition="pop" onclick="stopIntro()">
-                <img id="play-sign" src="images/play.png" alt="Play Game"/>
+                <img class="play-sign" src="images/play.png" alt="Play Game"/>
             </a>
             <a href="index.html#instruct-page" data-transition="slide" onclick="stopIntro()">
-                <img id="play-sign" src="images/instructions.png" alt="Instructions"/>
+                <img class="play-sign" src="images/instructions.png" alt="Instructions"/>
             </a>  
             <a href="index.html#leader-page" data-transition="slide" onclick="stopIntro()">
-                <img id="play-sign" src="images/leaderboards.png" alt="Leaderboards"/>
-            </a>     
+                <img class="play-sign" src="images/leaderboards.png" alt="Leaderboards"/>
+            </a>    
+            <a href="index.html#setting-page" data-transition="slide">
+                <img class="mute-sign" src="images/cog.png" alt="Mute"/>
+            </a> 
+        </div>
+<!--settings-->
+        <div id="setting-page" data-role="page">
+            <script>
+                function print1() {
+                    var path = "images/";
+                    muteSound = !muteSound;
+                    path += (muteSound) ? "soundmute.png" : "sound.png";
+                    $("#muteSound").attr("src", path);
+                }
+
+                function print2() {
+                    var path = "images/";
+                    muteMusic = !muteMusic;
+                    path += (muteMusic) ? "musicmute.png" : "music.png";
+                    (muteMusic) ? stopIntro() : playIntro();
+                    $("#muteMusic").attr("src", path);
+                }
+            </script>
+            <a href="index.html#main-page" data-transition="slide" data-direction="reverse">
+                <img class="mute-sign" src="images/homeMute.png" alt="Mute"/>
+            </a> 
+            <div data-role="content" style="margin-top: 15%; margin-left: 25%">
+                <img id="muteSound" src="images/sound.png" alt="Mute" onclick="print1()"/>
+                <img id="muteMusic" src="images/music.png" alt="Mute" onclick="print2()"/>
+            </div>
+            
         </div>
 <!--instr-->
         <div id="instruct-page" data-role="page">
@@ -91,7 +121,7 @@
         </div>
 <!--game-->
         <div id="game-page" data-role="page">   
-            <div class="header" data-role="header">
+              <div class="header" data-role="header">
                 <div class="col-xs-3">
                     <span class="xp">0 XP</span>
                 </div>
