@@ -50,30 +50,16 @@
                 <h1>Instructions</h1>
             </div>
             <div data-role="content">
-                <table style="margin: 20px auto;">
-                    <tr>
-                        <td>
-                            <div id="slideshow">
-                                <div><img src="images/Instructions/instructions1.png" alt="Instructions"/></div>
-                                <div><img src="images/Instructions/instructions2.png" alt="Instructions"/></div>
-                                <div><img src="images/Instructions/instructions3.png" alt="Instructions"/></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="prev" onclick ="previous()" style="float:left;">PREV</div>
-                            <div id="next" onclick ="next()" style="float:right;">NEXT</div>
-                        </td>
-                    </tr>
-                </table>
-                    <p id="instruct" style="text-align: center">
-                This is the grid.
+                <p id="instruct" style="text-align: center">
+                    This is the grid.
                 </p>
                 <!--Scores-->
-                <form id="form" name="scores" action="leader.php" method="post">
-                    <input type="hidden" id="userName"/>
-                    <input type="hidden" id="userScore"/>
+                <form name="vote" action="leader.php" method="post" data-ajax="false">
+                    <fieldset data-role="controlgroup">
+                        <input type = "hidden" name="userName" id = "userName"/>
+                        <input type = "hidden" name="userScore" id = "userScore" value="0"/>
+                    </fieldset>                 
+                    <input value = "Submit" type = "submit" />
                 </form>
 
                 <a href="index.html#leader-page" id="submitInstr" data-role="button">To the leaderboards</a>

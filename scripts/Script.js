@@ -30,7 +30,7 @@ function play() {
 
     name = $("#name").attr("value");//adds to form for leaderboard
     if (!name) name = "anon";//default name
-    $("#userName").attr("vaue", name);//change name ^
+    $("#userName").attr("value", name);//change name ^
 
     $("#game").html("<ul id='frame'></ul>"); //gets rid of enter name
 
