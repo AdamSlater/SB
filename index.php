@@ -159,25 +159,42 @@
                     </div>
                     <div data-role="collapsible" data-theme="a">
                         <h4>Gamble (not working)</h4>
-                        <a href="index.html#game-page" data-role="button" data-icon="gear" data-iconpos="right" onclick="">Bonus Life</a>
-                        <a href="index.html#game-page" data-role="button" data-icon="search" data-iconpos="right" onclick="">Double or Nothing</a>
-                        <a href="index.html#game-page" data-role="button" data-icon="info" data-iconpos="right" onclick="">Bonus XP</a>
+                        <a href="index.html#game-page" id="dubCash" data-role="button" onclick="">Double Cash</a>
+                        <a href="index.html#game-page" id="dubXP" data-role="button" onclick="">Double XP</a>
+                        <a href="index.html#game-page" id="dubBoth" data-role="button" onclick="">Double Trouble</a>
+                        <a href="index.html#game-page" id="randSkill" data-role="button" onclick="">Random Skill</a>
+                        <a href="index.html#game-page" id="allIn" data-role="button" onclick="">All In</a>
                     </div>
                     <div data-role="collapsible" data-theme="b">
                         <h4>Backgrounds</h4>
                         <fieldset data-role="controlgroup">
-	                        <legend>Choose a background:</legend>
-     	                    <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-1" checked="checked" onclick="makeRed()"/>
-     	                    <label for="radio-choice-1">Red</label>
+	                   
+	                    <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-3" checked="checked" onclick="makeDefault()"/>
+     	                    <label for="radio-choice-1" id="r1">Default</label>
+     	                    
+     	                    <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-1" onclick="makePeach()"/>
+     	                    <label for="radio-choice-2" id="r2">Peach</label>
 
-     	                    <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2" onclick="makeGreen()" />
-     	                    <label for="radio-choice-2">Green</label>
+     	                    <input type="radio" name="radio-choice" id="radio-choice-3" value="choice-2" onclick="makePuke()" />
+     	                    <label for="radio-choice-3" id="r3">Mustard</label>
 
-     	                    <input type="radio" name="radio-choice" id="radio-choice-3" value="choice-3" onclick="makeBlue()"/>
-     	                    <label for="radio-choice-3">Blue</label>
 
-     	                    <input type="radio" name="radio-choice" id="radio-choice-4" value="choice-4" onclick="makeFire()" />
-     	                    <label for="radio-choice-4">Fire</label>
+     	                    <input type="radio" name="radio-choice" id="radio-choice-4" value="choice-4" onclick="makeFood()" />
+     	                    <label for="radio-choice-4" id="r4">Food</label>
+     	                    
+     	                     <input type="radio" name="radio-choice" id="radio-choice-5" value="choice-5"  onclick="makeMatrix()"/>
+     	                    <label for="radio-choice-5" id="r5">Matrix</label>
+
+     	                    <input type="radio" name="radio-choice" id="radio-choice-6" value="choice-6" onclick="makeRainbow()" />
+     	                    <label for="radio-choice-6" id="r6">Rainbow</label>
+
+     	                    <input type="radio" name="radio-choice" id="radio-choice-7" value="choice-7" onclick="makeFire()"/>
+     	                    <label for="radio-choice-7" id="r7">Fire</label>
+
+     	                    <input type="radio" name="radio-choice" id="radio-choice-8" value="choice-8" onclick="makeCat()" />
+     	                    <label for="radio-choice-8" id="r8">Cat</label>
+     	                    
+
                         </fieldset>
                     </div>
                 </div>

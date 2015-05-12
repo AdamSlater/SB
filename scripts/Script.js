@@ -47,7 +47,7 @@ function play() {
 
     $("#game").html("<ul id='frame'></ul>"); //gets rid of enter name
 
-    rows = 5, cols = 5;//initial grid size
+    rows = 1, cols = 1;//initial grid size
     frame = new Array(rows);
     roundDelay();//count down
     setTimeout(function() {
@@ -166,7 +166,7 @@ function getUserChoice(click_id) {
         setTimeout(function() {
             enableUserChoice();
         }, (3000 + (543 * pathLength))); //delay of audio before click
-        
+        gridChange();
     }
 
     if (path[clickCount] == -3) {
@@ -185,7 +185,7 @@ function getUserChoice(click_id) {
         setTimeout(function() {
             enableUserChoice();
         }, (3000 + (543 * pathLength))); 
-        
+        gridChange();
     }
      
 }
@@ -230,4 +230,24 @@ function resume() {
 function playTransition(){
     var pageAudio = document.getElementById("pageChange");
     pageAudio.play();
+}
+
+function gridChange(){
+
+	if(pathLength - 10 > 0){
+        	cols = 5;
+        	rows = 5;
+        }else if(pathLength - 7 > 0){
+        	cols = 4;
+        	rows = 4;        
+        }else if(pathLength - 4 > 0){
+        	cols = 3;
+        	rows = 3;        
+        }else if(pathLength - 1 > 0){
+        	cols = 2;
+        	rows = 2;        
+        } else{
+        	cols = 1;
+        	rows = 1;
+        }
 }

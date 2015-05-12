@@ -1,17 +1,53 @@
-function makeRed() {
-    $("#game-page, #instruct-page, #store-page").css({"background": "#FF0000"});
+function makePeach() {
+    $("#game-page, #instruct-page, #store-page").css({"background": "#FF9966"});
 }
 
-function makeBlue() {
-    $("#game-page, #instruct-page, #store-page").css({"background": "#0000FF"});
+function makeDefault() {
+    $("#game-page, #instruct-page, #store-page").css({"background": "#A5F1FF"});
 }
-function makeGreen() {
-    $("#game-page, #instruct-page, #store-page").css({"background": "#00FF00"});
+function makePuke() {
+    $("#game-page, #instruct-page, #store-page").css({"background": "#CCCC00 "});
 }
 
 function makeFire() {
     $("#game-page, #instruct-page, #store-page").css({
         "background-image" : "url('images/giphy 1.gif')",
+        "background-position" : "center",
+        "background-repeat" : "no-repeat",
+        "background-size" : "cover"
+    });
+}
+
+function makeFood() {
+    $("#game-page, #instruct-page, #store-page").css({
+        "background-image" : "url('images/food.jpg')",
+        "background-position" : "center",
+        "background-repeat" : "no-repeat",
+        "background-size" : "cover"
+    });
+}
+
+function makeCat() {
+    $("#game-page, #instruct-page, #store-page").css({
+        "background-image" : "url('images/cat.gif')",
+        "background-position" : "center",
+        "background-repeat" : "no-repeat",
+        "background-size" : "cover"
+    });
+}
+
+function makeMatrix() {
+    $("#game-page, #instruct-page, #store-page").css({
+        "background-image" : "url('images/matrix.gif')",
+        "background-position" : "center",
+        "background-repeat" : "no-repeat",
+        "background-size" : "cover"
+    });
+}
+
+function makeRainbow() {
+    $("#game-page, #instruct-page, #store-page").css({
+        "background-image" : "url('images/rainbow.gif')",
         "background-position" : "center",
         "background-repeat" : "no-repeat",
         "background-size" : "cover"

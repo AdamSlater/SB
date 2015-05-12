@@ -130,7 +130,7 @@ h3 {
 }
 
 #store-page {
-    background: #FF0000;
+    background: #A5F1FF;
 }
 
 #hint{
@@ -175,6 +175,97 @@ h3 {
     text-align: left;
 }
 
+#dubCash{
+    background-image: url("images/dubCash.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#dubXP{
+    background-image: url("images/dubXP.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#dubBoth{
+    background-image: url("images/dubBoth.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#randSkill{
+    background-image: url("images/randSkill.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#allIn{
+    background-image: url("images/allIn.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#r1{
+    background-image: url("images/storeButtons/default.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#r2{
+    background-image: url("images/storeButtons/peach.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#r3{
+    background-image: url("images/storeButtons/mustard.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#r4{
+    background-image: url("images/storeButtons/food.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#r5{
+    background-image: url("images/storeButtons/matrix.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#r6{
+    background-image: url("images/storeButtons/rainbow.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#r7{
+    background-image: url("images/storeButtons/fire.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
+#r8{
+    background-image: url("images/storeButtons/cat.png");
+    background-repeat: no-repeat;
+    background-position: 97%;
+    text-align: left;
+}
+
 #main-page {
     background-image: url("images/des.jpg");
     background-position: center;
@@ -206,7 +297,7 @@ h3 {
 }
 
 #levelNum{
-	font-size: 72px;
+	font-size: 64px;
 	color: blue;
 }
 
