@@ -23,23 +23,9 @@ function init(rows,cols) {
     }
 }
 
-/*Resizes footer+header*/
-function resize() {
-    var screen = $.mobile.getScreenHeight();
-    var header = $(".ui-header").hasClass("ui-header-fixed") ? $(".ui-header").outerHeight()  - 1 : $(".ui-header").outerHeight();
-    var footer = $(".ui-footer").hasClass("ui-footer-fixed") ? $(".ui-footer").outerHeight() - 1 : $(".ui-footer").outerHeight();
-    /* content div has padding of 1em = 16px (32px top+bottom). This step
-       can be skipped by subtracting 32px from content var directly. */
-    var contentCurrent = $(".ui-content").outerHeight() - $(".ui-content").height();
-    var content = screen - header - footer - contentCurrent;
-    $(".ui-content").height(content);
-    $(".ui-content").css({"margin-top":$(".ui-header").height() + "px"});
-    $(".ui-content").css({"padding":"0px"});
-}
-
 /*Called after user name submitted*/
 function play() {
-    resize();
+    $(".ui-content").css({"margin-top":"35%"});
     playing = true;//done once, prevents actions before playing
 
     name = $("#name").attr("value");//adds to form for leaderboard

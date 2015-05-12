@@ -14,7 +14,7 @@
 
          
     </head>
-    <body onload="resize();playIntro()">
+    <body onload="playIntro()">
 
         <!--Preloading audio tracks for later use-->
         <audio id="greenTile" src="sounds/green_tile.mp3" preload="auto"></audio>
