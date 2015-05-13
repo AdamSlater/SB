@@ -136,7 +136,7 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <span class="lives">10 LIVES</span>
+                        <span class="lives">3 LIVES</span>
                     </div>
                 </div>
             </div>
@@ -167,12 +167,12 @@
                         <a href="" id="extraLife" data-role="button"  onclick="oneUp()">Extra Life</a> 
                     </div>
                     <div data-role="collapsible" data-theme="a">
-                        <h4>Gamble</h4>
-                        <a href="" id="dubCash" data-role="button" onclick="">Double Cash</a>
-                        <a href="" id="dubXP" data-role="button" onclick="">Double XP</a>
-                        <a href="" id="dubBoth" data-role="button" onclick="">Double Trouble</a>
+                        <h4>Gambles</h4>
+                        <a href="" id="dubCash" data-role="button" onclick="dubCash()">Double Cash</a>
+                        <a href="" id="dubXP" data-role="button" onclick="dubXP()">Double XP</a>
+                        <a href="" id="dubBoth" data-role="button" onclick="dubBoth()">Double Trouble</a>
                         <a href="" id="randSkill" data-role="button" onclick="randomSkill()">Random Skill</a>
-                        <a href="" id="allIn" data-role="button" onclick="">All In</a>
+                        <a href="" id="allIn" data-role="button" onclick="allIn()">All In</a>
                     </div>
                     <div data-role="collapsible" data-theme="b">
                         <h4>Backgrounds</h4>
@@ -222,7 +222,7 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <span class="lives">10 LIVES</span>
+                        <span class="lives">3 LIVES</span>
                     </div>
                 </div>
             </div>

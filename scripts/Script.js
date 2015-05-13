@@ -5,9 +5,11 @@ var time = 250, timer, countDown = 3;
 var xp = 0, coins = 0;
 var playing = false;
 var name = false;
-var lives = 10;
-muteMusic = false, muteSound = false;
-
+var lives = 3, numWrong = 0;
+var muteMusic = false, muteSound = false;
+var money = 10, exp = 1;
+var isAllIn = false;
+var streak = 0;
 
 //Draws grid
 function init(rows,cols) {
@@ -121,25 +123,29 @@ function getUserChoice(click_id) {
         $("#" + click_id).addClass("selected"); //makes cell green
         setTimeout(function(){$("#" + click_id).removeClass("selected");}, (250)); //removes green
         clickCount++;
-        $(".xp").html(++xp + "XP"); //1 xp per correct cell
+        xp += exp;
+        $(".xp").html(xp + "XP"); //1 xp per correct cell
         $("#userScore").attr("value", xp); //used for leaderboard score
     }
     else {
         var red = document.getElementById("redTile");
         resetAudio(red);
         $("#" + click_id).addClass("wrong"); //makes cell red
-        $(".lives").html((lives--) + " LIVES");
-     	$(".lives").css({"color": "#ff0000"});
-        setTimeout(function(){$(".lives").css({"color": "#00ff00"});}, (250));
         setTimeout(function(){$("#" + click_id).removeClass("wrong");}, (250));//removes red
-    }
+		numWrong++;
+	}
 
     //regresses, pathlength
-    if (lives == 0) {
+    if (numWrong == 2) {
      	disableUserChoice();
-     	$(".lives").html(lives + " LIVES");
+     	$(".lives").html(--lives + " <img src='images/donkey.png' alt='LIVES'/>");
+    	$("#lives1").css({"color": "#ff0000"});
+        setTimeout(function(){$("#lives1").css({"color": "#00ff00"});}, (250));
+		pathLength--;
+		isAllIn = false;
+        streak = 0;
         if (rows > 1 && cols > 1) rows-- && cols--;
-        lives = 1;
+        numWrong = 0;
         setTimeout(function() {
             roundDelay();
         }, 500);
@@ -155,9 +161,19 @@ function getUserChoice(click_id) {
     }
 
     if (path[clickCount] == -3) {
- 	disableUserChoice();
-        $(".coins").html((coins+=10) + " COINS");
+		disableUserChoice();
+        $(".coins").html((coins+=money) + " COINS");
          pathLength++;
+		 if(isAllIn){
+             streak++;
+             if(streak == 10){
+             	$(".coins").html((coins+= 120) + " COINS");
+             	xp += 120;
+             	$(".xp").html(xp + "XP");
+             	isAllIn = false;
+             	streak = 0;
+             }
+         }
          setTimeout(function() {
             roundDelay();
         }, 500);
@@ -176,12 +192,17 @@ function getUserChoice(click_id) {
 }
 
 function reset() {
+    exp = 1;
+    money = 10;
     time = 250 * pathLength;
 	path = new Array(0);
 	clickCount = 0;
 	stepCount = 0;
-    $(".lives").html(lives + " LIVES");
-	setUpRound(rows, cols); //makes new round
+	numWrong = 0;
+	 $('.progress-bar').html(time);//text on progress bar
+     $('.progress-bar').css('width', Math.floor((time / (250 * pathLength)) * 100) + '%');//red part of progress bar
+     $('progress-bar').attr('aria-valuenow', ((time / (250 * pathLength)) * 100));
+	setUpRound(rows, cols);//makes new round
 }
 
 function roundDelay() {	
@@ -215,8 +236,22 @@ function playTransition(){
 }
 
 function gridChange() {
-    if ((pathLength == 2 || pathLength % 3 == 1) && cols < 5) 
-        cols++ && rows++;
+    if(pathLength - 10 > 0){
+        	cols = 5;
+        	rows = 5;
+        }else if(pathLength - 7 > 0){
+        	cols = 4;
+        	rows = 4;        
+        }else if(pathLength - 4 > 0){
+        	cols = 3;
+        	rows = 3;        
+        }else if(pathLength - 1 > 0){
+        	cols = 2;
+        	rows = 2;        
+        } else{
+        	cols = 1;
+        	rows = 1;
+        }
 }
 
 function stopIntro() {

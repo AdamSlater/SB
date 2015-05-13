@@ -199,6 +199,44 @@ function randomSkill(){
     }
 }
 
+function dubCash(){
+    if(checkCash(10)){
+        window.location.href = '#game-page';
+	money = 30;
+	coins = coins - 10;
+    	$(".coins").html(coins+" COINS");
+    }
+}
+
+function dubXP(){
+    if(checkCash(20)){
+        window.location.href = '#game-page';
+	exp = 2;
+	coins = coins - 20;
+    	$(".coins").html(coins+" COINS");
+    }
+}
+
+function dubBoth(){
+    if(checkCash(30)){
+        window.location.href = '#game-page';
+	exp = 2;
+	money = 30;
+	coins = coins - 30;
+    	$(".coins").html(coins+" COINS");
+    }
+}
+
+function allIn(){
+    if(checkCash(120)){
+        window.location.href = '#game-page';
+	isAllIn = true;
+	coins = coins - 120;
+    	$(".coins").html(coins+" COINS");
+    }
+}
+
+
 function checkCash(moneyz){
 	if (!playing || (coins < moneyz && !randomSk)){
     		 randomSk = false;
