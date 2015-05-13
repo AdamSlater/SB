@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>site name</title>
@@ -10,10 +11,8 @@
          <script type="text/javascript" src="scripts/Store.js"></script>
          <script type="text/javascript" src="scripts/Instructions.js"></script>
          <link rel="stylesheet" href="StyleSheet.css">
-
-         
     </head>
-    <body onload="playIntro()">
+    <body>
 
         <!--Preloading audio tracks for later use-->
         <audio id="greenTile" src="sounds/green_tile.mp3" preload="auto"></audio>
@@ -21,7 +20,7 @@
         <audio id="yellowTile" src="sounds/yellow_tile.mp3" preload="auto"></audio>
         <audio id="pageChange" src="sounds/page_change.mp3" preload="auto"></audio>
         <audio id="BGmusic" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
-        <audio id="introMusic" src="sounds/BGmusic.mp3" preload="auto" loop="loop"></audio>
+        <audio id="introMusic" src="sounds/BGmusic.mp3" preload="auto" loop="loop" autoplay></audio>
 
         <!--Used to prevent user from accidently refreshing (commented for code testing)-->
         <!--<script type="text/javascript">
@@ -48,28 +47,12 @@
         </div>
 <!--settings-->
         <div id="setting-page" data-role="page">
-            <script>
-                function print1() {
-                    var path = "images/";
-                    muteSound = !muteSound;
-                    path += (muteSound) ? "soundmute.png" : "sound.png";
-                    $("#muteSound").attr("src", path);
-                }
-
-                function print2() {
-                    var path = "images/";
-                    muteMusic = !muteMusic;
-                    path += (muteMusic) ? "musicmute.png" : "music.png";
-                    (muteMusic) ? stopIntro() : playIntro();
-                    $("#muteMusic").attr("src", path);
-                }
-            </script>
             <a href="index.html#main-page" data-transition="slide" data-direction="reverse">
                 <img class="mute-sign" src="images/homeMute.png" alt="Mute"/>
             </a> 
             <div data-role="content" style="margin-top: 15%; margin-left: 25%">
-                <img id="muteSound" src="images/sound.png" alt="Mute" onclick="print1()"/>
-                <img id="muteMusic" src="images/music.png" alt="Mute" onclick="print2()"/>
+                <img id="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds()"/>
+                <img id="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics()"/>
             </div>
             
         </div>
