@@ -51,8 +51,8 @@
                 <img class="mute-sign" src="images/homeMute.png" alt="Mute"/>
             </a> 
             <div data-role="content" style="margin-top: 15%; margin-left: 25%">
-                <img data-role="button" id="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds()"/>
-                <img data-role="button" id="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics()"/>
+                <img id="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds()"/>
+                <img id="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics()"/>
             </div>
             
         </div>
