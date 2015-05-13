@@ -215,14 +215,8 @@ function playTransition(){
 }
 
 function gridChange() {
-    if (pathLength == 2 && cols <= 5) {
-        cols++;
-        rows++;
-    }
-    if (pathLength % 3 == 1) {
-        cols++;
-        rows++;
-    }
+    if ((pathLength == 2 || pathLength % 3 == 1) && cols < 5) 
+        cols++ && rows++;
 }
 
 function stopIntro() {
