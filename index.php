@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <title>site name</title>
