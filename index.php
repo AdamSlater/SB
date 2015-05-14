@@ -24,7 +24,6 @@
         <audio id="gameMusic" class="music" src="sounds/BG_game.mp3" preload="auto" loop="loop"></audio>
         <audio id="coinDrop" class="sound" src="sounds/coin_drop.mp3" preload="auto"></audio>
         <audio id="cashRegister" class="sound" src="sounds/cash_register.mp3" preload="auto"></audio>
-        
         <!--Used to prevent user from accidently refreshing (commented for code testing)-->
         <!--<script type="text/javascript">
             window.onbeforeunload = function() {
@@ -141,7 +140,7 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <span class="lives">3 LIVES</span>
+                        <span class="lives">3 <img src='images/donkey.png' alt='LIVES'/></span>
                     </div>
                 </div>
             </div>
@@ -227,7 +226,7 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <span class="lives">3 LIVES</span>
+                        <span class="lives">3 <img src='images/donkey.png' alt='LIVES'/></span>
                     </div>
                 </div>
             </div>
