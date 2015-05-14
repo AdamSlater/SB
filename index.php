@@ -21,7 +21,7 @@
         <audio id="Storemusic" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
         <audio id="introMusic" src="sounds/BG_intro.mp3" preload="auto" loop="loop" autoplay></audio>
         <audio id="gameMusic" src="sounds/BG_game.mp3" preload="auto" loop="loop"></audio>
-
+        <audio id="mouseClick" src="sounds/mouse_click.mp3" preload="auto"></audio>
         <!--Used to prevent user from accidently refreshing (commented for code testing)-->
         <!--<script type="text/javascript">
             window.onbeforeunload = function() {
@@ -32,13 +32,13 @@
 <!--main-->
         <div id="main-page" data-role="page">
             <img id="main-sign" src="images/signScaled.png" alt="Main Menu Sign"/>
-            <a href="index.html#game-page" data-transition="pop" onclick="stopIntro();playGameMusic()">
+            <a href="index.html#game-page" data-transition="pop" onclick="stopIntro();playGameMusic();mouseClick()()">
                 <img class="play-sign" src="images/play.png" alt="Play Game"/>
             </a>
-            <a href="index.html#instruct-page" data-transition="slide" onclick="stopIntro()">
+            <a href="index.html#instruct-page" data-transition="slide" onclick="stopIntro();mouseClick()()">
                 <img class="play-sign" src="images/instructions.png" alt="Instructions"/>
             </a>  
-            <a href="index.html#leader-page" data-transition="slide" onclick="stopIntro()">
+            <a href="index.html#leader-page" data-transition="slide" onclick="stopIntro();mouseClick()()">
                 <img class="play-sign" src="images/leaderboards.png" alt="Leaderboards"/>
             </a>    
             <a href="index.html#setting-page" data-transition="slide">
@@ -51,8 +51,8 @@
                 <img class="mute-sign" src="images/homeMute.png" alt="Mute"/>
             </a> 
             <div data-role="content" style="margin-top: 15%; margin-left: 25%">
-                <img id="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds()"/>
-                <img id="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics()"/>
+                <img id="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds();mouseClick()()"/>
+                <img id="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics();mouseClick()()"/>
             </div>
             
         </div>
@@ -73,8 +73,8 @@
                     <tr>
                         <td>
                             <div data-role="controlgroup" data-type="horizontal" style="margin-left: 15%">
-                                <a href="" data-role="button" onclick="previous()">Prev</a>
-                                <a href="" data-role="button" onclick="next()">Next</a>
+                                <a href="" data-role="button" onclick="previous();mouseClick()()">Prev</a>
+                                <a href="" data-role="button" onclick="next();mouseClick()()">Next</a>
                             </div>
                         </td>
                     </tr>
@@ -88,12 +88,12 @@
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro()"></a>
+                            <a href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro();mouseClick()()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic()"></a>
+                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic();mouseClick()()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -121,19 +121,19 @@
             <div data-role="content">
                 <div id="game">
                     <input id="name" type="text" placeholder="Enter your name"/>
-                    <button type="submit" onclick="play()">Enter</button>
+                    <button type="submit" onclick="play();mouseClick()()">Enter</button>
                 </div>
             </div>
             <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="ui-bar">
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playIntro();stopGameMusic();playTransition()"></a>
+                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playIntro();stopGameMusic();playTransition();mouseClick()()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#store-page" data-transition="flip" data-theme="a" data-role="button" class="ui-icon-pause" data-iconpos="notext" onclick="pause();playTransition();playStoreBG();stopGameMusic()"></a>
+                            <a href="index.html#store-page" data-transition="flip" data-theme="a" data-role="button" class="ui-icon-pause" data-iconpos="notext" onclick="pause();playTransition();playStoreBG();stopGameMusic();mouseClick()()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -182,26 +182,26 @@
 	                    <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-3" checked="checked" onclick="makeDefault()"/>
      	                    <label for="radio-choice-1" id="r1">Default</label>
      	                    
-     	                    <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-1" onclick="makePeach()"/>
+     	                    <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-1" onclick="makePeach();mouseClick()"/>
      	                    <label for="radio-choice-2" id="r2">Peach</label>
 
-     	                    <input type="radio" name="radio-choice" id="radio-choice-3" value="choice-2" onclick="makePuke()" />
+     	                    <input type="radio" name="radio-choice" id="radio-choice-3" value="choice-2" onclick="makePuke();mouseClick()" />
      	                    <label for="radio-choice-3" id="r3">Mustard</label>
 
 
-     	                    <input type="radio" name="radio-choice" id="radio-choice-4" value="choice-4" onclick="makeFood()" />
+     	                    <input type="radio" name="radio-choice" id="radio-choice-4" value="choice-4" onclick="makeFood();mouseClick()" />
      	                    <label for="radio-choice-4" id="r4">Food</label>
      	                    
-     	                     <input type="radio" name="radio-choice" id="radio-choice-5" value="choice-5"  onclick="makeMatrix()"/>
+     	                     <input type="radio" name="radio-choice" id="radio-choice-5" value="choice-5"  onclick="makeMatrix();mouseClick()"/>
      	                    <label for="radio-choice-5" id="r5">Matrix</label>
 
-     	                    <input type="radio" name="radio-choice" id="radio-choice-6" value="choice-6" onclick="makeRainbow()" />
+     	                    <input type="radio" name="radio-choice" id="radio-choice-6" value="choice-6" onclick="makeRainbow();mouseClick()" />
      	                    <label for="radio-choice-6" id="r6">Rainbow</label>
 
-     	                    <input type="radio" name="radio-choice" id="radio-choice-7" value="choice-7" onclick="makeFire()"/>
+     	                    <input type="radio" name="radio-choice" id="radio-choice-7" value="choice-7" onclick="makeFire();mouseClick()"/>
      	                    <label for="radio-choice-7" id="r7">Fire</label>
 
-     	                    <input type="radio" name="radio-choice" id="radio-choice-8" value="choice-8" onclick="makeCat()" />
+     	                    <input type="radio" name="radio-choice" id="radio-choice-8" value="choice-8" onclick="makeCat();mouseClick()" />
      	                    <label for="radio-choice-8" id="r8">Cat</label>
      	                    
 
@@ -214,12 +214,12 @@
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro()"></a>
+                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro();mouseClick()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic()"></a>
+                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic();mouseClick()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -241,14 +241,14 @@
                         <input type = "hidden" name="userName" id = "userName"/>
                         <input type = "hidden" name="userScore" id = "userScore" value="0"/>
                     </fieldset>                 
-                    <input value = "Submit your score!" type = "submit" />
+                    <input value = "Submit your score!" type = "submit" onclick="mouseClick()" />
                 </form>
             </div>
             <div data-role="footer" class="ui-bar" data-position="fixed" data-tap-toggle="false">
                 <div class="col-xs-12">
                     <div class="col-xs-4"></div>
                         <div class="col-xs-4">
-                            <a class="homebut" href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" data-icon="home" data-iconpos="notext" onclick="playIntro()"></a>
+                            <a class="homebut" href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" data-icon="home" data-iconpos="notext" onclick="playIntro();mouseClick()"></a>
                         </div>
                     <div class="col-xs-4"></div>
                 </div>

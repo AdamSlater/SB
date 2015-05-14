@@ -59,6 +59,7 @@ function makeRainbow() {
 
 /*display next correct tile*/
 function hint() {
+    mouseClick();
     if(checkCash(10)){
     window.location.href = '#game-page';
     var hint = path[clickCount];
@@ -79,6 +80,7 @@ function hint() {
 
 /*repeats pattern*/
 function repeat() {
+    mouseClick();
     if(checkCash(20)){
     window.location.href = '#game-page';
 	var offset = 0;
@@ -105,6 +107,7 @@ function repeat() {
 }
 
 function slowMo() {
+    mouseClick();
     if(checkCash(30)){
     window.location.href = '#game-page';
     var offset = 0;
@@ -131,6 +134,7 @@ function slowMo() {
 }
 
 function stopTimer(){
+    mouseClick();
     if(checkCash(50)){
     window.location.href = '#game-page';
 	clearInterval(timer);
@@ -145,6 +149,7 @@ function stopTimer(){
 
 
 function skip(){
+    mouseClick();
     if(checkCash(60)){
     window.location.href = '#game-page';
 	xp += pathLength++;
@@ -171,6 +176,7 @@ function skip(){
 }
 
 function oneUp(){
+    mouseClick();
     if(checkCash(70)){
 	console.log("life added");
 	$(".lives").html(++lives+ " <img src='images/donkey.png' alt='LIVES'/>");
@@ -183,6 +189,7 @@ function oneUp(){
 }
 
 function randomSkill(){
+    mouseClick();
     var rand;
     if(checkCash(40)){
     	randomSk = true;
@@ -206,6 +213,7 @@ function randomSkill(){
 }
 
 function dubCash(){
+    mouseClick();
     if(checkCash(10)){
         window.location.href = '#game-page';
 	money = 30;
@@ -216,6 +224,7 @@ function dubCash(){
 }
 
 function dubXP(){
+    mouseClick();
     if(checkCash(20)){
         window.location.href = '#game-page';
 	exp = 2;
@@ -226,6 +235,7 @@ function dubXP(){
 }
 
 function dubBoth(){
+    mouseClick();
     if(checkCash(30)){
         window.location.href = '#game-page';
 	exp = 2;
@@ -237,6 +247,7 @@ function dubBoth(){
 }
 
 function allIn(){
+    mouseClick();
     if(checkCash(120)){
         window.location.href = '#game-page';
 	isAllIn = true;
