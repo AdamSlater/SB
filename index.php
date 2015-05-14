@@ -18,8 +18,8 @@
         <audio id="redTile" src="sounds/red_tile.mp3" preload="auto"></audio>
         <audio id="yellowTile" src="sounds/yellow_tile.mp3" preload="auto"></audio>
         <audio id="pageChange" src="sounds/page_change.mp3" preload="auto"></audio>
-        <audio id="BGmusic" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
-        <audio id="introMusic" src="sounds/BGmusic.mp3" preload="auto" loop="loop" autoplay></audio>
+        <audio id="Storemusic" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
+        <audio id="introMusic" src="sounds/BG_intro.mp3" preload="auto" loop="loop" autoplay></audio>
 
         <!--Used to prevent user from accidently refreshing (commented for code testing)-->
         <!--<script type="text/javascript">

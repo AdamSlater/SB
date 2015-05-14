@@ -253,13 +253,13 @@ function checkCash(moneyz){
 
 /*store music*/
 function playStoreBG(){
-    var storeBG = document.getElementById("BGmusic");
+    var storeBG = document.getElementById("Storemusic");
     storeBG.volume = 0.2;
     storeBG.muted = muteMusic;
     storeBG.play();
 }
 
 function stopStoreBG(){
-    var storeBG = document.getElementById("BGmusic");
+    var storeBG = document.getElementById("Storemusic");
         storeBG.pause();    
 }
