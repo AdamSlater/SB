@@ -20,6 +20,7 @@
         <audio id="pageChange" src="sounds/page_change.mp3" preload="auto"></audio>
         <audio id="Storemusic" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
         <audio id="introMusic" src="sounds/BG_intro.mp3" preload="auto" loop="loop" autoplay></audio>
+        <audio id="gameMusic" src="sounds/BG_game.mp3" preload="auto" loop="loop"></audio>
 
         <!--Used to prevent user from accidently refreshing (commented for code testing)-->
         <!--<script type="text/javascript">
@@ -31,7 +32,7 @@
 <!--main-->
         <div id="main-page" data-role="page">
             <img id="main-sign" src="images/signScaled.png" alt="Main Menu Sign"/>
-            <a href="index.html#game-page" data-transition="pop" onclick="stopIntro()">
+            <a href="index.html#game-page" data-transition="pop" onclick="stopIntro();playGameMusic()">
                 <img class="play-sign" src="images/play.png" alt="Play Game"/>
             </a>
             <a href="index.html#instruct-page" data-transition="slide" onclick="stopIntro()">
@@ -92,7 +93,7 @@
                     </div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG()"></a>
+                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -127,12 +128,12 @@
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playIntro()"></a>
+                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playIntro();stopGameMusic();playTransition()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#store-page" data-transition="flip" data-theme="a" data-role="button" class="ui-icon-pause" data-iconpos="notext" onclick="pause();playTransition();playStoreBG()"></a>
+                            <a href="index.html#store-page" data-transition="flip" data-theme="a" data-role="button" class="ui-icon-pause" data-iconpos="notext" onclick="pause();playTransition();playStoreBG();stopGameMusic()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -213,12 +214,12 @@
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG()"></a>
+                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG()"></a>
+                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">

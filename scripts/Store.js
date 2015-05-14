@@ -73,6 +73,7 @@ function hint() {
     coins = coins - 10;
     $(".coins").html(coins+" COINS");
     stopStoreBG();
+    playGameMusic();
     }
 }
 
@@ -99,6 +100,7 @@ function repeat() {
     coins = coins - 20;
     $(".coins").html(coins+" COINS");
     stopStoreBG();
+    playGameMusic();
     }
 }
 
@@ -124,6 +126,7 @@ function slowMo() {
     coins = coins - 30;
     $(".coins").html(coins+" COINS");
     stopStoreBG();
+    playGameMusic();
     }
 }
 
@@ -136,6 +139,7 @@ function stopTimer(){
 	coins = coins - 50;
         $(".coins").html(coins+" COINS");
 	stopStoreBG();
+    playGameMusic();
     }
 }
 
@@ -162,6 +166,7 @@ function skip(){
         gridChange();
     	
 	stopStoreBG();
+    playGameMusic();
     }
 }
 
@@ -173,6 +178,7 @@ function oneUp(){
         setTimeout(function(){$("#lives2").css({"color": "#00ff00"});}, (250));
 	coins = coins - 70;
     	$(".coins").html(coins+" COINS");
+        playGameMusic();
     }
 }
 
@@ -205,6 +211,7 @@ function dubCash(){
 	money = 30;
 	coins = coins - 10;
     	$(".coins").html(coins+" COINS");
+        playGameMusic();
     }
 }
 
@@ -214,6 +221,7 @@ function dubXP(){
 	exp = 2;
 	coins = coins - 20;
     	$(".coins").html(coins+" COINS");
+        playGameMusic();
     }
 }
 
@@ -224,6 +232,7 @@ function dubBoth(){
 	money = 30;
 	coins = coins - 30;
     	$(".coins").html(coins+" COINS");
+        playGameMusic();
     }
 }
 
@@ -233,6 +242,7 @@ function allIn(){
 	isAllIn = true;
 	coins = coins - 120;
     	$(".coins").html(coins+" COINS");
+        playGameMusic();
     }
 }
 
