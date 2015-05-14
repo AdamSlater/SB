@@ -315,3 +315,9 @@ function mouseClick() {
     var click = document.getElementById("mouseClick");
     click.play();
 }
+
+window.onunload = window.onbeforeunload = (function () {
+    console.log("prints");
+    window.location.href = '#main-page';
+    location.reload();
+})
