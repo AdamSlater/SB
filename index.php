@@ -14,14 +14,15 @@
     <body>
 
         <!--Preloading audio tracks for later use-->
-        <audio id="greenTile" src="sounds/green_tile.mp3" preload="auto"></audio>
-        <audio id="redTile" src="sounds/red_tile.mp3" preload="auto"></audio>
-        <audio id="yellowTile" src="sounds/yellow_tile.mp3" preload="auto"></audio>
-        <audio id="pageChange" src="sounds/page_change.mp3" preload="auto"></audio>
-        <audio id="Storemusic" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
-        <audio id="introMusic" src="sounds/BG_intro.mp3" preload="auto" loop="loop" autoplay></audio>
-        <audio id="gameMusic" src="sounds/BG_game.mp3" preload="auto" loop="loop"></audio>
-        <audio id="mouseClick" src="sounds/mouse_click.mp3" preload="auto"></audio>
+        <audio id="greenTile" class="sound" src="sounds/green_tile.mp3" preload="auto"></audio>
+        <audio id="redTile" class="sound" src="sounds/red_tile.mp3" preload="auto"></audio>
+        <audio id="yellowTile" class="sound" src="sounds/yellow_tile.mp3" preload="auto"></audio>
+        <audio id="pageChange" class="sound" src="sounds/page_change.mp3" preload="auto"></audio>
+        <audio id="mouseClick" class="sound" src="sounds/mouse_click.mp3" preload="auto"></audio>
+        <audio id="Storemusic" class="music" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
+        <audio id="introMusic" class="music" src="sounds/BG_intro.mp3" preload="auto" loop="loop" autoplay></audio>
+        <audio id="gameMusic" class="music" src="sounds/BG_game.mp3" preload="auto" loop="loop"></audio>
+
         <!--Used to prevent user from accidently refreshing (commented for code testing)-->
         <!--<script type="text/javascript">
             window.onbeforeunload = function() {

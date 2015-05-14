@@ -264,11 +264,11 @@ function muteSounds() {
     path += (!muteSound) ? "soundmute.png" : "sound.png";
     $("#muteSound").attr("src", path);
     if (muteSound) {
-        $("audio:not([autoplay])").prop('muted', false);
+        $(".sound").prop('muted', false);
         muteSound = false;
     }
     else {
-        $("audio:not([autoplay])").prop('muted', true);
+        $(".sound").prop('muted', true);
         muteSound = true;
     }
 }
@@ -279,13 +279,11 @@ function muteMusics() {
     $("#muteMusic").attr("src", path);
 
     if (muteMusic) {
-        $("#introMusic").prop('muted', false);
-        $("#BGmusic").prop('muted', false);
+        $(".music").prop('muted', false);
         muteMusic = false;
     }
     else {
-        $("#introMusic").prop('muted', true);
-        $("#BGmusic").prop('muted', true);
+        $(".music").prop('muted', true);
         muteMusic = true;
     }
 }
