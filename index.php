@@ -14,14 +14,17 @@
     <body>
 
         <!--Preloading audio tracks for later use-->
-        <audio id="greenTile" src="sounds/green_tile.mp3" preload="auto"></audio>
-        <audio id="redTile" src="sounds/red_tile.mp3" preload="auto"></audio>
-        <audio id="yellowTile" src="sounds/yellow_tile.mp3" preload="auto"></audio>
-        <audio id="pageChange" src="sounds/page_change.mp3" preload="auto"></audio>
-        <audio id="Storemusic" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
-        <audio id="introMusic" src="sounds/BG_intro.mp3" preload="auto" loop="loop" autoplay></audio>
-        <audio id="gameMusic" src="sounds/BG_game.mp3" preload="auto" loop="loop"></audio>
-        <audio id="mouseClick" src="sounds/mouse_click.mp3" preload="auto"></audio>
+        <audio id="greenTile" class="sound" src="sounds/green_tile.mp3" preload="auto"></audio>
+        <audio id="redTile" class="sound" src="sounds/red_tile.mp3" preload="auto"></audio>
+        <audio id="yellowTile" class="sound" src="sounds/yellow_tile.mp3" preload="auto"></audio>
+        <audio id="pageChange" class="sound" src="sounds/page_change.mp3" preload="auto"></audio>
+        <audio id="mouseClick" class="sound" src="sounds/mouse_click.mp3" preload="auto"></audio>
+        <audio id="Storemusic" class="music" src="sounds/StoreBG_Loop.mp3" preload="auto" loop="loop"></audio>
+        <audio id="introMusic" class="music" src="sounds/BG_intro.mp3" preload="auto" loop="loop" autoplay></audio>
+        <audio id="gameMusic" class="music" src="sounds/BG_game.mp3" preload="auto" loop="loop"></audio>
+        <audio id="coinDrop" class="sound" src="sounds/coin_drop.mp3" preload="auto"></audio>
+        <audio id="cashRegister" class="sound" src="sounds/cash_register.mp3" preload="auto"></audio>
+        
         <!--Used to prevent user from accidently refreshing (commented for code testing)-->
         <!--<script type="text/javascript">
             window.onbeforeunload = function() {
@@ -32,13 +35,13 @@
 <!--main-->
         <div id="main-page" data-role="page">
             <img id="main-sign" src="images/signScaled.png" alt="Main Menu Sign"/>
-            <a href="index.html#game-page" data-transition="pop" onclick="stopIntro();playGameMusic();mouseClick()()">
+            <a href="index.html#game-page" data-transition="pop" onclick="stopIntro();playGameMusic();mouseClick()">
                 <img class="play-sign" src="images/play.png" alt="Play Game"/>
             </a>
-            <a href="index.html#instruct-page" data-transition="slide" onclick="stopIntro();mouseClick()()">
+            <a href="index.html#instruct-page" data-transition="slide" onclick="stopIntro();mouseClick()">
                 <img class="play-sign" src="images/instructions.png" alt="Instructions"/>
             </a>  
-            <a href="index.html#leader-page" data-transition="slide" onclick="stopIntro();mouseClick()()">
+            <a href="index.html#leader-page" data-transition="slide" onclick="stopIntro();mouseClick()">
                 <img class="play-sign" src="images/leaderboards.png" alt="Leaderboards"/>
             </a>    
             <a href="index.html#setting-page" data-transition="slide">
@@ -51,8 +54,8 @@
                 <img class="mute-sign" src="images/homeMute.png" alt="Mute"/>
             </a> 
             <div data-role="content" style="margin-top: 15%; margin-left: 25%">
-                <img id="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds();mouseClick()()"/>
-                <img id="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics();mouseClick()()"/>
+                <img id="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds();mouseClick()"/>
+                <img id="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics();mouseClick()"/>
             </div>
             
         </div>
@@ -73,8 +76,8 @@
                     <tr>
                         <td>
                             <div data-role="controlgroup" data-type="horizontal" style="margin-left: 15%">
-                                <a href="" data-role="button" onclick="previous();mouseClick()()">Prev</a>
-                                <a href="" data-role="button" onclick="next();mouseClick()()">Next</a>
+                                <a href="" data-role="button" onclick="previous();mouseClick()">Prev</a>
+                                <a href="" data-role="button" onclick="next();mouseClick()">Next</a>
                             </div>
                         </td>
                     </tr>
@@ -88,12 +91,13 @@
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro();mouseClick()()"></a>
+                            <a href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro();mouseClick()"></a>
+
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic();mouseClick()()"></a>
+                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic();mouseClick()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -121,19 +125,19 @@
             <div data-role="content">
                 <div id="game">
                     <input id="name" type="text" placeholder="Enter your name"/>
-                    <button type="submit" onclick="play();mouseClick()()">Enter</button>
+                    <button type="submit" onclick="play();mouseClick()">Enter</button>
                 </div>
             </div>
             <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="ui-bar">
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playIntro();stopGameMusic();playTransition();mouseClick()()"></a>
+                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playIntro();stopGameMusic();playTransition();mouseClick()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#store-page" data-transition="flip" data-theme="a" data-role="button" class="ui-icon-pause" data-iconpos="notext" onclick="pause();playTransition();playStoreBG();stopGameMusic();mouseClick()()"></a>
+                            <a href="index.html#store-page" data-transition="flip" data-theme="a" data-role="button" class="ui-icon-pause" data-iconpos="notext" onclick="pause();playTransition();playStoreBG();stopGameMusic();mouseClick()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -160,20 +164,20 @@
                 <div data-role="collapsible-set">
                     <div data-role="collapsible" data-theme="b">
                         <h4>Skills</h4>
-                        <a href="" id="hint" data-role="button" onclick="hint()">Hint</a>
-                        <a href="" id="repeat" data-role="button" onclick="repeat()">Repeat</a>
-                        <a href="" id="slowmo" data-role="button"  onclick="slowMo()">Slow-Mo Repeat</a>
-                        <a href="" id="stop" data-role="button" onclick="stopTimer()">Stop</a>
-                        <a href="" id="skip" data-role="button" onclick="skip()">Skip</a>
-                        <a href="" id="extraLife" data-role="button"  onclick="oneUp()">Extra Life</a> 
+                        <a href="" id="hint" data-role="button" onclick="hint();storePurchase()">Hint</a>
+                        <a href="" id="repeat" data-role="button" onclick="repeat();storePurchase()">Repeat</a>
+                        <a href="" id="slowmo" data-role="button"  onclick="slowMo();storePurchase()">Slow-Mo Repeat</a>
+                        <a href="" id="stop" data-role="button" onclick="stopTimer();storePurchase()">Stop</a>
+                        <a href="" id="skip" data-role="button" onclick="skip();storePurchase()">Skip</a>
+                        <a href="" id="extraLife" data-role="button"  onclick="oneUp();storePurchase()">Extra Life</a> 
                     </div>
                     <div data-role="collapsible" data-theme="a">
                         <h4>Gambles</h4>
-                        <a href="" id="dubCash" data-role="button" onclick="dubCash()">Double Cash</a>
-                        <a href="" id="dubXP" data-role="button" onclick="dubXP()">Double XP</a>
-                        <a href="" id="dubBoth" data-role="button" onclick="dubBoth()">Double Trouble</a>
-                        <a href="" id="randSkill" data-role="button" onclick="randomSkill()">Random Skill</a>
-                        <a href="" id="allIn" data-role="button" onclick="allIn()">All In</a>
+                        <a href="" id="dubCash" data-role="button" onclick="dubCash();storePurchase()">Double Cash</a>
+                        <a href="" id="dubXP" data-role="button" onclick="dubXP();storePurchase()">Double XP</a>
+                        <a href="" id="dubBoth" data-role="button" onclick="dubBoth();storePurchase()">Double Trouble</a>
+                        <a href="" id="randSkill" data-role="button" onclick="randomSkill();storePurchase()">Random Skill</a>
+                        <a href="" id="allIn" data-role="button" onclick="allIn();storePurchase()">All In</a>
                     </div>
                     <div data-role="collapsible" data-theme="b">
                         <h4>Backgrounds</h4>
