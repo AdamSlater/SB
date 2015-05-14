@@ -179,7 +179,7 @@
                         <h4>Backgrounds</h4>
                         <fieldset data-role="controlgroup">
 	                   
-	                    <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-3" checked="checked" onclick="makeDefault()"/>
+	                    <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-3" checked="checked" onclick="makeDefault();mouseClick()"/>
      	                    <label for="radio-choice-1" id="r1">Default</label>
      	                    
      	                    <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-1" onclick="makePeach();mouseClick()"/>
