@@ -112,6 +112,14 @@ function resize() {
         "width": (270/320)*scrWidth
     });
    
+    $(".storeCont").css({
+        "margin-top": (90/480)*scrHeight
+    });
+
+    $(".mute-sign-ldr").css({
+        "top": (35/480)*scrHeight+"px",
+        "margin-left": (225/320)*scrWidth
+    });
 }
 
 //Draws grid

@@ -149,7 +149,7 @@
         </div>
 <!--store-->
         <div id="store-page" data-role="page">
-            <div class="header" data-role="header">
+            <div class="header" data-role="header" style="z-index: 2">
                 <div class="col-xs-3">
                     <span class="xp">0 POINTS</span>
                 </div>
@@ -162,7 +162,7 @@
             </div>
             <div data-role="content">
                 <h3>Store</h3>
-                <div data-role="collapsible-set">
+                <div data-role="collapsible-set" class="storeCont">
                     <div data-role="collapsible" data-theme="b">
                         <h4>Skills</h4>
                         <a href="" id="hint" data-role="button" onclick="hint();storePurchase()">Hint</a>
@@ -236,6 +236,9 @@
 <!--leader-->
         <div id="leader-page" data-role="page">
             <div class="leaders" data-role="content" >
+                <a href="index.html#main-page" data-transition="slide" data-direction="reverse">
+                    <img class="mute-sign-ldr" src="images/homeMute.png" alt="Mute"/>
+                </a> 
                 <?php include 'leader.php';?>
             </div>
         </div>
