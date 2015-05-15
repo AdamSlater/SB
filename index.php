@@ -11,7 +11,7 @@
          <script type="text/javascript" src="scripts/Instructions.js"></script>
          <link rel="stylesheet" href="StyleSheet.css">
     </head>
-    <body>
+    <body onload="resize()">
 
         <!--Preloading audio tracks for later use-->
         <audio id="greenTile" class="sound" src="sounds/green_tile.mp3" preload="auto"></audio>
@@ -86,17 +86,17 @@
                 </p>
                 
             </div>
-            <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="ui-bar">
+            <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="footer">
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro();mouseClick()"></a>
+                            <a href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro();mouseClick()"></a>
 
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic();mouseClick()"></a>
+                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play btnimg" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic();mouseClick()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -109,38 +109,40 @@
         <div id="game-page" data-role="page">   
               <div class="header" data-role="header">
                 <div class="col-xs-3">
-                    <span class="xp">0 XP</span>
+                    <span class="xp">0 <br> POINTS</span><br>
+                    <br><span class="coins">0 <br>COINS</span>
                 </div>
-                <div class="col-xs-6">
-                    <h1 style="text-align: center">Simon's Besom</h1>
+                <div class="col-xs-6 progress-parent">
                     <div class="progress">
                         <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%"> Timer </div>
                     </div>
                 </div>
 				<div class="col-xs-3">
-                    <span class="coins">0 COINS</span>
+                    <a href="" data-transition="slide">
+                        <img class="headGear" src="images/cog.png" alt="Mute"/>
+                    </a>
                 </div>
             </div>
-            <div data-role="content">
+            <div data-role="content"class="gridPos" >
                 <div id="game">
-                    <input id="name" type="text" placeholder="Enter your name"/>
+                    <input class="gridPos" id="name" type="text" placeholder="Enter your name"/>
                     <button type="submit" onclick="play();mouseClick()">Enter</button>
                 </div>
             </div>
-            <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="ui-bar">
+            <div data-position="fixed" data-tap-toggle="false" data-role="footer" class=" footer">
                 <div>
                     <div class="col-xs-4">
-                        <div class="pause">
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playIntro();stopGameMusic();playTransition();mouseClick()"></a>
-                        </div>
+                 
+                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();playIntro();stopGameMusic();playTransition();mouseClick()"></a>
+                      
                     </div>
                     <div class="col-xs-4">
-                        <div class="pause">
-                            <a href="index.html#store-page" data-transition="flip" data-theme="a" data-role="button" class="ui-icon-pause" data-iconpos="notext" onclick="pause();playTransition();playStoreBG();stopGameMusic();mouseClick()"></a>
-                        </div>
+                    
+                            <a href="index.html#store-page" data-transition="flip" data-theme="a" data-role="button" class="ui-icon-pause btnimg" data-iconpos="notext" onclick="pause();playTransition();playStoreBG();stopGameMusic();mouseClick()"></a>
+                       
                     </div>
-                    <div class="col-xs-4">
-                        <span class="lives">3 <img src='images/donkey.png' alt='LIVES'/></span>
+                    <div class="col-xs-4 livesCont">
+                        <span class="lives"><img class="donkey" src="images/donkey.png" alt="lives"> x3</span>
                     </div>
                 </div>
             </div>
@@ -149,10 +151,10 @@
         <div id="store-page" data-role="page">
             <div class="header" data-role="header">
                 <div class="col-xs-3">
-                    <span class="xp">0 XP</span>
+                    <span class="xp">0 POINTS</span>
                 </div>
                 <div class="col-xs-6">
-                    <h1 style="text-align: center">Simon's Besom</h1>
+                    <h1 style="text-align: center"></h1>
                 </div>
 				<div class="col-xs-3">
                     <span id="coins" class="coins">0 COINS</span>
@@ -213,50 +215,43 @@
                 </div>
             </div>
 
-            <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="ui-bar">
+            <div data-position="fixed" data-tap-toggle="false" data-role="footer" class=" footer">
                 <div>
                     <div class="col-xs-4">
-                        <div class="pause">
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro();mouseClick()"></a>
-                        </div>
+                      
+                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro();mouseClick()"></a>
+                        
                     </div>
                     <div class="col-xs-4">
-                        <div class="pause">
-                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic();mouseClick()"></a>
-                        </div>
+                        
+                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play btnimg" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic();mouseClick()"></a>
+                        
                     </div>
-                    <div class="col-xs-4">
-                        <span class="lives">3 <img src='images/donkey.png' alt='LIVES'/></span>
+                    <div class="col-xs-4 livesCont">
+                        <span class="lives"><img class="donkey" src="images/donkey.png" alt="lives"> x3</span>
                     </div>
                 </div>
             </div>
         </div>
 <!--leader-->
         <div id="leader-page" data-role="page">
-            <div class="header" data-role="header">
-                <h1>Leaderboard</h1>
-            </div>
-            <div data-role="content" style="margin-top: 15%">
+            <div class="leaders" data-role="content" >
                 <?php include 'leader.php';?>
+            </div>
+        </div>
+<!--over-->
+        <div id="over-page" data-role="page">
+            <div class="over" data-role="content" >
+                <img class="overDonkey" src="images/overDonkey.png" alt="donkey">
                 <!--Scores-->
                 <form name="vote" action="leader.php" method="post" data-ajax="false">
-                    <fieldset data-role="controlgroup">
-                        <input type = "hidden" name="userName" id = "userName"/>
-                        <input type = "hidden" name="userScore" id = "userScore" value="0"/>
-                    </fieldset>                 
-                    <input value = "Submit your score!" type = "submit" onclick="mouseClick()" />
+                	<fieldset data-role="controlgroup">
+                		<input type = "hidden" name="userName" id = "userName"/>
+                		<input type = "hidden" name="userScore" id = "userScore" value="0"/>
+                		<input type = "hidden" name="userLevel" id = "userLevel" value="1"/>
+                	</fieldset>                 
+                	<input value = "Submit your score!" type = "submit" />
                 </form>
-            </div>
-            <div data-role="footer" class="ui-bar" data-position="fixed" data-tap-toggle="false">
-                <div class="col-xs-12">
-                    <div class="col-xs-4"></div>
-                        <div class="col-xs-4">
-                            <a class="homebut" href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" data-icon="home" data-iconpos="notext" onclick="playIntro();mouseClick()"></a>
-                        </div>
-                    <div class="col-xs-4"></div>
-                </div>
-                <br/><br/>
-                <h3>Team Spirit Fingers &copy;</h3>
             </div>
         </div>
     </body>

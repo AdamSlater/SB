@@ -172,13 +172,9 @@ function skip(){
 
 function oneUp(){
     if(checkCash(70)){
-	console.log("life added");
-	$(".lives").html(++lives+ " <img src='images/donkey.png' alt='LIVES'/>");
-	$("#lives2").css({"color": "#ffcc0b"});
-    setTimeout(function(){$("#lives2").css({"color": "#00ff00"});}, (250));
-	coins = coins - 70;
-    $(".coins").html(coins+" COINS");
-    playGameMusic();
+		$(".lives").html(" <img class='donkey' src='images/donkey.png' alt='LIVES'/>" + "x" + (++lives));
+		coins = coins - 70;
+    	$(".coins").html(coins+" COINS");
     }
 }
 

@@ -10,6 +10,109 @@ var muteMusic = false, muteSound = false;
 var money = 10, exp = 1;
 var isAllIn = false;
 var streak = 0;
+var scrHeight, scrWidth;
+
+function resize() {
+    scrHeight = $(window).height();
+    scrWidth = $(window).width();
+
+    $(".header").height((100/480)*scrHeight);
+    $(".footer").height((80/480)*scrHeight);
+    $(".progress").css({
+        "margin-top":(30/480)*scrHeight, 
+        "height":(40/480)*scrHeight
+    });
+
+    $(".progress-bar").css({
+        "line-height":(40/480)*scrHeight + "px",
+        "font-size": (22/480)*scrHeight
+    });
+
+    $(".coins").css({
+        "font-size": (12/480)*scrHeight
+    });
+
+    $(".xp").css({
+        "font-size": (12/480)*scrHeight
+    });
+
+    $(".col-xs-3").css({
+        "padding-top": (7/480)*scrHeight,
+        "text-align": "center"
+    });
+
+    $(".headGear").css({
+        "padding-top": (20/480)*scrHeight,
+        "height": (70/480)*scrHeight
+    });
+
+    $(".livesCont").css({
+        "margin-top": (20/480)*scrHeight
+    });
+
+    $(".lives").css({
+       "font-size": (20/480)*scrHeight
+    });
+    
+    $(".donkey").css({
+        "height": (40/480)*scrHeight
+    });
+
+    $(".btnimg").css({
+        "background-position": "center",
+        "background-repeat": "no-repeat",
+        "display": "block",
+        "margin-left": "auto",
+        "margin-right": "auto",
+        "margin-top": (13 / 480) * scrHeight+"px"
+    });
+
+    $(".btnimg").each(function () {
+        this.style.setProperty('height', (50 / 480) * scrHeight + 'px', 'important');
+        this.style.setProperty('width', (50 / 480) * scrHeight + 'px', 'important');
+    });
+
+    $(".gridPos").css({
+        "margin-top": (105 / 480) * scrHeight
+    });
+
+    $("#leader-page").css({
+        "background-image": "url('images/leaderBG.png')",
+        "background-position": "center",
+        "background-repeat": "no-repeat",
+        "background-size": scrWidth + "px " + scrHeight + "px"
+    });
+
+    $(".leaders").css({
+        "margin-top": (125 / 480) * scrHeight
+    });
+
+    $(".ldrTable").css({
+        "position": "absolute",
+        "left": (40 / 320) * scrWidth + "px",
+        "font-size": (25 / 480) * scrHeight + "px",
+        "color": "#553c27",
+        "text-shadow": "none"
+    });
+
+    $(".scoreData").css({
+        "position": "absolute",
+        "left": (104 / 320) * scrWidth+"px"
+    });
+
+    $(".levelData").css({
+        "position": "absolute",
+        "left": (209 / 320) * scrWidth+"px"
+    });
+
+    $(".overDonkey").css({
+        "margin-left": (25/480)*scrWidth,
+        "margin-top": (25/480)*scrHeight,
+        "height": (270/480)*scrHeight,
+        "width": (270/320)*scrWidth
+    });
+   
+}
 
 //Draws grid
 function init(rows,cols) {
@@ -23,11 +126,15 @@ function init(rows,cols) {
                  $('<br>').appendTo('#frame');
         }       
     }
+	$(".cell").css({
+        "height": (250/480/cols)*scrHeight+"px",
+        "width": (250/480/cols)*scrHeight+"px"
+    });
 }
 
 /*Called after user name submitted*/
 function play() {
-    $(".ui-content").css({"margin-top":"35%"});
+    
     playing = true; //done once, prevents actions before playing
 
     name = $("#name").attr("value"); //adds to form for leaderboard
@@ -124,7 +231,8 @@ function getUserChoice(click_id) {
         setTimeout(function(){$("#" + click_id).removeClass("selected");}, (250)); //removes green
         clickCount++;
         xp += exp;
-        $(".xp").html(xp + "XP"); //1 xp per correct cell
+        var p= (xp==1)?"POINT":"POINTS";
+        $(".xp").html(xp + "<br>"+p); //1 xp per correct cell
         $("#userScore").attr("value", xp); //used for leaderboard score
     }
     else {
@@ -138,12 +246,13 @@ function getUserChoice(click_id) {
     //regresses, pathlength
     if (numWrong == 2) {
      	disableUserChoice();
-     	if (lives != 1) {
-	    	$(".lives").css({"color": "#ff0000"});		            
-            $(".lives").html(--lives + " <img src='images/donkey.png' alt='LIVES'/>");
-            setTimeout(function(){$(".lives").css({"color": "#00ff00"});}, (250));
-        } else
-            alert("ur a failure");
+     	$(".lives").html(" <img class='donkey' src='images/donkey.png' alt='LIVES'/>" + "x" + (--lives));
+     	resize();
+        if (lives == 0) {
+     	    window.location.href = "#over-page";
+            $("#game").html("<button onclick='over()'>Go Submit Your Score!</button>");
+     	    return;
+     	}
 		pathLength--;
 		isAllIn = false;
         streak = 0;
@@ -166,14 +275,14 @@ function getUserChoice(click_id) {
     if (path[clickCount] == -3) {
 		disableUserChoice();
         endRoundReward();
-        $(".coins").html((coins+=money) + " COINS");
+         $(".coins").html((coins+=money) + "<br>COINS");
          pathLength++;
 		 if(isAllIn){
              streak++;
              if(streak == 10){
-             	$(".coins").html((coins+= 120) + " COINS");
+             	$(".coins").html((coins+= 120) + "<br>COINS");
              	xp += 120;
-             	$(".xp").html(xp + "XP");
+             	$(".xp").html(xp + "<br>POINTS");
              	isAllIn = false;
              	streak = 0;
              }
@@ -333,3 +442,16 @@ window.onunload = window.onbeforeunload = (function () {
     window.location.href = '#main-page';
     location.reload();
 })
+
+window.onunload = window.onbeforeunload = (function () {
+    (window.location.hash == "#over-page") ? window.location.href = '#leader-page' : window.location.href = '#main-page';
+    location.reload();
+});
+
+$(window).resize(function () {
+    resize();
+})
+
+function over(){
+    window.location.href = "#over-page";
+}
