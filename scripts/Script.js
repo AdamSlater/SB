@@ -210,23 +210,21 @@ function disableUserChoice() {
 }
 
 function getUserChoice(click_id) {
-    if (time <= 0) { //return early if timeup
-        clearInterval(timer);
-        timer = false;
-        return;
-    } 
+    
 
     if(!firstClick || !timer) {
         firstClick = true;
         timer = setInterval(function () {
-            if (time == 0){
-             clearInterval(timer);
-             timer = false;
-             }
-            $('#timer').html(time-- + " donkey seconds");
+            if (time <= 0 && lives != 0) {
+                clearInterval(timer);
+                timer = false;
+                getUserChoice(-1);
+                console.log("hello");
+            }
+
             if (time >= 0) {
-                $('.progress-bar').html(time); //text on progress bar
-                $('.progress-bar').css('width', Math.floor((time / (250 * pathLength)) * 100) + '%');//red part of progress bar
+                $('.progress-bar').html(time--); //text on progress bar
+                $('.progress-bar').css('width', Math.floor((time / (250 * pathLength)) * 100) + '%'); //red part of progress bar
                 $('progress-bar').attr('aria-valuenow', ((time / (250 * pathLength)) * 100));
             }
         }, 1);
