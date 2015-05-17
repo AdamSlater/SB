@@ -1,36 +1,15 @@
 /*pause btn icon*/
 .ui-icon-pause {
-	background-image: url("images/pause.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50px !important;/*ignores regular css rules*/
-    height: 50px !important;
+    background-image: url("images/pause.png");
 }
 /*home btn icon (jQuery owns "home")*/
 .ui-icon-homez {
 	background-image: url("images/home.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50px !important;
-    height: 50px !important;
 }
 
 /*play btn icon*/
 .ui-icon-play {
 	background-image: url("images/playB.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50px !important;
-    height: 50px !important;
 }
 
 .homeBut {
@@ -61,8 +40,6 @@ h1{
     border-color: #A7A7A7;
     border-width: 1px;
     border-style: solid;
-    width: 44px;
-    height: 44px;
 }
 
 /*tile selected background color*/
@@ -86,16 +63,27 @@ h1{
     background-repeat: no-repeat;
 }
 
+
 .header {
+    background-image: url("images/footer.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
+    height: 20%;
     position: fixed;
     top: 0px;
 }
 
 /*footer*/
-.ui-bar {
+.footer {
+    background-image: url("images/footer.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-bottom: 25px;
-}   
+}
+
 
 
 /*ul and li determine grid*/
@@ -119,8 +107,8 @@ h3 {
 }
 
 .lives {
-	font-size: 15px;
-    color: #00cc00;
+   color: #7C7C7C;
+   text-shadow: -1px -1px 1px #FFFFFF, 1px 1px 1px #000000;
 }
 
 .coins {
@@ -302,6 +290,13 @@ h3 {
     top: 0px;
     margin-left: 86%;
 }
+
+.mute-sign-ldr {
+    width: 44px;
+    height: 44px;
+    position: fixed;
+}
+
 .sound-sign {
     width: 44px;
     height: 44px;
@@ -311,9 +306,13 @@ h3 {
 }
 
 .progress {
-    margin-top: 5%;
+    margin-top: 0px;
 }
 
+.progress-bar{
+    color: #655b5b;
+    text-shadow: none;
+}
 
 #name, #submitInstr, #backInstr {
     margin-top: 40%;
