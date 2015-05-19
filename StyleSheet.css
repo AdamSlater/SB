@@ -65,7 +65,7 @@ h1{
 
 
 .header {
-    background-image: url("images/footer.jpg");
+    background-image: url("images/header.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -345,7 +345,12 @@ h3 {
     margin-left: auto;
     margin-right: auto;
 }
+
 #instruct {
     padding-top: 2%;
     margin-top: 12%;
+}
+
+.ui-btn-icon-notext {
+    background-color: #692002;
 }
