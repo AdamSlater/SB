@@ -118,9 +118,12 @@
                     </div>
                 </div>
 				<div class="col-xs-3">
-                    <a href="" data-transition="slide">
-                        <img class="headGear" src="images/cog.png" alt="Mute"/>
-                    </a>
+                    <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window"><img class="headGear" src="images/cog.png" alt="Mute"/></a>		
+                        <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
+                            <img id="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds();mouseClick()"/>
+                            <br>
+                            <img id="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics();mouseClick()"/>
+                        </div>
                 </div>
             </div>
             <div data-role="content"class="gridPos" >
@@ -165,20 +168,20 @@
                 <div data-role="collapsible-set" class="storeCont">
                     <div data-role="collapsible" data-theme="b">
                         <h4>Skills</h4>
-                        <a href="" id="hint" data-role="button" onclick="hint();storePurchase()">Hint</a>
-                        <a href="" id="repeat" data-role="button" onclick="repeat();storePurchase()">Repeat</a>
-                        <a href="" id="slowmo" data-role="button"  onclick="slowMo();storePurchase()">Slow-Mo Repeat</a>
-                        <a href="" id="stop" data-role="button" onclick="stopTimer();storePurchase()">Stop</a>
-                        <a href="" id="skip" data-role="button" onclick="skip();storePurchase()">Skip</a>
-                        <a href="" id="extraLife" data-role="button"  onclick="oneUp();storePurchase()">Extra Life</a> 
+                        <a href="" id="hint" data-role="button" onclick="hint();">Hint</a>
+                        <a href="" id="repeat" data-role="button" onclick="repeat();">Repeat</a>
+                        <a href="" id="slowmo" data-role="button"  onclick="slowMo();">Slow-Mo Repeat</a>
+                        <a href="" id="stop" data-role="button" onclick="stopTimer();">Stop</a>
+                        <a href="" id="skip" data-role="button" onclick="skip();">Skip</a>
+                        <a href="" id="extraLife" data-role="button"  onclick="oneUp();">Extra Life</a> 
                     </div>
                     <div data-role="collapsible" data-theme="a">
                         <h4>Gambles</h4>
-                        <a href="" id="dubCash" data-role="button" onclick="dubCash();storePurchase()">Double Cash</a>
-                        <a href="" id="dubXP" data-role="button" onclick="dubXP();storePurchase()">Double XP</a>
-                        <a href="" id="dubBoth" data-role="button" onclick="dubBoth();storePurchase()">Double Trouble</a>
-                        <a href="" id="randSkill" data-role="button" onclick="randomSkill();storePurchase()">Random Skill</a>
-                        <a href="" id="allIn" data-role="button" onclick="allIn();storePurchase()">All In</a>
+                        <a href="" id="dubCash" data-role="button" onclick="dubCash();">Double Cash</a>
+                        <a href="" id="dubXP" data-role="button" onclick="dubXP();">Double XP</a>
+                        <a href="" id="dubBoth" data-role="button" onclick="dubBoth();">Double Trouble</a>
+                        <a href="" id="randSkill" data-role="button" onclick="randomSkill();">Random Skill</a>
+                        <a href="" id="allIn" data-role="button" onclick="allIn();">All In</a>
                     </div>
                     <div data-role="collapsible" data-theme="b">
                         <h4>Backgrounds</h4>
@@ -236,7 +239,7 @@
 <!--leader-->
         <div id="leader-page" data-role="page">
             <div class="leaders" data-role="content" >
-                <a href="index.html#main-page" data-transition="slide" data-direction="reverse">
+                <a href="index.html#main-page" data-transition="slide" data-direction="reverse" onclick="playIntro()">
                     <img class="mute-sign-ldr" src="images/homeMute.png" alt="Mute"/>
                 </a> 
                 <?php include 'leader.php';?>

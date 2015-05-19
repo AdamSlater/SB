@@ -1,59 +1,34 @@
 var randomSk = false;
 
 function makePeach() {
-    $("#game-page, #instruct-page, #store-page").css({"background": "#FF9966"});
+    $("#game-page, #store-page").css({"background": "#FF9966"});
 }
 
 function makeDefault() {
-    $("#game-page, #instruct-page, #store-page").css({"background": "#A5F1FF"});
+    $("#game-page, #store-page").css({"background": "#A5F1FF"});
 }
 function makePuke() {
-    $("#game-page, #instruct-page, #store-page").css({"background": "#CCCC00 "});
+    $("#game-page, #store-page").css({"background": "#CCCC00 "});
 }
 
 function makeFire() {
-    $("#game-page, #instruct-page, #store-page").css({
-        "background-image" : "url('images/giphy 1.gif')",
-        "background-position" : "center",
-        "background-repeat" : "no-repeat",
-        "background-size" : "cover"
-    });
+    $("#game-page, #store-page").css({"background-image" : "url('images/giphy 1.gif')"});
 }
 
 function makeFood() {
-    $("#game-page, #instruct-page, #store-page").css({
-        "background-image" : "url('images/food.jpg')",
-        "background-position" : "center",
-        "background-repeat" : "no-repeat",
-        "background-size" : "cover"
-    });
+    $("#game-page,  #store-page").css({"background-image" : "url('images/food.jpg')"});
 }
 
 function makeCat() {
-    $("#game-page, #instruct-page, #store-page").css({
-        "background-image" : "url('images/cat.gif')",
-        "background-position" : "center",
-        "background-repeat" : "no-repeat",
-        "background-size" : "cover"
-    });
+    $("#game-page, #store-page").css({"background-image" : "url('images/cat.gif')"});
 }
 
 function makeMatrix() {
-    $("#game-page, #instruct-page, #store-page").css({
-        "background-image" : "url('images/matrix.gif')",
-        "background-position" : "center",
-        "background-repeat" : "no-repeat",
-        "background-size" : "cover"
-    });
+    $("#game-page, #store-page").css({"background-image" : "url('images/matrix.gif')"});
 }
 
 function makeRainbow() {
-    $("#game-page, #instruct-page, #store-page").css({
-        "background-image" : "url('images/rainbow.gif')",
-        "background-position" : "center",
-        "background-repeat" : "no-repeat",
-        "background-size" : "cover"
-    });
+    $("#game-page, #store-page").css({"background-image" : "url('images/rainbow.gif')"});
 }
 
 
@@ -63,14 +38,12 @@ function hint() {
         window.location.href = '#game-page';
         var hint = path[clickCount];
         yellow.muted = muteSound;
-        setTimeout(function() {
-            yellow.pause();
-            yellow.currentTime = 0;
-            yellow.play();
+        setTimeout(function () {
+            resetAudio(yellow);
             $("#" + hint).addClass("path");
-            setTimeout(function(){$("#" + hint).removeClass("path");}, (250));
+            setTimeout(function () { $("#" + hint).removeClass("path"); }, (250));
         }, 500);
-        coins = coins - 10;
+        coins -= 10;
         $(".coins").html(coins+" COINS");
         stopStoreBG();
         playGameMusic();
@@ -84,20 +57,18 @@ function repeat() {
         var offset = 0;
         var tmpPath = 0;
         yellow.muted = muteSound;
-        path.forEach(function(e) {
-            if(tmpPath < path.length-1){
-                setTimeout(function() {
-                    yellow.pause();
-                    yellow.currentTime = 0;
-                    yellow.play();
-                    $("#" + e).addClass("path");//makes cell yellow
-                    setTimeout(function(){$("#" + e).removeClass("path");}, (250));//removes yellow
-                }, 500 + offset);    
+        path.forEach(function (e) {
+            if (tmpPath < path.length - 1) {
+                setTimeout(function () {
+                    resetAudio(yellow);
+                    $("#" + e).addClass("path"); //makes cell yellow
+                    setTimeout(function () { $("#" + e).removeClass("path"); }, (250)); //removes yellow
+                }, 500 + offset);
                 offset += 500;
                 tmpPath++;
             }
         });
-        coins = coins - 20;
+        coins -= 20;
         $(".coins").html(coins+" COINS");
         stopStoreBG();
         playGameMusic();
@@ -110,20 +81,18 @@ function slowMo() {
         var offset = 0;
         var tmpPath = 0;
         yellow.muted = muteSound;
-        path.forEach(function(e) {
-        if(tmpPath < path.length-1){
-            setTimeout(function() {
-                yellow.pause();
-                yellow.currentTime = 0;
-                yellow.play();
-                $("#" + e).addClass("path");//makes cell yellow
-                setTimeout(function(){$("#" + e).removeClass("path");}, (600));//removes yellow
-            }, 1000 + offset);    
-            offset += 1000;
-            tmpPath++;
+        path.forEach(function (e) {
+            if (tmpPath < path.length - 1) {
+                setTimeout(function () {
+                    resetAudio(yellow);
+                    $("#" + e).addClass("path"); //makes cell yellow
+                    setTimeout(function () { $("#" + e).removeClass("path"); }, (600)); //removes yellow
+                }, 1000 + offset);
+                offset += 1000;
+                tmpPath++;
             }
         });
-        coins = coins - 30;
+        coins -= 30;
         $(".coins").html(coins+" COINS");
         stopStoreBG();
         playGameMusic();
@@ -136,7 +105,7 @@ function stopTimer(){
         clearInterval(timer);
         timer = true;
         firstClick = true;
-        coins = coins - 50;
+        coins -= 50;
             $(".coins").html(coins+" COINS");
         stopStoreBG();
         playGameMusic();
@@ -149,7 +118,7 @@ function skip(){
         window.location.href = '#game-page';
         xp += pathLength++;
         $(".xp").html(xp+" XP");
-        coins = coins - 60;
+        coins -= 60;
     	$(".coins").html(coins+" COINS");
     	
     	setTimeout(function() {
@@ -173,7 +142,7 @@ function skip(){
 function oneUp(){
     if(checkCash(70)){
 		$(".lives").html(" <img class='donkey' src='images/donkey.png' alt='LIVES'/>" + "x" + (++lives));
-		coins = coins - 70;
+		coins -= 70;
     	$(".coins").html(coins+" COINS");
     }
 }
@@ -182,7 +151,7 @@ function randomSkill(){
     var rand;
     if(checkCash(40)){
     	randomSk = true;
-    	coins = coins - 40;
+    	coins -= 40;
     	$(".coins").html(coins+" COINS");
         rand = Math.floor((Math.random() * 6) + 1);
         console.log(rand);
@@ -198,6 +167,7 @@ function randomSkill(){
             skip();
         if(rand == 6)
             oneUp();
+        stopStoreBG();
     }
 }
 
@@ -205,8 +175,9 @@ function dubCash(){
     if(checkCash(10)){
         window.location.href = '#game-page';
         money = 30;
-        coins = coins - 10;
+        coins -= 10;
     	$(".coins").html(coins+" COINS");
+        stopStoreBG();
         playGameMusic();
     }
 }
@@ -215,8 +186,9 @@ function dubXP(){
     if(checkCash(20)){
         window.location.href = '#game-page';
         exp = 2;
-        coins = coins - 20;
+        coins -= 20;
     	$(".coins").html(coins+" COINS");
+        stopStoreBG();
         playGameMusic();
     }
 }
@@ -226,8 +198,9 @@ function dubBoth(){
         window.location.href = '#game-page';
         exp = 2;
         money = 30;
-        coins = coins - 30;
+        coins -= 30;
     	$(".coins").html(coins+" COINS");
+        stopStoreBG();
         playGameMusic();
     }
 }
@@ -236,8 +209,9 @@ function allIn(){
     if(checkCash(120)){
         window.location.href = '#game-page';
         isAllIn = true;
-        coins = coins - 120;
+        coins -= 120;
     	$(".coins").html(coins+" COINS");
+        stopStoreBG();
         playGameMusic();
     }
 }
@@ -250,12 +224,15 @@ function checkCash(moneyz){
          setTimeout(function(){$("#coins").css({"color": "#ffff0b"});}, (250));
          return false;
     }
-    
-    if(randomSk){
+
+    if (randomSk) {
         coins += moneyz;
         randomSk = false;
     }
-    return true;
+    else {
+        storePurchase();
+        return true;
+    }
 }
 
 /*store music*/

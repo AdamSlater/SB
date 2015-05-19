@@ -407,8 +407,7 @@ function muteMusics() {
 
 function playIntro() {
     var intro = document.getElementById("introMusic");
-    intro.currentTime = 0;
-    introMusic.play();
+    resetAudio(intro);
 }
 
 function resetAudio(audio) {
