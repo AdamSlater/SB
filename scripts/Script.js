@@ -219,6 +219,7 @@ function getUserChoice(click_id) {
                 clearInterval(timer);
                 timer = false;
                 getUserChoice(-1);
+                console.log("hello");
             }
 
             if (time >= 0) {
@@ -441,12 +442,6 @@ function endRoundReward() {
     var click = document.getElementById("coinDrop");
     click.play();
 }
-
-window.onunload = window.onbeforeunload = (function () {
-    console.log("prints");
-    window.location.href = '#main-page';
-    location.reload();
-})
 
 window.onunload = window.onbeforeunload = (function () {
     (window.location.hash == "#over-page") ? window.location.href = '#leader-page' : window.location.href = '#main-page';
