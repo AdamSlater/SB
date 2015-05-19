@@ -283,6 +283,8 @@ function getUserChoice(click_id) {
         endRoundReward();
          $(".coins").html((coins+=money) + "<br>COINS");
          pathLength++;
+         if(pathLength > ($("#userLevel").val()))
+            $("#userLevel").attr("value", pathLength); //used for leaderboard score
 		 if(isAllIn){
              streak++;
              if(streak == 10){

@@ -37,7 +37,6 @@ function hint() {
     if(checkCash(10)){
         window.location.href = '#game-page';
         var hint = path[clickCount];
-        yellow.muted = muteSound;
         setTimeout(function () {
             resetAudio(yellow);
             $("#" + hint).addClass("path");
@@ -56,7 +55,6 @@ function repeat() {
         window.location.href = '#game-page';
         var offset = 0;
         var tmpPath = 0;
-        yellow.muted = muteSound;
         path.forEach(function (e) {
             if (tmpPath < path.length - 1) {
                 setTimeout(function () {
@@ -80,7 +78,6 @@ function slowMo() {
         window.location.href = '#game-page';
         var offset = 0;
         var tmpPath = 0;
-        yellow.muted = muteSound;
         path.forEach(function (e) {
             if (tmpPath < path.length - 1) {
                 setTimeout(function () {
@@ -239,7 +236,6 @@ function checkCash(moneyz){
 function playStoreBG(){
     var storeBG = document.getElementById("Storemusic");
     storeBG.volume = 0.2;
-    storeBG.muted = muteMusic;
     storeBG.play();
 }
 
