@@ -1,8 +1,10 @@
 Fixed menu music not playing when going from Leaderboards to Home page.
 Gear on game page provides basic functionality but images don't change.
 Moved cash register sound into the checkMoney function so it only plays if player has enough money. Add sound for not enough money?
-Store music plays when purchasing gambles.
+Store music stops when purchasing gambles.
 Backgrounds don't transfer over to Instructions page.
+Leaderboards now display the correct level.
+Commented all the things.
 
     background-position : center;
     background-repeat : no-repeat;
