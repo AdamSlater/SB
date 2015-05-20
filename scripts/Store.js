@@ -7,7 +7,7 @@ function makePeach() {
 }
 
 function makeDefault() {
-    $("#game-page, #store-page").css({"background": "#A5F1FF"});
+    $("#game-page, #store-page").css({"background": "#BB9264"});
 }
 function makePuke() {
     $("#game-page, #store-page").css({"background": "#CCCC00 "});
