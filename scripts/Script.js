@@ -117,6 +117,43 @@ function resize() {
         "margin-top": (90/480)*scrHeight
     });
 
+    if (scrWidth < 700) {
+        $(".play-sign , .main-sign").css({
+            "width": (320 / 320) * scrWidth + "px",
+            "height": (80 / 480) * scrHeight + "px",
+            "margin-left": "auto",
+            "margin-right": "auto",
+            "display": "block"
+        });
+    }else{
+        $(".play-sign , .main-sign").css({
+            "width": 700 + "px",
+            "height": (80 / 480) * scrHeight + "px",
+            "margin-left": "auto",
+            "margin-right": "auto",
+            "display": "block"
+        });
+    }
+
+    if (scrWidth < 700) {
+        $("#main-sign").css({
+            "width": (320 / 320) * scrWidth + "px",
+            "height": (174 / 480) * scrHeight + "px",
+            "margin-left": "auto",
+            "margin-right": "auto",
+            "display": "block"
+        });
+    }else{
+        $("#main-sign").css({
+            "width": 700 + "px",
+            "height": (174 / 480) * scrHeight + "px",
+            "margin-bottom": (20 / 480) * scrHeight+ "px",
+            "margin-left": "auto",
+            "margin-right": "auto",
+            "display": "block"
+        });
+    }
+
     $(".mute-sign-ldr").css({
         "top": (35/480)*scrHeight+"px",
         "margin-left": (225/320)*scrWidth
