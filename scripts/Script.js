@@ -391,7 +391,7 @@ function gridChange() {
 function muteSounds() {
     var path = "images/";
     path += (!muteSound) ? "soundmute.png" : "sound.png";
-    $("#muteSound").attr("src", path);
+    $(".muteSound").attr("src", path);
     if (muteSound) {
         $(".sound").prop('muted', false);
         muteSound = false;
@@ -405,7 +405,7 @@ function muteSounds() {
 function muteMusics() {
     var path = "images/";
     path += (!muteMusic) ? "musicmute.png" : "music.png";
-    $("#muteMusic").attr("src", path);
+    $(".muteMusic").attr("src", path);
 
     if (muteMusic) {
         $(".music").prop('muted', false);

@@ -34,6 +34,12 @@
 <!--main-->
         <div id="main-page" data-role="page">
             <img id="main-sign" src="images/signScaled.png" alt="Main Menu Sign"/>
+            <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window"><img class="headGear" src="images/cog.png" alt="Mute"/></a>		
+            <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
+                <img class="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds();mouseClick()"/>
+                <br>
+                <img class="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics();mouseClick()"/>
+            </div>
             <a href="index.html#game-page" data-transition="pop" onclick="stopIntro();playGameMusic();mouseClick()">
                 <img class="play-sign" src="images/play.png" alt="Play Game"/>
             </a>
@@ -42,21 +48,7 @@
             </a>  
             <a href="index.html#leader-page" data-transition="slide" onclick="stopIntro();mouseClick()">
                 <img class="play-sign" src="images/leaderboards.png" alt="Leaderboards"/>
-            </a>    
-            <a href="index.html#setting-page" data-transition="slide">
-                <img class="mute-sign" src="images/cog.png" alt="Mute"/>
-            </a> 
-        </div>
-<!--settings-->
-        <div id="setting-page" data-role="page">
-            <a href="index.html#main-page" data-transition="slide" data-direction="reverse">
-                <img class="mute-sign" src="images/homeMute.png" alt="Mute"/>
-            </a> 
-            <div data-role="content" style="margin-top: 15%; margin-left: 25%">
-                <img id="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds();mouseClick()"/>
-                <img id="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics();mouseClick()"/>
-            </div>
-            
+            </a>
         </div>
 <!--instr-->
         <div id="instruct-page" data-role="page">
@@ -118,11 +110,11 @@
                 </div>
 				<div class="col-xs-3">
                     <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window"><img class="headGear" src="images/cog.png" alt="Mute"/></a>		
-                        <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
-                            <img id="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds();mouseClick()"/>
-                            <br>
-                            <img id="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics();mouseClick()"/>
-                        </div>
+                    <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
+                        <img class="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds();mouseClick()"/>
+                        <br>
+                        <img class="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics();mouseClick()"/>
+                    </div>
                 </div>
             </div>
             <div data-role="content"class="gridPos" >
