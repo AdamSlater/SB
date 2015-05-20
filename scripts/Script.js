@@ -474,3 +474,8 @@ $(window).resize(function () {
 function over(){
     window.location.href = "#over-page";
 }
+
+function stopIntro() {
+    var intro = document.getElementById("introMusic");
+    intro.pause();
+}
