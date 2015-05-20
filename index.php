@@ -100,7 +100,6 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <img src="images/ba3.gif" alt="avatar"/>
                     </div>
                 </div>
             </div>
