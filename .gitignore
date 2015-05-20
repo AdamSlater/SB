@@ -1,5 +1,5 @@
 # Windows image file caches
-Thumbs.db
+*.db
 ehthumbs.db
 
 # Folder config file
