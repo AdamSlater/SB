@@ -130,8 +130,13 @@
                 <div>
                     <div class="col-xs-4">
                  
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();playIntro();stopGameMusic();playTransition();mouseClick()"></a>
+                            <a href="#popupDialog" data-rel="popup" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();playIntro();stopGameMusic();playTransition();mouseClick()"></a>
                       
+                    </div>
+                    <div data-role="popup" id="popupDialog" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
+                        <button type="button" class="btn btn-default btn-lg" onclick="history.go(0)">
+                            <span class="glyphicon glyphicon-refresh"></span>
+                        </button>
                     </div>
                     <div class="col-xs-4">
                     
