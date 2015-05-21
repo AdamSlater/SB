@@ -40,6 +40,9 @@
                 <br>
                 <img class="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics();mouseClick()"/>
             </div>
+            <a href="" data-transition="pop" onclick="stopIntro();mouseClick()">
+                <img class="achGear" src="images/achievo.png" alt="Achievements"/>
+            </a>
             <a href="index.html#game-page" data-transition="pop" onclick="stopIntro();playGameMusic();mouseClick()">
                 <img class="play-sign" src="images/play.png" alt="Play Game"/>
             </a>
@@ -109,7 +112,7 @@
                     </div>
                 </div>
 				<div class="col-xs-3">
-                    <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window"><img class="headGear" src="images/cog.png" alt="Mute"/></a>		
+                    <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window"><img class="gameGear" src="images/cog.png" alt="Mute"/></a>		
                     <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
                         <img class="muteSound" src="images/sound.png" alt="Mute" onclick="muteSounds();mouseClick()"/>
                         <br>

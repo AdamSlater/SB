@@ -42,11 +42,6 @@ function resize() {
         "text-align": "center"
     });
 
-    $(".headGear").css({
-        "padding-top": (20/480)*scrHeight,
-        "height": (70/480)*scrHeight
-    });
-
     $(".livesCont").css({
         "margin-top": (20/480)*scrHeight
     });
@@ -139,6 +134,7 @@ function resize() {
         $("#main-sign").css({
             "width": (320 / 320) * scrWidth + "px",
             "height": (174 / 480) * scrHeight + "px",
+            "margin-bottom": (60 / 480) * scrHeight+ "px",
             "margin-left": "auto",
             "margin-right": "auto",
             "display": "block"
@@ -147,16 +143,30 @@ function resize() {
         $("#main-sign").css({
             "width": 700 + "px",
             "height": (174 / 480) * scrHeight + "px",
-            "margin-bottom": (20 / 480) * scrHeight+ "px",
+            "margin-bottom": (60 / 480) * scrHeight+ "px",
             "margin-left": "auto",
             "margin-right": "auto",
             "display": "block"
         });
     }
 
-    $(".mute-sign-ldr").css({
-        "top": (35/480)*scrHeight+"px",
-        "margin-left": (225/320)*scrWidth
+    $(".headGear").css({
+        "position": "absolute",
+        "top": (170/480)*scrHeight+"px",
+        "height": (70/480)*scrHeight,
+        "left": (100/320)*scrWidth
+    });
+    $(".achGear").css({
+        "position": "absolute",
+        "top": (170/480)*scrHeight+"px",
+        "left": (190/320)*scrWidth,
+        "height": (70/480)*scrHeight
+    });
+    $(".gameGear").css({
+        "position": "absolute",
+        "top": (20/480)*scrHeight+"px",
+        "left": (10/320)*scrWidth,
+        "height": (70/480)*scrHeight
     });
 }
 
