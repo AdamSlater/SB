@@ -333,6 +333,8 @@ h3 {
 /*count down*/
 .cd {
     font-size: 72px;
+    font-weight: bold;
+    font-family: Britannic;
 }
 
 #cd3 {
