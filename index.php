@@ -160,8 +160,8 @@
                     <div data-role="collapsible" data-theme="b">
                         <h4>Skills</h4>
                         <a href="" id="hint" data-role="button" onclick="hint();">Hint</a>
-                        <a href="" id="repeat" data-role="button" onclick="repeat();">Repeat</a>
-                        <a href="" id="slowmo" data-role="button"  onclick="slowMo();">Slow-Mo Repeat</a>
+                        <a href="" id="repeat" data-role="button" onclick="repeat(20, 500, 250);">Repeat</a>
+                        <a href="" id="slowmo" data-role="button"  onclick="repeat(30, 1000, 600);">Slow-Mo Repeat</a>
                         <a href="" id="stop" data-role="button" onclick="stopTimer();">Stop</a>
                         <a href="" id="skip" data-role="button" onclick="skip();">Skip</a>
                         <a href="" id="extraLife" data-role="button"  onclick="oneUp();">Extra Life</a> 
