@@ -168,6 +168,13 @@ function resize() {
         "left": (10/320)*scrWidth,
         "height": (70/480)*scrHeight
     });
+    $(".mute-sign-ldr").css({
+        "position": "absolute",
+        "top": (40/480)*scrHeight+"px",
+        "left": (230/320)*scrWidth,
+        "height": (40/480)*scrHeight,
+        "width": (30/320)*scrWidth
+    });
 }
 
 /*Draws the grid on the screen.*/
