@@ -61,8 +61,7 @@ TECHNOLOGY USED
 ISSUES/PROBLEMS ENCOUNTERED
 -----------------------------
 
-Time constraints - Choices had to be made and features had to be cut in order to meet deadlines.
-Version control - Github often created code conflicts that had to constantly be sorted out.
+Version control - Github represented a learning curve that often lead to code conflicts that constantly had to be sorted out.
 Lack of direction - In the beginning before we had to implement the scrum model there was a lack
                     of direction leading to differences of opinion and slow progress.
 Couldn't break up tasks - Found it hard to break up larger tasks into smaller components. Leading to
