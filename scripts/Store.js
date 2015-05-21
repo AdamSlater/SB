@@ -15,7 +15,7 @@ function makeBackground(id) {
 
 /*Displays the next correct tile in the path.*/
 function hint() {
-    if(checkCash(10)) {
+    if(checkCash(10) || randomSk) {
         window.location.href = '#game-page';
         var hint = path[clickCount];
         setTimeout(function () {
@@ -23,14 +23,15 @@ function hint() {
             $("#" + hint).addClass("path");
             setTimeout(function () { $("#" + hint).removeClass("path"); }, (250));
         }, 500);
-        buySkill(10);
+        if(randomSk == false)
+            buySkill(10);
     }
 }
 
 /*Repeats the pattern.
   cost: Cost of skill. 20 for regular, 30 for slowmo*/
 function repeat(cost, offset2, speed) {
-    if(checkCash(cost)) {
+    if(checkCash(cost) || randomSk) {
         window.location.href = '#game-page';
         var offset = 0;
         var tmpPath = 0;
@@ -45,28 +46,31 @@ function repeat(cost, offset2, speed) {
                 tmpPath++;
             }
         });
-        buySkill(cost);
+        if(randomSk == false)
+            buySkill(cost);
     }
 }
 
 /*Stops the timer.*/
 function stopTimer() {
-    if(checkCash(50)) {
+    if(checkCash(50) || randomSk) {
         window.location.href = '#game-page';
         clearInterval(timer);
         timer = true;
         firstClick = true;
-        buySkill(50);
+        if(randomSk == false)
+            buySkill(50);
     }
 }
 
 /*Skips the current level.*/
 function skip(){
-    if(checkCash(60)) {
+    if(checkCash(60) || randomSk) {
         window.location.href = '#game-page';
         xp += pathLength++;
         $(".xp").html(xp+" XP");
-        buySkill(60);
+        if(randomSk == false)
+            buySkill(60);
     	
     	setTimeout(function() {
             roundDelay();
@@ -85,9 +89,10 @@ function skip(){
 
 /*Gives the user an extra life.*/
 function oneUp() {
-    if(checkCash(70)) {
+    if(checkCash(70) || randomSk) {
 		$(".lives").html(" <img class='donkey' src='images/donkey.png' alt='LIVES'/>" + "x" + (++lives));
-		buySkill(70);
+        if(randomSk == false)
+		    buySkill(70);
     }
 }
 
@@ -101,10 +106,10 @@ function randomSkill() {
         console.log(rand);
         if(rand == 1)
             hint();
-        if(rand == 2)
-            repeat();
+        if (rand == 2)
+            repeat(20, 500, 250);
         if(rand == 3)
-            slowMo();
+            repeat(30, 1000, 600);
         if(rand == 4)
             stopTimer();
         if(rand == 5)
@@ -112,6 +117,7 @@ function randomSkill() {
         if(rand == 6)
             oneUp();
     }
+    randomSk = false;
 }
 
 /*Activates double cash.*/
@@ -150,17 +156,11 @@ function allIn(){
 }
 
 /*Checks if the user has enough coins to purchase the skill they wish to use.*/
-function checkCash(moneyz){
-	if (!playing || (coins < moneyz && !randomSk)){
-         randomSk = false;
+function checkCash(moneyz) {
+	if (!playing || coins < moneyz) {
          $("#coins").css({"color": "#FF3333"});
          setTimeout(function(){$("#coins").css({"color": "#ffff0b"});}, (250));
          return false;
-    }
-
-    if (randomSk) {
-        coins += moneyz;
-        randomSk = false;
     }
     else {
         storePurchase();
