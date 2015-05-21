@@ -85,7 +85,7 @@
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#main-page" data-transition="slide" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro();mouseClick()"></a>
+                            <a href="" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="history.go(0)"></a>
 
                         </div>
                     </div>
@@ -238,7 +238,7 @@
 <!--leader-->
         <div id="leader-page" data-role="page">
             <div class="leaders" data-role="content" >
-                <a href="index.html#main-page" data-transition="slide" data-direction="reverse" onclick="playIntro(); history.go(0)">
+                <a href="" onclick="history.go(0)">
                     <img class="mute-sign-ldr" src="images/homeMute.png" alt="Mute"/>
                 </a> 
                 <?php include 'leader.php';?>
