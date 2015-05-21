@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>site name</title>
+        <title>Simon's Besom</title>
          <meta name="viewport" content="width=device-width, initial-scale=1">    
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
          <link rel="stylesheet" href="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
