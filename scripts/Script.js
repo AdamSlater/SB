@@ -273,7 +273,6 @@ function getUserChoice(click_id) {
                 clearInterval(timer);
                 timer = false;
                 getUserChoice(-1);
-                console.log("hello");
             }
 
             if (time >= 0) {
