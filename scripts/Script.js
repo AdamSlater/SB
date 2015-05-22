@@ -92,6 +92,18 @@ function resize() {
         "height":(40/480)*scrHeight
     });
 
+    $(".header-instr").css({
+        "font-family": "Britannic", 
+        "font-size": (40/480)*scrHeight+"px",
+        "text-align": "center"
+    });
+    
+    $("h1").css({
+        "font-family": "Britannic", 
+        "font-size": (40/480)*scrHeight+"px",
+        "text-align": "center"
+    });
+
     $(".progress-bar").css({
         "line-height":(40/480)*scrHeight + "px",
         "font-size": (22/480)*scrHeight

@@ -24,7 +24,7 @@ if (!empty($_POST)){
         VALUES (" . $score . ", '" .  $name . "', " . $maxlvl . ")";
     //updates database
     mysql_query($insert);
-    echo "<script>window.location.href='#leader-page';</script>";
+    echo "<script>window.location.assign(window.location.origin + '/#leader-page');/script>";
 }
 //databse query  
 $query = "SELECT * FROM highscore
