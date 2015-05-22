@@ -30,14 +30,14 @@ $query = "SELECT * FROM aches";
 $result = mysql_query($query);
 
 //makes table
-echo "<table class='achTbl'>";
+echo "<div class='achTable'><table class='achTbl'>";
 if($result) 
   while($row = mysql_fetch_array($result))
       echo "<tr>
-                <td class='a". $row['ach1'] .$row['pkz'] ."'>" . $row['ach1'] . "</td>
-                <td class='a". $row['ach2'] .$row['pkz'] ."'>" . $row['ach2'] . "</td>
-                <td class='a". $row['ach3'] .$row['pkz'] ."'>" . $row['ach3'] . "</td>
-                <td class='a". $row['pkz'] ."'>" . $row['pkz'] . "</td>
+                <td class='a". $row['ach1'] ." b".$row['pkz'] ."a". $row['ach1']." achData'>" . $row['ach1'] . "</td>
+                <td class='a". $row['ach2'] ." b".$row['pkz'] ."a". $row['ach2']." achData'>" . $row['ach2'] . "</td>
+                <td class='a". $row['ach3'] ." b".$row['pkz'] ."a". $row['ach3']." achData'>" . $row['ach3'] . "</td>
+                <td class='c". $row['pkz'] ." achData'>" . $row['pkz'] . "</td>
             </tr>"; 
-echo "</table>";
+echo "</table> </div>";
 ?>

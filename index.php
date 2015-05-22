@@ -288,12 +288,17 @@
         </div>
 <!--aches-->		
         <div id="aches-page" data-role="page">		
-            <div class="aches" data-role="content" >		
+            <div class="aches" data-role="content" >
+                <img class="achImage1" src="images/achievements/lvl3.png" alt="lvl3"/>
+                <img class="achImage2" src="images/achievements/lvl7.png" alt="lvl7"/>
+                <img class="achImage3" src="images/achievements/lvl10.png" alt="lvl10"/>		
                 <a href="index.html#main-page" id="toHome" data-transition="slide" data-direction="reverse" onclick="history.go(0)">		
-                    <img class="mute-sign-ldr" src="images/homeMute.png" alt="Mute"/>		
-                </a> 		
-                <?php include 'aches.php';?>		
-                <?php include 'getID.php'?>		
+                    <img class="mute-sign-ach" src="images/homeMute.png" alt="Mute"/>		
+                </a> 
+               		
+                <?php include 'aches.php';?>	
+                <?php include 'getID.php'?>	
+                	
                 <form id="achesForm" method="post" action="aches.php" data-ajax="false">		
                     <fieldset data-role="controlgroup">		
                         <input type = "hidden" name="userID" id = "userID"/>		

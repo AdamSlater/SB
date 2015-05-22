@@ -240,6 +240,67 @@ function resize() {
         "height": (40/480)*scrHeight,
         "width": (30/320)*scrWidth
     });
+    $(".mute-sign-ach").css({
+        "position": "absolute",
+        "top": (430/480)*scrHeight+"px",
+        "left": (140/320)*scrWidth,
+        "height": (40/480)*scrHeight,
+        "width": (30/320)*scrWidth
+    });
+
+
+    if (scrWidth < 1335) {
+        $(".achTable").css({
+        "border": "2px solid",
+        "width": (300/320)*scrWidth + "px",
+        "height": (330/480)*scrHeight + "px",
+        "overflow": "auto"
+        });
+        $(".achData").css({
+        "padding-right": 28 +"px",
+        "padding-left": 19 +"px"
+        });
+        $(".achImage1").attr({"src": "images/achievements/lvl3xs.png"});
+        $(".achImage2").attr({"src": "images/achievements/lvl7xs.png"});
+        $(".achImage3").attr({"src": "images/achievements/lvl10xs.png"});
+    }else{
+         $(".achTable").css({
+        "border": "2px solid",
+        "width": (300/320)*scrWidth + "px",
+        "height": (330/480)*scrHeight+ "px",
+        "overflow": "auto"
+        });
+        $(".achData").css({
+        "padding-right": 125 +"px",
+        "padding-left": 155 +"px"
+        });
+        $(".achImage1").attr({"src": "images/achievements/lvl3.png"});
+        $(".achImage2").attr({"src": "images/achievements/lvl7.png"});
+        $(".achImage3").attr({"src": "images/achievements/lvl10.png"});
+    }
+
+    $(".a1").html(
+        "<img src='images/check.png' alt='check'>"
+    );
+    $(".a0").html(
+        "<img src='images/ex.png' alt='ex'>"
+    );
+    $(".b" + localStorage.getItem("userID") + "a1").html(
+        "<img src='images/checkGlow.png' alt='check'>"
+    );
+    $(".b" + localStorage.getItem("userID") + "a0").html(
+        "<img src='images/exGlow.png' alt='exGlow'>"
+    );
+
+    $(".b" + localStorage.getItem("userID") + "a1").css({
+        "background-color": "#db8e97"
+    });
+    $(".b" + localStorage.getItem("userID") + "a0").css({
+        "background-color": "#db8e97"
+    });
+    $(".c" + localStorage.getItem("userID")).css({
+        "background-color": "#db8e97"
+    });
 }
 
 function getID(){		
