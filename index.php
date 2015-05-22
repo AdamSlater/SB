@@ -168,54 +168,54 @@
                                    
                         <div data-role="collapsible" data-theme="b" data-content-theme="a" data-iconpos="right">
                             <h3><a href="" id="hint" data-role="button">Hint</a></h3>
-                            <p><a href="" onclick="hint();storePurchase()">[BUY]</a> Shows the next tile.</p>
+                            <p><a href="" onclick="hint();">[BUY]</a> Shows the next tile.</p>
                         </div>
                         <div data-role="collapsible" data-theme="b" data-content-theme="a" data-iconpos="right">
                             <h3><a href="" id="repeat" data-role="button">Repeat</a></h3>
-                            <p><a href="" onclick="repeat(20,500,250);storePurchase()">[BUY]</a> Repeats the pattern</p>
+                            <p><a href="" onclick="repeat(20,500,250);">[BUY]</a> Repeats the pattern</p>
                         </div>
                         <div data-role="collapsible" data-theme="b" data-content-theme="a" data-iconpos="right">
                             <h3><a href="" id="slowmo" data-role="button">Slow-Mo Repeat</a></h3>
-                            <p><a href="" onclick="repeat(30,1000,600);storePurchase()">[BUY]</a> Repeats the pattern in slow motion</p>
+                            <p><a href="" onclick="repeat(30,1000,600);">[BUY]</a> Repeats the pattern in slow motion</p>
                         </div>
                         <div data-role="collapsible" data-theme="b" data-content-theme="a" data-iconpos="right">
                             <h3><a href="" id="stop" data-role="button">Stop</a></h3>
-                            <p><a href="" onclick="stopTimer();storePurchase()">[BUY]</a> Stops the timer for one round</p>
+                            <p><a href="" onclick="stopTimer();">[BUY]</a> Stops the timer for one round</p>
                         </div>
                         <div data-role="collapsible" data-theme="b" data-content-theme="a" data-iconpos="right">
                             <h3><a href="" id="skip" data-role="button">Skip</a></h3>
-                            <p><a href="" onclick="skip();storePurchase();">[BUY]</a> Skips the round, but still rewards you with the xp and coins</p>
+                            <p><a href="" onclick="skip();;">[BUY]</a> Skips the round, but still rewards you with the xp and coins</p>
                         </div>
                         <div data-role="collapsible" data-theme="b" data-content-theme="a" data-iconpos="right">
                             <h3><a href="" id="extraLife" data-role="button">Extra Life</a> </h3>
-                            <p><a href="" onclick="oneUp();storePurchase()">[BUY]</a> Gives you an extra life</p>
+                            <p><a href="" onclick="oneUp();">[BUY]</a> Gives you an extra life</p>
                         </div>
                     </div>
                     <div data-role="collapsible" data-theme="c" data-content-theme="a">
                         <h4 id="achGambles" class="ui-disabled">Gambles</h4>
                         <div data-role="collapsible" data-theme="a" data-content-theme="e" data-iconpos="right">
                             <h3><a href="" id="dubCash" data-role="button">Double Cash</a></h3>
-                            <p><a href="" onclick="dubCash();storePurchase()">[BUY]</a>Double the amount of coins earned at the end of the round.</p>
+                            <p><a href="" onclick="dubCash();">[BUY]</a>Double the amount of coins earned at the end of the round.</p>
                         </div>
 
                         <div data-role="collapsible" data-theme="a" data-content-theme="e" data-iconpos="right">
                             <h3><a href="" id="dubXP" data-role="button">Double XP</a></h3>
-                            <p><a href="" onclick="dubXP();storePurchase()">[BUY]</a>Double the amount of xp earned at the end of the round.</p>
+                            <p><a href="" onclick="dubXP();">[BUY]</a>Double the amount of xp earned at the end of the round.</p>
                         </div>
 
                         <div data-role="collapsible" data-theme="a" data-content-theme="e" data-iconpos="right">
                             <h3><a href="" id="dubBoth" data-role="button" >Double Trouble</a></h3>
-                            <p><a href="" onclick="dubBoth();storePurchase()">[BUY]</a>Double the amount of xp and coins earned at the end of the round.</p>
+                            <p><a href="" onclick="dubBoth();">[BUY]</a>Double the amount of xp and coins earned at the end of the round.</p>
                         </div>
 
                         <div data-role="collapsible" data-theme="a" data-content-theme="e" data-iconpos="right">
                             <h3><a href="" id="randSkill" data-role="button">Random Skill</a></h3>
-                            <p><a href="" onclick="randomSkill();storePurchase()">[BUY]</a>A random skill will be selected.</p>
+                            <p><a href="" onclick="randomSkill();">[BUY]</a>A random skill will be selected.</p>
                         </div>
 
                         <div data-role="collapsible" data-theme="a" data-content-theme="e" data-iconpos="right">
                             <h3><a href="" id="allIn" data-role="button" >All In</a></h3>
-                            <p><a href="" onclick="allIn();storePurchase()">[BUY]</a>Win 10 rounds without losing a life - Get 120 xp</p>
+                            <p><a href="" onclick="allIn();">[BUY]</a>Win 10 rounds without losing a life - Get 120 xp</p>
                         </div>
                     </div>
 

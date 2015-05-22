@@ -721,6 +721,10 @@ function endRoundReward() {
 }
 
 function checkPageSound(){
+    if (window.location.origin + '/#store-page' == window.location.href){
+        window.location.href = '#main-page';
+        location.reload();
+    }
     if(window.location.hash != "#main-page" && window.location.hash != "")
         stopIntro();
     if (window.location.hash == "#game-page")
@@ -732,6 +736,10 @@ function checkPageSound(){
 }
 
 window.onunload = window.onbeforeunload = (function () {
+    if (window.location.hash == "#store-page"){
+        window.location.href = '#main-page';
+        location.reload();
+    }
     if (window.location.hash == "#over-page") {
         window.location.href = '#leader-page';
         location.reload();
