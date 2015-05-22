@@ -186,32 +186,29 @@
                         <h4>Backgrounds</h4>
                         <fieldset data-role="controlgroup">
 	                   
-	                    <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-3" checked="checked" onclick="makeDefault();mouseClick()"/>
-     	                    <label for="radio-choice-1" id="r1">Default</label>
+	                    <input type="radio" name="radio-choice" id="radio-choice-0" value="0" checked="checked" onclick="makeBackground(this);mouseClick()"/>
+     	                    <label for="radio-choice-0" id="r1">Default</label>
      	                    
-     	                    <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-1" onclick="makePeach();mouseClick()"/>
-     	                    <label for="radio-choice-2" id="r2">Peach</label>
+     	                    <input type="radio" name="radio-choice" id="radio-choice-1" value="1" onclick="makeBackground(this);mouseClick()"/>
+     	                    <label for="radio-choice-1" id="r2">Peach</label>
 
-     	                    <input type="radio" name="radio-choice" id="radio-choice-3" value="choice-2" onclick="makePuke();mouseClick()" />
-     	                    <label for="radio-choice-3" id="r3">Mustard</label>
+     	                    <input type="radio" name="radio-choice" id="radio-choice-2" value="2" onclick="makeBackground(this);mouseClick()" />
+     	                    <label for="radio-choice-2" id="r3">Mustard</label>
 
-
-     	                    <input type="radio" name="radio-choice" id="radio-choice-4" value="choice-4" onclick="makeFood();mouseClick()" />
-     	                    <label for="radio-choice-4" id="r4">Food</label>
+     	                    <input type="radio" name="radio-choice" id="radio-choice-3" value="3" onclick="makeBackground(this);mouseClick()" />
+     	                    <label for="radio-choice-3" id="r4">Food</label>
      	                    
-     	                     <input type="radio" name="radio-choice" id="radio-choice-5" value="choice-5"  onclick="makeMatrix();mouseClick()"/>
-     	                    <label for="radio-choice-5" id="r5">Matrix</label>
+     	                     <input type="radio" name="radio-choice" id="radio-choice-4" value="4"  onclick="makeBackground(this);mouseClick()"/>
+     	                    <label for="radio-choice-4" id="r5">Matrix</label>
 
-     	                    <input type="radio" name="radio-choice" id="radio-choice-6" value="choice-6" onclick="makeRainbow();mouseClick()" />
-     	                    <label for="radio-choice-6" id="r6">Rainbow</label>
+     	                    <input type="radio" name="radio-choice" id="radio-choice-5" value="5" onclick="makeBackground(this);mouseClick()" />
+     	                    <label for="radio-choice-5" id="r6">Rainbow</label>
 
-     	                    <input type="radio" name="radio-choice" id="radio-choice-7" value="choice-7" onclick="makeFire();mouseClick()"/>
-     	                    <label for="radio-choice-7" id="r7">Fire</label>
+     	                    <input type="radio" name="radio-choice" id="radio-choice-6" value="6" onclick="makeBackground(this);mouseClick()"/>
+     	                    <label for="radio-choice-6" id="r7">Fire</label>
 
-     	                    <input type="radio" name="radio-choice" id="radio-choice-8" value="choice-8" onclick="makeCat();mouseClick()" />
-     	                    <label for="radio-choice-8" id="r8">Cat</label>
-     	                    
-
+     	                    <input type="radio" name="radio-choice" id="radio-choice-7" value="7" onclick="makeBackground(this);mouseClick()" />
+     	                    <label for="radio-choice-7" id="r8">Cat</label>
                         </fieldset>
                     </div>
                 </div>

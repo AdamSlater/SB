@@ -120,19 +120,11 @@ h3 {
 }
 
 
-
-#game-page {
+#store-page, #game-page {
     background: #BB9264;
     background-position : center;
-    background-repeat : no-repeat;
-    background-size : cover;
-}
-
-#store-page {
-    background: #BB9264;
-    background-position : center;
-    background-repeat : no-repeat;
-    background-size : cover;
+    background-repeat : no-repeat !important;
+    background-size : 100% 100% !important;
 }
 
 #hint{
