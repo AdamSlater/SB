@@ -450,8 +450,14 @@ function enableUserChoice() {
     /*Allows the user to click the home and store buttons again.*/
     $(".ui-icon-pause").attr("href", "index.html#store-page");
     $(".ui-icon-pause").attr("onclick", "pause();playTransition();playStoreBG();stopGameMusic();mouseClick()");
-    $(".ui-icon-homez").attr("href", "#popupDialog");
-    $(".ui-icon-homez").attr("onclick", "mouseClick()");
+    $(".ui-icon-homez").attr("href", "");
+    $(".ui-icon-homez").attr("onclick", "mouseClick(); backToHome()");
+}
+
+function backToHome(){
+    window.location.href= "#main-page";
+    console.log("hi");
+    window.location.reload();
 }
 
 /*Prevents user from clicking the grid while the path is being shown.*/
