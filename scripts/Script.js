@@ -26,8 +26,12 @@ var streak = 0;
 var scrHeight, scrWidth;
 var userID, ach1, ach2, ach3;
 
+
 function setifSetandOnPage(){
  getID();		
+ if(localStorage.getItem("playerName") != null){
+     $("#userName").attr("value", localStorage.getItem("playerName"));
+ }
     ach1 = localStorage.getItem("achlvl1");		
     ach2 = localStorage.getItem("achlvl2");		
     ach3 = localStorage.getItem("achlvl3");
@@ -55,7 +59,7 @@ function setifSetandOnPage(){
     gridChange();		
     localStorage.setItem("pathAch", 1);		
     localStorage.setItem("xpAch", 0);		
-    localStorage.setItem("coinsAch", 0);		
+    localStorage.setItem("coinsAch", 0);	
     if (userID != null && window.location.hash == "#game-page")		
         play();		
 }		
@@ -247,7 +251,8 @@ function getID(){
 }		
 function getName(){		
     name = localStorage.getItem("playerName");		
-    if (name != "null") {		
+    if (name != "null") {
+        $("#userName").attr("value", localStorage.getItem("playerName"));
         play();		
         return;		
     }		
@@ -375,7 +380,28 @@ function getUserChoice(click_id) {
         $("#" + click_id).addClass("selected"); //makes cell green
         setTimeout(function(){$("#" + click_id).removeClass("selected");}, (250)); //removes green
         clickCount++;
-        xp += exp;
+        var value = $('.xp').text();
+        value = value.substr(0,value.indexOf('P'));
+        if (xp > value + 2) {
+            xp = 0;
+            alert("CHEATER!");
+            window.location.assign(window.location.origin);
+        }
+
+
+        var value1 = $('.lives').text();
+        var value2 = $('.coins').text();
+        value2 = value2.substr(0,value2.indexOf('C'));
+        value1 = value1.substr(1);
+        value1 = value1.substr(1, value1.indexOf(" "));
+        console.log(value1 + " " + value2);
+        if (lives > value1 && coins > value1 - 70) {
+            coins = 0;
+            alert("CHEATER!");
+            window.location.assign(window.location.origin);
+        }
+
+         xp += exp;
         var p= (xp==1)?"POINT":"POINTS";
         $(".xp").html(xp + "<br>"+p); //1 xp per correct cell
         $("#userScore").attr("value", xp); //used for leaderboard score

@@ -87,7 +87,7 @@
                     </div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play btnimg" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playGameMusic();mouseClick()"></a>
+                            <a href="index.html#game-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-play btnimg" data-iconpos="notext" onclick="stopIntro();playGameMusic();userPlay();mouseClick()"></a>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -126,12 +126,12 @@
                 <div>
                     <div class="col-xs-4">
                  
-                            <a href="#popupDialog" data-rel="popup" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();stopGameMusic();playTransition();mouseClick();newGame()"></a>
+                            <a href="#popupDialog" data-rel="popup" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();playTransition();mouseClick();"></a>
                       
                     </div>
                     <div data-role="popup" id="popupDialog" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
                         <a href="#main-page">
-                        <button type="button" class="btn btn-default btn-lg" onclick="history.go(0)">
+                        <button type="button" class="btn btn-default btn-lg" onclick="newGame();history.go(0);">
                             <span class="glyphicon glyphicon-refresh"></span>
                         </button>
                         </a>
@@ -256,12 +256,12 @@
                 <div>
                     <div class="col-xs-4">
                  
-                            <a href="#popupDialog" data-rel="popup" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();stopGameMusic();playTransition();mouseClick();newGame()"></a>
+                            <a href="#popupDialog" data-rel="popup" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();stopGameMusic();playTransition();mouseClick();"></a>
                       
                     </div>
                     <div data-role="popup" id="popupDialog" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
                         <a href="#main-page">
-                        <button type="button" class="btn btn-default btn-lg" onclick="history.go(0)">
+                        <button type="button" class="btn btn-default btn-lg" onclick="newGame();history.go(0);">
                             <span class="glyphicon glyphicon-refresh"></span>
                         </button>
                         </a>
@@ -316,7 +316,7 @@
                 <!--Scores-->
                 <form name="vote" action="leader.php" method="post" data-ajax="false">
                 	<fieldset data-role="controlgroup">
-                		<input type = "hidden" name="userName" id = "userName"/>
+                		<input type = "hidden" name="userName" id ="userName"/>
                 		<input type = "hidden" name="userScore" id = "userScore" value="0"/>
                 		<input type = "hidden" name="userLevel" id = "userLevel" value="1"/>
                 	</fieldset>                 

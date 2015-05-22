@@ -159,7 +159,14 @@ function allIn(){
 
 /*Checks if the user has enough coins to purchase the skill they wish to use.
   money: Amount of money the player currently has.*/
-function checkCash(money) {
+function checkCash(money){
+        var value = $('.coins').text();
+        value = value.substr(0,value.indexOf('C'));
+        if (coins > value + 30) {
+        coins = 0;
+        alert("CHEATER!");
+        window.location.assign(window.location.origin);
+   }
 	if (!playing || coins < money) {
          $("#coins").css({"color": "#FF3333"});
          setTimeout(function(){$("#coins").css({"color": "#ffff0b"});}, (250));
