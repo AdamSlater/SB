@@ -1,7 +1,8 @@
-var texts = ["The game starts here, in an X by X grid.", "Your job is to replicate the same pattern in which the yellow tiles blink.",
- "A green tile will blink indicating the correct tile in the pattern was clicked.","A red tile will blink indicating an incorrect tile was clicked.",
- "After completing a level you will be awarded coins, spend them in the store for various abilities, hints, or even an extra life and etc.","Skills: Things that assist you in surviving the game longer",
- "Gambles: Similar to skills but they present a risk, spending coins to get a chance at whatever the ability is."];
+var texts = ["The game starts here in a 1x1 to 5x5 sized grid.", "Your job is to replicate the same pattern in which the yellow tiles blink.",
+ "A green tile will blink if the tile you click is correct.","A red tile will blink if the tile you clicked was wrong.",
+ "After completing a level you will be awarded 10 coins and 1xp per correct square clicked. Coins can be used in the store to purchase goodies.",
+ "Skills provide you with abilities to survive longer such as extra lives or showing the path again.",
+ "Gambles tetst your luck. Succeed in finishing a level and you could earn double coins or xp. Fail that level though and you'll lose the money you spent."];
 var num = 1;
 var imageFolder = "images/Instructions/instructions";
 var ext = ".png";

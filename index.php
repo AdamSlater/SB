@@ -79,7 +79,7 @@
                     </tr>
                 </table>
                 <p id="instText" style="text-align: center">
-                    This is the grid.
+                    The game starts here in a 1x1 to 5x5 sized grid.
                 </p>
                 
             </div>
