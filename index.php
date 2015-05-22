@@ -11,7 +11,7 @@
          <script type="text/javascript" src="scripts/Instructions.js"></script>
          <link rel="stylesheet" href="StyleSheet.css">
     </head>
-    <body onload="resize(); setifSetandOnPage();">
+    <body onload="resize(); setifSetandOnPage();checkPageSound()">
 
         <!--Preloading audio tracks for later use-->
         <audio id="greenTile" class="sound" src="sounds/green_tile.mp3" preload="auto"></audio>
@@ -182,7 +182,7 @@
                         </div>
                         <div data-role="collapsible" data-theme="b" data-content-theme="a" data-iconpos="right">
                             <h3><a href="" id="skip" data-role="button">Skip</a></h3>
-                            <p><a href="" onclick="storePurchase();storePurchase()">[BUY]</a> Skips the round, but still rewards you with the xp and coins</p>
+                            <p><a href="" onclick="skip();storePurchase();">[BUY]</a> Skips the round, but still rewards you with the xp and coins</p>
                         </div>
                         <div data-role="collapsible" data-theme="b" data-content-theme="a" data-iconpos="right">
                             <h3><a href="" id="extraLife" data-role="button">Extra Life</a> </h3>
@@ -190,7 +190,7 @@
                         </div>
                     </div>
                     <div data-role="collapsible" data-theme="c" data-content-theme="a">
-                        <h4 class="ui-disabled">Gambles</h4>
+                        <h4 id="achGambles" class="ui-disabled">Gambles</h4>
                         <div data-role="collapsible" data-theme="a" data-content-theme="e" data-iconpos="right">
                             <h3><a href="" id="dubCash" data-role="button">Double Cash</a></h3>
                             <p><a href="" onclick="dubCash();storePurchase()">[BUY]</a>Double the amount of coins earned at the end of the round.</p>
@@ -219,7 +219,7 @@
 
 
                     <div data-role="collapsible" data-theme="b">
-                        <h4 class="ui-disabled">Backgrounds</h4>
+                        <h4 id="achBG" class="ui-disabled">Backgrounds</h4>
                         <fieldset data-role="controlgroup">
 	                   
 	                    <input type="radio" name="radio-choice" id="radio-choice-0" value="0" checked="checked" onclick="makeBackground(this);mouseClick()"/>

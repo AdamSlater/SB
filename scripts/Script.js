@@ -30,13 +30,19 @@ function setifSetandOnPage(){
  getID();		
     ach1 = localStorage.getItem("achlvl1");		
     ach2 = localStorage.getItem("achlvl2");		
-    ach3 = localStorage.getItem("achlvl3");		
-    if (ach1 == 1)		
-        $("#ach1").attr("value", 1);		
-    if (ach2 == 1)		
-        $("#ach2").attr("value", 1);		
-    if (ach3 == 1)		
-        $("#ach3").attr("value", 1);		
+    ach3 = localStorage.getItem("achlvl3");
+    if (ach1 == 1) {
+        $("#ach1").attr("value", 1);
+        $("#achBG").removeClass("ui-disabled");
+    }	
+    if (ach2 == 1){		
+        $("#ach2").attr("value", 1);
+        $("#achSkills").removeClass("ui-disabled");
+    }		
+    if (ach3 == 1){		
+        $("#ach3").attr("value", 1);
+        $("#achGambles").removeClass("ui-disabled");
+    }		
     pathLength = localStorage.getItem("pathAch");		
     xp = localStorage.getItem("xpAch");		
     xp--;xp++;		
@@ -603,19 +609,22 @@ function endRoundReward() {
     if (pathLength == 3 && localStorage.getItem("achlvl1") == null) {		
         localStorage.setItem("achlvl1", 1);		
         $("#ach1").attr("value", 1);		
-        $("#purp").attr("value", 1);		
+        $("#purp").attr("value", 1);
+        $("#achBG").removeClass("ui-disabled");		
         $("#achesForm").submit();		
     } 		
     if (pathLength == 7 && localStorage.getItem("achlvl2") == null) {		
         localStorage.setItem("achlvl2", 1);		
         $("#ach2").attr("value", 1);		
-        $("#purp").attr("value", 1);		
+        $("#purp").attr("value", 1);
+        $("#achSkills").removeClass("ui-disabled");		
         $("#achesForm").submit();		
     }		
     if (pathLength == 10 && localStorage.getItem("achlvl3") == null) {		
         localStorage.setItem("achlvl3", 1);		
         $("#ach3").attr("value", 1);		
-        $("#purp").attr("value", 1);		
+        $("#purp").attr("value", 1);
+        $("#achGambles").removeClass("ui-disabled");		
         $("#achesForm").submit();		
     }
 
@@ -624,12 +633,18 @@ function endRoundReward() {
     $(".coins").html((coins+=money) + "<br>COINS");
 }
 
+function checkPageSound(){
+    if(window.location.hash != "#main-page" && window.location.hash != "")
+        stopIntro();
+}
+
 window.onunload = window.onbeforeunload = (function () {
     if (window.location.hash == "#over-page") {
         window.location.href = '#leader-page';
         location.reload();
     }
-
+        
+    
 });
 
 $(window).resize(function () {
