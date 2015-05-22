@@ -324,7 +324,7 @@
                 		<input type = "hidden" name="userScore" id = "userScore" value="0"/>
                 		<input type = "hidden" name="userLevel" id = "userLevel" value="1"/>
                 	</fieldset>                 
-                	<input value = "Submit your score!" type = "submit" />
+                	<input value = "Submit your score!" type = "submit"/>
                 </form>
             </div>
         </div>

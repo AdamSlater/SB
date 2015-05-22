@@ -192,6 +192,10 @@ function resize() {
         "margin-top": (90/480)*scrHeight
     });
 
+    $(".refreshLdr").css({
+
+    });
+
     if (scrWidth < 700) {
         $(".play-sign , .main-sign").css({
             "width": (320 / 320) * scrWidth + "px",
@@ -735,10 +739,6 @@ function endRoundReward() {
 }
 
 function checkPageSound(){
-    if (window.location.origin + '/#store-page' == window.location.href){
-        window.location.href = '#main-page';
-        location.reload();
-    }
     if(window.location.hash != "#main-page" && window.location.hash != "")
         stopIntro();
     if (window.location.hash == "#game-page")
