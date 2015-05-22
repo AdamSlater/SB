@@ -32,6 +32,7 @@ function setifSetandOnPage(){
  if(localStorage.getItem("playerName") != null){
      $("#userName").attr("value", localStorage.getItem("playerName"));
  }
+
     ach1 = localStorage.getItem("achlvl1");		
     ach2 = localStorage.getItem("achlvl2");		
     ach3 = localStorage.getItem("achlvl3");
@@ -47,7 +48,8 @@ function setifSetandOnPage(){
         $("#ach3").attr("value", 1);
         $("#achGambles").removeClass("ui-disabled");
     }		
-    pathLength = localStorage.getItem("pathAch");		
+    pathLength = localStorage.getItem("pathAch");
+    $("#userLevel").attr("value", pathLength);		
     xp = localStorage.getItem("xpAch");		
     xp--;xp++;		
     coins = localStorage.getItem("coinsAch");		
@@ -283,13 +285,19 @@ function resize() {
         $(".achTable").css({
         "border": "2px solid",
         "width": (300/320)*scrWidth + "px",
-        "height": (330/480)*scrHeight + "px",
+        "height": (280/480)*scrHeight + "px",
         "overflow": "auto"
         });
         $(".achData").css({
         "padding-right": 28 +"px",
         "padding-left": 19 +"px"
         });
+        $(".achDesc").css({
+        "padding-right": 28 +"px",
+        "padding-left": 23 +"px",
+        "font-weight": "bold"
+        });
+        $(".achImage4").attr({"src": ""});
         $(".achImage1").attr({"src": "images/achievements/lvl3xs.png"});
         $(".achImage2").attr({"src": "images/achievements/lvl7xs.png"});
         $(".achImage3").attr({"src": "images/achievements/lvl10xs.png"});
@@ -303,6 +311,15 @@ function resize() {
         $(".achData").css({
         "padding-right": 125 +"px",
         "padding-left": 155 +"px"
+        });
+        $(".achDesc").css({
+        "padding-right": 120 +"px",
+        "padding-left": 160 +"px",
+        "font-weight": "bold"
+        });
+        $(".achImage4").css({
+        "padding-right": 125 +"px",
+        "padding-left": 105 +"px"
         });
         $(".achImage1").attr({"src": "images/achievements/lvl3.png"});
         $(".achImage2").attr({"src": "images/achievements/lvl7.png"});
@@ -445,6 +462,8 @@ function disableUserChoice() {
 
 /*Parses user choice and colors the tiles according to if they wee correct or incorrect.*/
 function getUserChoice(click_id) {
+   
+
     if (clickCount == 0)		
         time = 250 * pathLength;
 
@@ -727,22 +746,36 @@ function endRoundReward() {
         localStorage.setItem("achlvl1", 1);		
         $("#ach1").attr("value", 1);		
         $("#purp").attr("value", 1);
-        $("#achBG").removeClass("ui-disabled");		
-        $("#achesForm").submit();		
+        $("#achBG").removeClass("ui-disabled");
+        $("#achPopup1").popup("open");
+        setTimeout(function(){
+           $("#achPopup1").popup("close");
+           $("#achesForm").submit();
+        }, 3000);	
+        
+        	
     } 		
     if (pathLength == 7 && localStorage.getItem("achlvl2") == null) {		
         localStorage.setItem("achlvl2", 1);		
         $("#ach2").attr("value", 1);		
         $("#purp").attr("value", 1);
         $("#achSkills").removeClass("ui-disabled");		
-        $("#achesForm").submit();		
+        $("#achPopup2").popup("open");
+        setTimeout(function(){
+           $("#achPopup2").popup("close");
+           $("#achesForm").submit();
+        }, 2700);		
     }		
     if (pathLength == 10 && localStorage.getItem("achlvl3") == null) {		
         localStorage.setItem("achlvl3", 1);		
         $("#ach3").attr("value", 1);		
         $("#purp").attr("value", 1);
         $("#achGambles").removeClass("ui-disabled");		
-        $("#achesForm").submit();		
+        $("#achPopup3").popup("open");
+        setTimeout(function(){
+           $("#achPopup3").popup("close");
+           $("#achesForm").submit();
+        }, 2700);		
     }
 
     var click = document.getElementById("coinDrop");

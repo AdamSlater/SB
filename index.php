@@ -117,6 +117,22 @@
                 </div>
             </div>
             <div data-role="content"class="gridPos" >
+
+                <div data-role="popup" id="achPopup1" >
+                <img src="images/achievements/lvl3.png" alt="ach1">
+                <p>"Achievement 1! (Beat Level 3). You have now unlocked Backgrounds in the store!"</p>
+                </div>
+
+                <div data-role="popup" id="achPopup2" >
+                <img src="images/achievements/lvl7.png"  alt="ach2">
+                <p>"Achievement 2! (Beat Level 7). You have now unlocked Skills in the store!"</p>
+                </div>
+
+                <div data-role="popup" id="achPopup3" >
+                <img src="images/achievements/lvl10.png" alt="ach3">
+                <p>"Achievement 3! (Beat Level 10). You have now unlocked Gambles in the store!"</p>
+                </div>
+
                 <div id="game">
                     <input class="gridPos" id="name" type="text" placeholder="Enter your name"/>
                     <button type="submit" onclick="getName();mouseClick()">Enter</button>
@@ -291,7 +307,21 @@
             <div class="aches" data-role="content" >
                 <img class="achImage1" src="images/achievements/lvl3.png" alt="lvl3"/>
                 <img class="achImage2" src="images/achievements/lvl7.png" alt="lvl7"/>
-                <img class="achImage3" src="images/achievements/lvl10.png" alt="lvl10"/>		
+                <img class="achImage3" src="images/achievements/lvl10.png" alt="lvl10"/>
+                <img class="achImage4" src="images/id-icon.png" alt="ID"/>
+                <table>
+                    <tr>
+                        <td class="achDesc">Beat</td>
+                        <td class="achDesc">Beat</td>
+                        <td class="achDesc">Beat</td>
+                    </tr>
+                    <tr>
+                        <td class="achDesc">Lvl 3</td>
+                        <td class="achDesc">Lvl 7</td>
+                        <td class="achDesc">Lvl 10</td>
+                    </tr>
+                </table>
+                		
                 <a href="index.html#main-page" id="toHome" data-transition="slide" data-direction="reverse" onclick="history.go(0)">		
                     <img class="mute-sign-ach" src="images/homeMute.png" alt="Mute"/>		
                 </a> 
