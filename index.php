@@ -81,7 +81,7 @@
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="#popupDialog" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="history.go(0)"></a>
+                            <a href="#main-page" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="history.go(0)"></a>
 
                         </div>
                     </div>
@@ -126,13 +126,15 @@
                 <div>
                     <div class="col-xs-4">
                  
-                            <a href="#popupDialog" data-rel="popup" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();playIntro();stopGameMusic();playTransition();mouseClick();newGame()"></a>
+                            <a href="#popupDialog" data-rel="popup" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();stopGameMusic();playTransition();mouseClick();newGame()"></a>
                       
                     </div>
                     <div data-role="popup" id="popupDialog" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
+                        <a href="#main-page">
                         <button type="button" class="btn btn-default btn-lg" onclick="history.go(0)">
                             <span class="glyphicon glyphicon-refresh"></span>
                         </button>
+                        </a>
                     </div>
                     <div class="col-xs-4">
                     

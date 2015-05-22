@@ -636,6 +636,12 @@ function endRoundReward() {
 function checkPageSound(){
     if(window.location.hash != "#main-page" && window.location.hash != "")
         stopIntro();
+    if (window.location.hash == "#game-page")
+        playGameMusic();
+    if (window.location.hash == "#store-page")
+        playStoreBG();
+    if (window.location.hash == "#main-page" || window.location.hash == "")
+        playIntro();
 }
 
 window.onunload = window.onbeforeunload = (function () {
