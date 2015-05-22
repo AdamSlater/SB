@@ -51,8 +51,7 @@
         </div>
 <!--instr-->
         <div id="instruct-page" data-role="page">
-            <div class="header" data-role="header">
-                <h1>Instructions</h1>
+            <div class="header-instr header" data-role="header">
             </div>
             <div data-role="content" id="instruct">
                 <table id="instTbl">
@@ -65,9 +64,9 @@
                     </tr>
                     <tr>
                         <td>
-                            <div data-role="controlgroup" data-type="horizontal" style="margin-left: 15%">
-                                <a href="" data-role="button" onclick="previous();mouseClick()">Prev</a>
-                                <a href="" data-role="button" onclick="next();mouseClick()">Next</a>
+                            <div id="instrNavButts" data-role="controlgroup" data-type="horizontal" style="margin-left: 15%">
+                                <a class="instrNav" href="" data-role="button" onclick="previous();mouseClick()"><<</a>
+                                <a class="instrNav" href="" data-role="button" onclick="next();mouseClick()">>></a>
                             </div>
                         </td>
                     </tr>
@@ -77,7 +76,7 @@
                 </p>
                 
             </div>
-            <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="footer">
+            <div data-position="fixed" data-tap-toggle="false" data-role="footer" class="footer-instr footer">
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">

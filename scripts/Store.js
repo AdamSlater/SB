@@ -162,7 +162,7 @@ function allIn(){
 function checkCash(money){
         var value = $('.coins').text();
         value = value.substr(0,value.indexOf('C'));
-        if (coins > value + 30) {
+        if (coins > value + 30 && !isAllIn) {
         coins = 0;
         alert("CHEATER!");
         window.location.assign(window.location.origin);
