@@ -255,9 +255,16 @@
             <div data-position="fixed" data-tap-toggle="false" data-role="footer" class=" footer">
                 <div>
                     <div class="col-xs-4">
+                 
+                            <a href="#popupDialog" data-rel="popup" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();stopGameMusic();playTransition();mouseClick();newGame()"></a>
                       
-                            <a href="index.html#main-page" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();playTransition();stopStoreBG();playIntro();mouseClick()"></a>
-                        
+                    </div>
+                    <div data-role="popup" id="popupDialog" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
+                        <a href="#main-page">
+                        <button type="button" class="btn btn-default btn-lg" onclick="history.go(0)">
+                            <span class="glyphicon glyphicon-refresh"></span>
+                        </button>
+                        </a>
                     </div>
                     <div class="col-xs-4">
                         
@@ -282,7 +289,7 @@
 <!--aches-->		
         <div id="aches-page" data-role="page">		
             <div class="aches" data-role="content" >		
-                <a href="index.html#main-page" id="toHome" data-transition="slide" data-direction="reverse">		
+                <a href="index.html#main-page" id="toHome" data-transition="slide" data-direction="reverse" onclick="history.go(0)">		
                     <img class="mute-sign-ldr" src="images/homeMute.png" alt="Mute"/>		
                 </a> 		
                 <?php include 'aches.php';?>		
