@@ -5,13 +5,13 @@ var step, stepCount = 0;
 /*Used as an arrya index to check if player is clicking the right square.*/
 var clickCount = 0, firstClick = false;
 /*Time the user has to complete the level and time in seconds to count down before round start.*/
-var time = 250, timer, countDown = 3;
+var time, timer, countDown = 3;
 /*Player's xp and coins*/
 var xp = 0, coins = 0;
 /*Used to check if the player has started the game.*/
 var playing = false;
 /*Players name used for the leaderboards.*/
-var name = false;
+var name;
 /*Number of lives the player has and the number of wrong tiles clicked.*/
 var lives = 3, numWrong = 0;
 /*Variables to mute the music and sound.*/
@@ -24,6 +24,49 @@ var isAllIn = false;
 var streak = 0;
 /*Height and width of the screen.*/
 var scrHeight, scrWidth;
+var userID, ach1, ach2, ach3;
+
+function setifSetandOnPage(){
+ getID();		
+    ach1 = localStorage.getItem("achlvl1");		
+    ach2 = localStorage.getItem("achlvl2");		
+    ach3 = localStorage.getItem("achlvl3");		
+    if (ach1 == 1)		
+        $("#ach1").attr("value", 1);		
+    if (ach2 == 1)		
+        $("#ach2").attr("value", 1);		
+    if (ach3 == 1)		
+        $("#ach3").attr("value", 1);		
+    pathLength = localStorage.getItem("pathAch");		
+    xp = localStorage.getItem("xpAch");		
+    xp--;xp++;		
+    coins = localStorage.getItem("coinsAch");		
+    coins--;coins++;		
+    $(".xp").html(xp + "<br>"+"POINTS");		
+    $(".coins").html(coins + "<br>" + "COINS");		
+    if(pathLength == null)		
+        pathLength = 1;		
+    gridChange();		
+    localStorage.setItem("pathAch", 1);		
+    localStorage.setItem("xpAch", 0);		
+    localStorage.setItem("coinsAch", 0);		
+    if (userID != null && window.location.hash == "#game-page")		
+        play();		
+}		
+function userPlay(){		
+    if (localStorage.getItem("playerName") != null)		
+        play();		
+}		
+function newGame(){		
+    path = new Array(0);		
+    pathLength = 1;		
+    xp = 0;		
+    coins = 0;		
+    $(".xp").html(xp + "<br>"+"POINTS");		
+    $(".coins").html(coins + "<br>" + "COINS");		
+    gridChange();		
+    $('.progress-bar').html("Timer");		
+}
 
 /*Resizes the screen to accomodate elements.*/
 function resize() {
@@ -162,7 +205,6 @@ function resize() {
             "display": "block"
         });
     }
-
     $(".headGear").css({
         "position": "absolute",
         "top": (170/480)*scrHeight+"px",
@@ -190,6 +232,27 @@ function resize() {
     });
 }
 
+function getID(){		
+    userID = localStorage.getItem("userID");		
+    if (userID == null)		
+        $("#idForm").submit();		
+    $("#userID").attr("value", userID);		
+    userID = localStorage.getItem("userID");		
+}		
+function getName(){		
+    name = localStorage.getItem("playerName");		
+    if (name != "null") {		
+        play();		
+        return;		
+    }		
+    name = $("#name").attr("value");		
+    if (name == "")		
+        name = "anon";		
+    localStorage.setItem("playerName", name);		
+    $("#userName").attr("value", name);		
+    play();		
+}
+
 /*Draws the grid on the screen.*/
 function init(rows,cols) {
     var num = 0;
@@ -210,16 +273,12 @@ function init(rows,cols) {
 
 /*Called after user name submitted*/
 function play() {
-    
+    name = localStorage.getItem("playerName");		
+    if (name == "null") getName();
     playing = true; //done once, prevents actions before playing
-
-    name = $("#name").attr("value"); //adds to form for leaderboard
-    if (!name) name = "anon"; //default name
-    $("#userName").attr("value", name); //change name ^
 
     $("#game").html("<ul id='frame'></ul>"); //gets rid of enter name
 
-    rows = 1, cols = 1; //initial grid size
     frame = new Array(rows);
     roundDelay(); //count down
     setTimeout(function() {
@@ -284,6 +343,8 @@ function disableUserChoice() {
 
 /*Parses user choice and colors the tiles according to if they wee correct or incorrect.*/
 function getUserChoice(click_id) {
+    if (clickCount == 0)		
+        time = 250 * pathLength;
 
     if(!firstClick || !timer) {
         firstClick = true;
@@ -534,14 +595,41 @@ function storePurchase() {
 
 /*Plays when a round ends signifying the user has recieved coins.*/
 function endRoundReward() {
+    if((pathLength == 3 && localStorage.getItem("achlvl1") == null)|| (pathLength == 7 && localStorage.getItem("achlvl2") == null) || (pathLength == 10 && localStorage.getItem("achlvl3") == null) ){			
+        localStorage.setItem("pathAch", pathLength + 1);		
+        localStorage.setItem("xpAch", xp);		
+        localStorage.setItem("coinsAch", coins+10);		
+    }		
+    if (pathLength == 3 && localStorage.getItem("achlvl1") == null) {		
+        localStorage.setItem("achlvl1", 1);		
+        $("#ach1").attr("value", 1);		
+        $("#purp").attr("value", 1);		
+        $("#achesForm").submit();		
+    } 		
+    if (pathLength == 7 && localStorage.getItem("achlvl2") == null) {		
+        localStorage.setItem("achlvl2", 1);		
+        $("#ach2").attr("value", 1);		
+        $("#purp").attr("value", 1);		
+        $("#achesForm").submit();		
+    }		
+    if (pathLength == 10 && localStorage.getItem("achlvl3") == null) {		
+        localStorage.setItem("achlvl3", 1);		
+        $("#ach3").attr("value", 1);		
+        $("#purp").attr("value", 1);		
+        $("#achesForm").submit();		
+    }
+
     var click = document.getElementById("coinDrop");
     click.play();
     $(".coins").html((coins+=money) + "<br>COINS");
 }
 
 window.onunload = window.onbeforeunload = (function () {
-    (window.location.hash == "#over-page") ? window.location.href = '#leader-page' : window.location.href = '#main-page';
-    location.reload();
+    if (window.location.hash == "#over-page") {
+        window.location.href = '#leader-page';
+        location.reload();
+    }
+
 });
 
 $(window).resize(function () {

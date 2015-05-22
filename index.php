@@ -11,7 +11,7 @@
          <script type="text/javascript" src="scripts/Instructions.js"></script>
          <link rel="stylesheet" href="StyleSheet.css">
     </head>
-    <body onload="resize()">
+    <body onload="resize(); setifSetandOnPage();">
 
         <!--Preloading audio tracks for later use-->
         <audio id="greenTile" class="sound" src="sounds/green_tile.mp3" preload="auto"></audio>
@@ -36,10 +36,10 @@
                 <br>
                 <img class="muteMusic" src="images/music.png" alt="Mute" onclick="muteMusics();mouseClick()"/>
             </div>
-            <a href="" data-transition="pop" onclick="stopIntro();mouseClick()">
+            <a href="#aches-page" data-transition="pop" onclick="stopIntro();mouseClick()">
                 <img class="achGear" src="images/achievo.png" alt="Achievements"/>
             </a>
-            <a href="index.html#game-page" data-transition="pop" onclick="stopIntro();playGameMusic();mouseClick()">
+            <a href="index.html#game-page" data-transition="pop" onclick="stopIntro();playGameMusic();userPlay();mouseClick()">
                 <img class="play-sign" src="images/play.png" alt="Play Game"/>
             </a>
             <a href="index.html#instruct-page" data-transition="slide" onclick="stopIntro();mouseClick()">
@@ -119,14 +119,14 @@
             <div data-role="content"class="gridPos" >
                 <div id="game">
                     <input class="gridPos" id="name" type="text" placeholder="Enter your name"/>
-                    <button type="submit" onclick="play();mouseClick()">Enter</button>
+                    <button type="submit" onclick="getName();mouseClick()">Enter</button>
                 </div>
             </div>
             <div data-position="fixed" data-tap-toggle="false" data-role="footer" class=" footer">
                 <div>
                     <div class="col-xs-4">
                  
-                            <a href="#popupDialog" data-rel="popup" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();playIntro();stopGameMusic();playTransition();mouseClick()"></a>
+                            <a href="#popupDialog" data-rel="popup" data-transition="flip" data-direction="reverse" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="pause();playIntro();stopGameMusic();playTransition();mouseClick();newGame()"></a>
                       
                     </div>
                     <div data-role="popup" id="popupDialog" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
@@ -161,18 +161,8 @@
             <div data-role="content">
                 <h3>Store</h3>
                 <div data-role="collapsible-set" class="storeCont">
-                    <!--
-                    <div data-role="collapsible" data-theme="b">
-                        <h4>Skills</h4>
-                        <a href="" id="hint" data-role="button" onclick="hint();">Hint</a>
-                        <a href="" id="repeat" data-role="button" onclick="repeat(20, 500, 250);">Repeat</a>
-                        <a href="" id="slowmo" data-role="button"  onclick="repeat(30, 1000, 600);">Slow-Mo Repeat</a>
-                        <a href="" id="stop" data-role="button" onclick="stopTimer();">Stop</a>
-                        <a href="" id="skip" data-role="button" onclick="skip();">Skip</a>
-                        <a href="" id="extraLife" data-role="button"  onclick="oneUp();">Extra Life</a> 
-                    </div>-->
                     <div data-role="collapsible" data-content-theme="a" data-theme="b">
-                        <h4 id="achSkills" >Skills        Unlocked lvl 5</h4>
+                        <h4 id="achSkills" class="ui-disabled" >Skills        Unlocked lvl 5</h4>
                                    
                         <div data-role="collapsible" data-theme="b" data-content-theme="a" data-iconpos="right">
                             <h3><a href="" id="hint" data-role="button">Hint</a></h3>
@@ -199,18 +189,8 @@
                             <p><a href="" onclick="oneUp();storePurchase()">[BUY]</a> Gives you an extra life</p>
                         </div>
                     </div>
-
-
-                    <!--<div data-role="collapsible" data-theme="a">
-                        <h4>Gambles</h4>
-                        <a href="" id="dubCash" data-role="button" onclick="dubCash();">Double Cash</a>
-                        <a href="" id="dubXP" data-role="button" onclick="dubXP();">Double XP</a>
-                        <a href="" id="dubBoth" data-role="button" onclick="dubBoth();">Double Trouble</a>
-                        <a href="" id="randSkill" data-role="button" onclick="randomSkill();">Random Skill</a>
-                        <a href="" id="allIn" data-role="button" onclick="allIn();">All In</a>
-                    </div>-->
                     <div data-role="collapsible" data-theme="c" data-content-theme="a">
-                        <h4>Gambles</h4>
+                        <h4 class="ui-disabled">Gambles</h4>
                         <div data-role="collapsible" data-theme="a" data-content-theme="e" data-iconpos="right">
                             <h3><a href="" id="dubCash" data-role="button">Double Cash</a></h3>
                             <p><a href="" onclick="dubCash();storePurchase()">[BUY]</a>Double the amount of coins earned at the end of the round.</p>
@@ -239,7 +219,7 @@
 
 
                     <div data-role="collapsible" data-theme="b">
-                        <h4>Backgrounds</h4>
+                        <h4 class="ui-disabled">Backgrounds</h4>
                         <fieldset data-role="controlgroup">
 	                   
 	                    <input type="radio" name="radio-choice" id="radio-choice-0" value="0" checked="checked" onclick="makeBackground(this);mouseClick()"/>
@@ -291,11 +271,34 @@
 <!--leader-->
         <div id="leader-page" data-role="page">
             <div class="leaders" data-role="content" >
-                <a href="" onclick="history.go(0)">
+                <a href="#main-page" onclick="history.go(0)">
                     <img class="mute-sign-ldr" src="images/homeMute.png" alt="Mute"/>
                 </a> 
                 <?php include 'leader.php';?>
             </div>
+        </div>
+<!--aches-->		
+        <div id="aches-page" data-role="page">		
+            <div class="aches" data-role="content" >		
+                <a href="index.html#main-page" id="toHome" data-transition="slide" data-direction="reverse">		
+                    <img class="mute-sign-ldr" src="images/homeMute.png" alt="Mute"/>		
+                </a> 		
+                <?php include 'aches.php';?>		
+                <?php include 'getID.php'?>		
+                <form id="achesForm" method="post" action="aches.php" data-ajax="false">		
+                    <fieldset data-role="controlgroup">		
+                        <input type = "hidden" name="userID" id = "userID"/>		
+                	    <input type = "hidden" name="ach1" id = "ach1" value="0"/>		
+                	    <input type = "hidden" name="ach2" id = "ach2" value="0"/>		
+                        <input type = "hidden" name="ach3" id = "ach3" value="0"/>		
+                    </fieldset>		
+                </form>		
+                <form id="idForm" method="post" action="getID.php" data-ajax="false">		
+                    <fieldset data-role="controlgroup">		
+                        <input type = "hidden" name="userID" class= "userID"/>		
+                    </fieldset>		
+                </form>		
+            </div>		            
         </div>
 <!--over-->
         <div id="over-page" data-role="page">
