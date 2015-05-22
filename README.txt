@@ -14,66 +14,57 @@ PROJECT OVERVIEW
 ---------------------
 Simon's Besom
 
-Simon's Besom is a Simon Says and Minesweeper crossover that will train the user's 
-mind in memory and speed. The game is set in an X by X grid and will adjust it's size 
-according to how the player is doing. The player will be racing against the clock 
-attempting to replicate the path in the same order as they appeared. Each level is 
-randomly generated and increases in difficulty as you progress(an increase in grid 
-size or longer path to memorize).
-
+Simon's Besom is a Simon Says and Minesweeper crossover that will train the user's mind in memory and speed. The game is 
+set in a square grid and will adjust it's size according to how the player is doing. The player will be racing against 
+the clock attempting to repeat the path in the same order as they appeared. Each level is randomly generated and 
+increases in difficulty as you progress(an increase in grid size or longer path to memorize).
 
 
 CODE STRUCTURE
 -----------------
--root
-    index.php - main page used as an index for all others
-    leader.php - leader board page
-    aches.php - achievements page
-    getID.php - used to store user IDs
-    Stylesheet.css - All css styling used in the game
-    READ_ME.txt - this document
+-Root
+    index.php 		-- The driver file used to operate the game.
+    leader.php 		-- PHP file used to send Leaderboard related data to the database and retrieves data that will be 
+			   used to create a table that will be used as the "Leaderboards".  
+    aches.php 		-- PHP file used to send Achievement related data to the database, retrieves data and will store
+			   it locally and will be printed for the user.
+    getID.php 		-- PHP file used to adds a new user to the achievement database and stores that users id locally 	soley for later submission.
+    Stylesheet.css 	-- Our custom stylesheet; All styling on top of jQuery and Bootstrap.
+    READ_ME.txt 	-- This document
     -scripts
-        script.js - Main script file
-        instructions.js - slide show script file used on the instructions page
-        store.js - script file for all skills, backgrounds, and gambles used in the store
+        script.js 	-- Main script file, it generates rounds, keeps track of player input, resizing, and submission to    databases. 
+        instructions.js -- Seperate script file for the slideshow page; Navigation buttons for Next/Previous instruction 	and 
+			   corresponding text per instruction.
+        store.js 	-- Seperate script file for the store page; Responsible for in-game abilities, gambles, background 
+			   customization and related audio playback of BGM
     -images
-        -storeButtons - images used to make the store buttons
-        -Instructions - images used to make the instruction slide show
-        The rest of all the images used
-    -sounds
-        All the sounds used in the game
-
-	All things begin at index.php. From there all the scripts, css, sounds, and pages are linked. Leader.php and the various
-other php files fulfil php functions specific to their respective pages. Leader.php and aches.php both insert and select
-from a database hosted by godaddy.com. getID.php also retrieves the user's ID from the database for use in aches.php.
-
-	Script.js holds the all purpose code and mostly pertains to the game logic, mechanics, and functionality. It first
-calls resize to fit the game to the user's screen, then it runs the play function which is the starting point of the 
-game scripts and is only called every time the game page is loaded. Store.js holds the script for all the in-game skills
-and all store related media, such as audio and background images.
+        -storeButtons 	-- Images related to buttons in the store
+        -Instructions 	-- Images used for the slideshow in the instruction's page.
+        
+    -sounds		-- Audio for the game ranging from sound effects to background music.
 
 
 TECHNOLOGY USED
 -----------------
-	HTML
+	HTML5
 	CSS
-	JAVASCRIPT 
-	JQUERY (UI and MOBILE)
+	Javascript 
+	jQuery (UI and MOBILE)
 	AJAX
 	PHP
 	MYSQL
-	TWITTER BOOTSTRAP
-	GIMP
-	AUDACITY
+	Twitter Bootstrap
+	Gimp
+	Audacity
+	WebMatrix 3
+
 
 ISSUES/PROBLEMS ENCOUNTERED
 -----------------------------
 
-Version control - Github represented a learning curve that often lead to code conflicts that constantly had to be sorted out.
-Lack of direction - In the beginning before we had to implement the scrum model there was a lack
-                    of direction leading to differences of opinion and slow progress.
-Couldn't break up tasks - Found it hard to break up larger tasks into smaller components. Leading to
-                    a severe lack of consistency of the length of each task and causing
-                    some members to be assigned more work after each scrum.
-
-
+Version control 	-- Github represented a learning curve that often lead to code conflicts that constantly had to be sorted out.
+Lack of direction 	-- In the beginning before we had to implement the scrum model, there was a lack
+                    	   of direction leading to differences of opinion and slowed progression.
+Couldn't break up tasks -- Found it hard to break up larger tasks into smaller components. Leading to
+                   	   a severe lack of consistency of the length of each task and causing
+                           some members to be assigned more work after each scrum.
