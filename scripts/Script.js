@@ -260,8 +260,8 @@ function enableUserChoice() {
 	firstClick = false;
     $(".ui-icon-pause").attr("href", "index.html#store-page");
     $(".ui-icon-pause").attr("onclick", "pause();playTransition();playStoreBG();stopGameMusic();mouseClick()");
-    $(".ui-icon-homez").attr("href", "index.html#main-page");
-    $(".ui-icon-homez").attr("onclick", "pause();playTransition();playIntro();stopGameMusic();mouseClick()");
+    $(".ui-icon-homez").attr("href", "#popupDialog");
+    $(".ui-icon-homez").attr("onclick", "mouseClick()");
 }
 
 /*Prevents user from clicking the grid while the path is being shown.*/

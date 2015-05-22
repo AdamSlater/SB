@@ -85,7 +85,7 @@
                 <div>
                     <div class="col-xs-4">
                         <div class="pause">
-                            <a href="" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="history.go(0)"></a>
+                            <a href="#popupDialog" data-theme="a" data-role="button" class="ui-icon-homez btnimg" data-iconpos="notext" onclick="history.go(0)"></a>
 
                         </div>
                     </div>
