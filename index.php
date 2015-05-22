@@ -26,12 +26,6 @@
         <audio id="cashRegister" class="sound" src="sounds/cash_register.mp3" preload="auto"></audio>
         <audio id="bpStart" class="sound" src="sounds/beep_initial.mp3" preload="auto"></audio>
         <audio id="bpEnd" class="sound" src="sounds/beep_final.mp3" preload="auto"></audio>
-        <!--Used to prevent user from accidently refreshing (commented for code testing)-->
-        <!--<script type="text/javascript">
-            window.onbeforeunload = function() {
-                return "Are you sure you want to leave? Think of the kittens!";
-            }
-        </script>-->
 
 <!--main-->
         <div id="main-page" data-role="page">

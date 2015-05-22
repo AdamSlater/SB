@@ -1,4 +1,6 @@
+/*Used to skip over money checks if user selects random skill*/
 var randomSk = false;
+/*Colors and backgrounds for the store*/
 var colors = ["#BB9264", "#FF9966", "#CCCC00", "url('images/food.jpg')", "url('images/matrix.gif')", "url('images/rainbow.gif')", "url('images/giphy 1.gif')", "url('images/cat.gif')"]
 
 /*Backgrounds:
@@ -155,9 +157,10 @@ function allIn(){
     }
 }
 
-/*Checks if the user has enough coins to purchase the skill they wish to use.*/
-function checkCash(moneyz) {
-	if (!playing || coins < moneyz) {
+/*Checks if the user has enough coins to purchase the skill they wish to use.
+  money: Amount of money the player currently has.*/
+function checkCash(money) {
+	if (!playing || coins < money) {
          $("#coins").css({"color": "#FF3333"});
          setTimeout(function(){$("#coins").css({"color": "#ffff0b"});}, (250));
          return false;
