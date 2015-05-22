@@ -48,7 +48,7 @@ other php files fulfil php functions specific to their respective pages. Leader.
 from a database hosted by godaddy.com. getID.php also retrieves the user's ID from the database for use in aches.php.
 
 	Script.js holds the all purpose code and mostly pertains to the game logic, mechanics, and functionality. It first
-calls resize to fit the game to the user's screen, tnen it runs the play function which is the starting point of the 
+calls resize to fit the game to the user's screen, then it runs the play function which is the starting point of the 
 game scripts and is only called every time the game page is loaded. Store.js holds the script for all the in-game skills
 and all store related media, such as audio and background images.
 
