@@ -387,6 +387,7 @@ function reset() {
 
 /*Counts down to the round starting.*/
 function roundDelay() {	
+    document.getElementById("bpStart").play();
     $(".ui-icon-pause").attr("href", ""); //prevents user from clicking on store button while countdown is going
     $(".ui-icon-pause").attr("onclick", "");
     $(".ui-icon-homez").attr("href", ""); //prevents user from clicking on the home button while countdown is going
@@ -399,6 +400,11 @@ function roundDelay() {
     $('<p class="cd" id=' + 'levelNum' + '>' + "LEVEL " + pathLength + '</p>' ).appendTo('#frame');
     var countTime = setInterval(function () {
         countDown--;
+        if (countDown >= 2) {
+            document.getElementById("bpStart").play();
+        } else if(countDown == 1){
+            document.getElementById("bpEnd").play();
+        }
         $('#' + 'cd' + (countDown + 1)).html('<p class="cd" id=' + 'cd' + countDown + '>' + countDown + '</p>');
         if (countDown == 0) {
             clearInterval(countTime);

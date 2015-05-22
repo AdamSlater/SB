@@ -24,6 +24,8 @@
         <audio id="gameMusic" class="music" src="sounds/BG_game.mp3" preload="auto" loop="loop"></audio>
         <audio id="coinDrop" class="sound" src="sounds/coin_drop.mp3" preload="auto"></audio>
         <audio id="cashRegister" class="sound" src="sounds/cash_register.mp3" preload="auto"></audio>
+        <audio id="bpStart" class="sound" src="sounds/beep_initial.mp3" preload="auto"></audio>
+        <audio id="bpEnd" class="sound" src="sounds/beep_final.mp3" preload="auto"></audio>
         <!--Used to prevent user from accidently refreshing (commented for code testing)-->
         <!--<script type="text/javascript">
             window.onbeforeunload = function() {
